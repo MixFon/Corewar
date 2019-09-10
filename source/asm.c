@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/10 14:41:49 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/10 17:29:24 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*dot_cor(char *name)
 
 	len = ft_strlen(name);
 	dot_cor = ft_strnew(len + 2);
-	ft_memccpy(dot_cor, name, '.', len + 2);
+	ft_memccpy(dot_cor, name, '.', len);
 	ft_strcat(dot_cor, "cor");
 	return (dot_cor);
 }
@@ -47,8 +47,10 @@ void	create_file(t_assm *assm, char *name)
 
 	if(check_name(name))
 		sys_err("Error file name.\n");
+	if (!(assm->fd_s = open(name, O_RDONLY)))
+		sys_err("File not opened.\n");
 	name_cor = dot_cor(name);
-	if (!(assm->fd = open(name_cor, O_WRONLY | O_TRUNC | O_CREAT,
+	if (!(assm->fd_cor = open(name_cor, O_WRONLY | O_TRUNC | O_CREAT,
 					S_IREAD | S_IWRITE)))
 		sys_err("Error create file.\n");
 	ft_strdel(&name_cor);
@@ -57,15 +59,30 @@ void	create_file(t_assm *assm, char *name)
 void	write_magic_header(t_assm *assm)
 {
 	assm->octet = 4;
-	ft_putchar_fd(0x00, assm->fd);
-	ft_putchar_fd(0xea, assm->fd);
-	ft_putchar_fd(0x83, assm->fd);
-	ft_putchar_fd(0xf3, assm->fd);
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0xea, assm->fd_cor);
+	ft_putchar_fd(0x83, assm->fd_cor);
+	ft_putchar_fd(0xf3, assm->fd_cor);
 }
 
 void	close_file(t_assm *assm)
 {
-	close(assm->fd);
+	close(assm->fd_cor);
+	close(assm->fd_s);
+}
+
+void	write_name_comment(t_assm *assm)
+{
+	char *line;
+
+	line = NULL;
+	while (get_next_line(assm->fd_s, &line))
+	{
+
+		ft_putendl(line);
+		ft_strdel(&line);
+	}
+	ft_strdel(&line);
 }
 
 int		main(int ac, char **av)
@@ -75,6 +92,7 @@ int		main(int ac, char **av)
 		sys_err("Error!\nUse ./asm namefile.s\n");
 	create_file(&assm, av[1]);
 	write_magic_header(&assm);
+	write_name_comment(&assm);
 	close_file(&assm);
 	return (0);
 }

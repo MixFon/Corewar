@@ -1,0 +1,11 @@
+# Hello 
+.name "dtonc v1.0pl3"
+.comment"ta mere elle fait du rodeo sur les kfar"
+.extend
+
+
+ld%0x8000:wq
+0000, r6# moins
+ld%10, r3# offset
+ld%200, r4# range
+loop:

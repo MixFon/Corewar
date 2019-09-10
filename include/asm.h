@@ -7,7 +7,8 @@
 
 typedef struct	s_assm
 {
-	int			fd;
+	int			fd_cor;
+	int			fd_s;
 	size_t		octet;
 }				t_assm;
 
