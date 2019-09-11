@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/10 17:29:24 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:49:35 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,122 @@ char	*dot_cor(char *name)
 	return (dot_cor);
 }
 
-void	create_file(t_assm *assm, char *name)
+void	open_file_s(t_assm *assm, char *name)
 {
-	char *name_cor;
-
+	assm->counter_line = 0;
+	assm->counter_column = 0;
+	assm->octet = 0;
+	ft_memset(assm->head.prog_name, 0, PROG_NAME_LENGTH + 1);
+	ft_memset(assm->head.comment, 0, COMMENT_LENGTH + 1);
 	if(check_name(name))
 		sys_err("Error file name.\n");
 	if (!(assm->fd_s = open(name, O_RDONLY)))
 		sys_err("File not opened.\n");
+}
+
+void	write_header(t_assm *assm)
+{
+	//assm->octet = 4;
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0xea, assm->fd_cor);
+	ft_putchar_fd(0x83, assm->fd_cor);
+	ft_putchar_fd(0xf3, assm->fd_cor);
+	write(assm->fd_cor, assm->head.prog_name, PROG_NAME_LENGTH + 1);
+	write(assm->fd_cor, assm->head.comment, COMMENT_LENGTH + 1);
+}
+
+void	close_files(t_assm *assm)
+{
+	close(assm->fd_cor);
+	close(assm->fd_s);
+}
+
+void	error(const char *msg, t_assm *assm)
+{
+	ft_printf("%s [%d:%d]\n",msg, assm->counter_line, assm->counter_column); 
+	exit(0);
+}
+
+void	read_name_champion(char *line, t_assm *assm)
+{
+	static int	i = -1;
+	char		*temp;
+
+	while (*line)
+	{
+		if (*line == '"' || i >= PROG_NAME_LENGTH)
+			return ;
+		ft_putendl(assm->head.prog_name);
+		assm->head.prog_name[++i] = *line;
+		line++;
+	}
+	assm->head.prog_name[++i] = '\n';
+	get_next_line(assm->fd_s, &temp);
+	read_name_champion(temp, assm);
+	ft_strdel(&temp);
+}
+
+void	working_name(char *line, t_assm *assm)
+{
+	while (*line)
+	{
+		if (*line == '"')
+		{
+			read_name_champion(line + 1, assm);	
+			return ;
+		}
+		assm->counter_column++;
+		line++;
+	}
+	error("Error name", assm);
+}
+
+void	working_dot(t_assm *assm, char *line)
+{
+	if (!(ft_strncmp(line, NAME_CMD_STRING, 5)))
+		working_name(line + 5, assm);
+	else if (!(ft_strncmp(line, COMMENT_CMD_STRING, 8)))
+		ft_putendl("{Comment}");	
+	else
+		error("Syntax error at token" ,assm);
+}
+
+void	search_char(t_assm *assm, char *line)
+{
+	assm->counter_column = 0;
+	while (*line != '\0')
+	{
+		if (*line == COMMENT_CHAR)
+			return ;
+		if (*line == '.')
+		{
+			working_dot(assm, line);
+			return ;
+		}
+		assm->counter_column++;
+		line++;
+	}
+}
+
+void	read_name_comment(t_assm *assm)
+{
+	char	*line;
+
+	line = NULL;
+	while (get_next_line(assm->fd_s, &line))
+	{
+		assm->counter_line++;
+		search_char(assm, line);
+		ft_putendl(line);
+		ft_strdel(&line);
+	}
+	ft_strdel(&line);
+}
+
+void	create_file_cor(t_assm *assm, char *name)
+{
+	char *name_cor;
+
 	name_cor = dot_cor(name);
 	if (!(assm->fd_cor = open(name_cor, O_WRONLY | O_TRUNC | O_CREAT,
 					S_IREAD | S_IWRITE)))
@@ -56,44 +164,17 @@ void	create_file(t_assm *assm, char *name)
 	ft_strdel(&name_cor);
 }
 
-void	write_magic_header(t_assm *assm)
-{
-	assm->octet = 4;
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0xea, assm->fd_cor);
-	ft_putchar_fd(0x83, assm->fd_cor);
-	ft_putchar_fd(0xf3, assm->fd_cor);
-}
-
-void	close_file(t_assm *assm)
-{
-	close(assm->fd_cor);
-	close(assm->fd_s);
-}
-
-void	write_name_comment(t_assm *assm)
-{
-	char *line;
-
-	line = NULL;
-	while (get_next_line(assm->fd_s, &line))
-	{
-
-		ft_putendl(line);
-		ft_strdel(&line);
-	}
-	ft_strdel(&line);
-}
-
 int		main(int ac, char **av)
 {
 	t_assm	assm;
 	if (ac != 2)
 		sys_err("Error!\nUse ./asm namefile.s\n");
-	create_file(&assm, av[1]);
-	write_magic_header(&assm);
-	write_name_comment(&assm);
-	close_file(&assm);
+	open_file_s(&assm, av[1]);
+	read_name_comment(&assm);
+	create_file_cor(&assm, av[1]);
+	write_header(&assm);
+	ft_putendl("eeeeeeeeeeeeeeeeeeeeeeeeeeee");
+	close_files(&assm);
 	return (0);
 }
 /*

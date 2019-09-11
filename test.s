@@ -1,7 +1,9 @@
-# Hello 
-.name "dtonc v1.0pl3"
+# This is comment 
+.name "Tching tching
+(Intercepteur),
+Bouh!Bouh!(bruits d'anti-jeu)"
 .comment"ta mere elle fait du rodeo sur les kfar"
-.extend
+#.extend
 
 
 ld%0x8000:wq
