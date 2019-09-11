@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/11 17:49:35 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/11 18:36:19 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	read_name_champion(char *line, t_assm *assm)
 	}
 	assm->head.prog_name[++i] = '\n';
 	get_next_line(assm->fd_s, &temp);
+	assm->counter_line++;
 	read_name_champion(temp, assm);
 	ft_strdel(&temp);
 }
@@ -111,12 +112,49 @@ void	working_name(char *line, t_assm *assm)
 	error("Error name", assm);
 }
 
+void	read_comment_champion(char *line, t_assm *assm)
+{
+	static int	i = -1;
+	char		*temp;
+
+	while (*line)
+	{
+		if (*line == '"' || i >= COMMENT_LENGTH)
+			return ;
+		ft_putendl(assm->head.comment);
+		assm->head.comment[++i] = *line;
+		line++;
+	}
+	assm->head.comment[++i] = '\n';
+	get_next_line(assm->fd_s, &temp);
+	assm->counter_line++;
+	read_comment_champion(temp, assm);
+	ft_strdel(&temp);
+}
+
+void	working_comment(char *line, t_assm *assm)
+{
+	while (*line)
+	{
+		if (*line == '"')
+		{
+			read_comment_champion(line + 1, assm);	
+			ft_putendl(assm->head.comment);
+			return ;
+		}
+		assm->counter_column++;
+		line++;
+	}
+	error("Error name", assm);
+
+}
+
 void	working_dot(t_assm *assm, char *line)
 {
 	if (!(ft_strncmp(line, NAME_CMD_STRING, 5)))
 		working_name(line + 5, assm);
 	else if (!(ft_strncmp(line, COMMENT_CMD_STRING, 8)))
-		ft_putendl("{Comment}");	
+		working_comment(line + 8, assm);
 	else
 		error("Syntax error at token" ,assm);
 }
