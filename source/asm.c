@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/11 18:36:19 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/12 16:50:38 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	open_file_s(t_assm *assm, char *name)
 	assm->counter_line = 0;
 	assm->counter_column = 0;
 	assm->octet = 0;
-	ft_memset(assm->head.prog_name, 0, PROG_NAME_LENGTH + 1);
-	ft_memset(assm->head.comment, 0, COMMENT_LENGTH + 1);
+	ft_memset(assm->head.prog_name, 0x00, PROG_NAME_LENGTH);
+	ft_memset(assm->head.comment, 0x00, COMMENT_LENGTH);
 	if(check_name(name))
 		sys_err("Error file name.\n");
 	if (!(assm->fd_s = open(name, O_RDONLY)))
@@ -61,8 +61,20 @@ void	write_header(t_assm *assm)
 	ft_putchar_fd(0xea, assm->fd_cor);
 	ft_putchar_fd(0x83, assm->fd_cor);
 	ft_putchar_fd(0xf3, assm->fd_cor);
-	write(assm->fd_cor, assm->head.prog_name, PROG_NAME_LENGTH + 1);
-	write(assm->fd_cor, assm->head.comment, COMMENT_LENGTH + 1);
+	write(assm->fd_cor, assm->head.prog_name, PROG_NAME_LENGTH);
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0x11, assm->fd_cor);
+	ft_putchar_fd(0x11, assm->fd_cor);
+	ft_putchar_fd(0x11, assm->fd_cor);
+	ft_putchar_fd(0x11, assm->fd_cor);
+	write(assm->fd_cor, assm->head.comment, COMMENT_LENGTH);
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0x00, assm->fd_cor);
+	ft_putchar_fd(0x00, assm->fd_cor);
 }
 
 void	close_files(t_assm *assm)
@@ -86,7 +98,6 @@ void	read_name_champion(char *line, t_assm *assm)
 	{
 		if (*line == '"' || i >= PROG_NAME_LENGTH)
 			return ;
-		ft_putendl(assm->head.prog_name);
 		assm->head.prog_name[++i] = *line;
 		line++;
 	}
@@ -104,6 +115,7 @@ void	working_name(char *line, t_assm *assm)
 		if (*line == '"')
 		{
 			read_name_champion(line + 1, assm);	
+			ft_putendl(assm->head.prog_name);
 			return ;
 		}
 		assm->counter_column++;
@@ -121,7 +133,6 @@ void	read_comment_champion(char *line, t_assm *assm)
 	{
 		if (*line == '"' || i >= COMMENT_LENGTH)
 			return ;
-		ft_putendl(assm->head.comment);
 		assm->head.comment[++i] = *line;
 		line++;
 	}
@@ -149,31 +160,38 @@ void	working_comment(char *line, t_assm *assm)
 
 }
 
-void	working_dot(t_assm *assm, char *line)
+int		working_dot(t_assm *assm, char *line)
 {
 	if (!(ft_strncmp(line, NAME_CMD_STRING, 5)))
+	{
 		working_name(line + 5, assm);
+		return (0);
+	}
 	else if (!(ft_strncmp(line, COMMENT_CMD_STRING, 8)))
+	{
 		working_comment(line + 8, assm);
+		return (1);
+	}
 	else
 		error("Syntax error at token" ,assm);
+	return (1);
 }
 
-void	search_char(t_assm *assm, char *line)
+int		search_char(t_assm *assm, char *line)
 {
 	assm->counter_column = 0;
-	while (*line != '\0')
+	while (*line)
 	{
 		if (*line == COMMENT_CHAR)
-			return ;
+			return (0);
 		if (*line == '.')
-		{
-			working_dot(assm, line);
-			return ;
-		}
+			return (working_dot(assm, line));
+		if (ft_isprint(*line))
+			error("Syntax error at token" ,assm);
 		assm->counter_column++;
 		line++;
 	}
+	return (0);
 }
 
 void	read_name_comment(t_assm *assm)
@@ -184,10 +202,16 @@ void	read_name_comment(t_assm *assm)
 	while (get_next_line(assm->fd_s, &line))
 	{
 		assm->counter_line++;
-		search_char(assm, line);
-		ft_putendl(line);
+		if (search_char(assm, line))
+		{
+			ft_printf("1111 = {%s}\n", line);
+			ft_strdel(&line);
+			break ;
+		}
+		ft_printf("2222 = {%s}\n", line);
 		ft_strdel(&line);
 	}
+	ft_printf("3333 = {%s}\n", line);
 	ft_strdel(&line);
 }
 
@@ -202,6 +226,44 @@ void	create_file_cor(t_assm *assm, char *name)
 	ft_strdel(&name_cor);
 }
 
+void	instruction(t_assm *assm, char *line)
+{
+	
+}
+
+void	working_instruction(t_assm *assm, char *line)
+{
+	while (*line)
+	{
+		if (*line == COMMENT_CHAR)
+			return ;
+		if (ft_isprint(*line))
+		{
+			instruction(assm, line);
+			return ;
+		}
+		line++;
+	}
+}
+
+void	read_instruction(t_assm *assm)
+{
+	char	*line;
+
+	line = NULL;
+	ft_putendl("||||			This is instruction!			||||");
+	while (get_next_line(assm->fd_s, &line))
+	{
+		assm->counter_line++;
+		working_instruction(assm, line);
+		ft_printf("line = {%s}\n", line); 
+		ft_strdel(&line);
+	}
+	ft_strdel(&line);
+
+
+}
+
 int		main(int ac, char **av)
 {
 	t_assm	assm;
@@ -209,9 +271,9 @@ int		main(int ac, char **av)
 		sys_err("Error!\nUse ./asm namefile.s\n");
 	open_file_s(&assm, av[1]);
 	read_name_comment(&assm);
+	read_instruction(&assm);
 	create_file_cor(&assm, av[1]);
 	write_header(&assm);
-	ft_putendl("eeeeeeeeeeeeeeeeeeeeeeeeeeee");
 	close_files(&assm);
 	return (0);
 }

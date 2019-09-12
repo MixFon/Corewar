@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/11 18:36:22 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/12 16:50:35 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ typedef struct	s_assm
 	size_t		counter_column;
 	t_header_s	head;
 }				t_assm;
-
 
 #endif
