@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/13 12:38:43 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/13 17:38:20 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	open_file_s(t_assm *assm, char *name)
 void	write_header(t_assm *assm)
 {
 	//assm->octet = 4;
+	int		sector = 4;
 	ft_putchar_fd(0x00, assm->fd_cor);
 	ft_putchar_fd(0xea, assm->fd_cor);
 	ft_putchar_fd(0x83, assm->fd_cor);
@@ -228,7 +229,23 @@ void	create_file_cor(t_assm *assm, char *name)
 
 void	instruction(t_assm *assm, char *line)
 {
-	
+	char	*start;	
+
+	start = line;
+	while (*line)
+	{
+		if (*line == LABEL_CHAR)
+		{
+			ft_putendl("LABEL_CHAR");
+			return ;
+		}
+		if (*line == DIRECT_CHAR || *line == ' ')
+		{
+			ft_putendl("DIRECT_CHAR and SPACE");
+			return ;
+		}
+		line++;
+	}
 }
 
 void	working_instruction(t_assm *assm, char *line)
@@ -242,6 +259,7 @@ void	working_instruction(t_assm *assm, char *line)
 			instruction(assm, line);
 			return ;
 		}
+		assm->counter_column++;
 		line++;
 	}
 }
@@ -260,8 +278,6 @@ void	read_instruction(t_assm *assm)
 		ft_strdel(&line);
 	}
 	ft_strdel(&line);
-
-
 }
 
 int		main(int ac, char **av)
@@ -288,4 +304,11 @@ int		main(int ac, char **av)
 	ft_putchar_fd(0xf3, fd_new);
 	ft_putstr_fd("Tching tching(Intercepteur), Bouh!Bouh!(bruits d'anti-jeu)", fd_new);
 	close(fd_new);
+
+	if(lseek(assm->fd_cor, -4,0)==-1L)
+		printf("Seek Error\n");
+	ft_putchar_fd(0x22, assm->fd_cor);
+	ft_putchar_fd(0x22, assm->fd_cor);
+	ft_putchar_fd(0x22, assm->fd_cor);
+	ft_putchar_fd(0x22, assm->fd_cor);
 */

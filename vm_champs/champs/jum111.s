@@ -4,8 +4,14 @@
 .name "Jumper !"
 .comment "en fait C forker !"
 
-gobepc:	st r1, :buff
-	st r6,-4
+buff:
+	st r1,r1	
+buff:
+buff:
+buff:
+	ld %:buff,r1	
+	live  %:buff 
+	st r1,r1	
+	st r1,r1	
+	live %:buff
 	ld %:buff,r1
-buff:	st r1,r1	
-buff:	ld %:buff,r1	
