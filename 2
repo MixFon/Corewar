@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/16 12:10:45 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/16 09:35:53 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,13 @@ char	*dot_cor(char *name)
 	return (dot_cor);
 }
 
-void	init(t_assm *assm)
-{
-	assm->counter_line = 0;
-	assm->counter_column = 1;
-	assm->octet = 0;
-	assm->lbl = NULL;
-	ft_memset(assm->head.prog_name, 0x00, PROG_NAME_LENGTH);
-	ft_memset(assm->head.comment, 0x00, COMMENT_LENGTH);
-}
-
 void	open_file_s(t_assm *assm, char *name)
 {
-	init(assm);
+	assm->counter_line = 0;
+	assm->counter_column = 0;
+	assm->octet = 0;
+	ft_memset(assm->head.prog_name, 0x00, PROG_NAME_LENGTH);
+	ft_memset(assm->head.comment, 0x00, COMMENT_LENGTH);
 	if(check_name(name))
 		sys_err("Error file name.\n");
 	if (!(assm->fd_s = open(name, O_RDONLY)))
@@ -186,7 +180,7 @@ int		working_dot(t_assm *assm, char *line)
 
 int		search_char(t_assm *assm, char *line)
 {
-	assm->counter_column = 1;
+	assm->counter_column = 0;
 	while (*line)
 	{
 		if (*line == COMMENT_CHAR)
@@ -232,7 +226,6 @@ void	create_file_cor(t_assm *assm, char *name)
 		sys_err("Error create file.\n");
 	ft_strdel(&name_cor);
 }
-
 int		check_char_leble(char c)
 {
 	if ((c >= 97 && c <= 122) || (c >= 48 && c <= 57) || c == 95)
@@ -240,41 +233,22 @@ int		check_char_leble(char c)
 	return (0);
 }
 
-void	check_lable(t_assm *assm, char *start, char *line)
+void	check_lable(char *start, char *line)
 {
+	ft_putchar('\n');
 	while (start < line)
 	{
-		if (!check_char_leble(*start))
-		{
-			assm->counter_column -= line - start;
-			error("Error lable char." ,assm);
-		}
+		ft_putchar(*start);
+		check_char_leble(*start);
 		start++;
 	}
+	ft_putchar('\n');
 }
 
-t_lbl	*create_lable(char *start, char *end)
-{
-	
-	return NULL;
-}
-
-void	add_lable_list(t_assm *assm, char *start, char *line)
-{
-	if (!assm->lbl)
-	{
-		assm->lbl = create_lable(start, line);
-		return ;
-	}
-	
-}
-
-void	working_lable(t_assm *assm, char *start, char *line)
+void	working_lable(char *start, char *line)
 {
 	write(1, start, line - start);
-	check_lable(assm, start, line);
-	add_lable_list(assm, start, line);
-	working_instruction(assm, line + 1);
+	check_lable(start, line);
 }
 
 void	instruction(t_assm *assm, char *line)
@@ -287,13 +261,12 @@ void	instruction(t_assm *assm, char *line)
 		if (*line == LABEL_CHAR)
 		{
 			ft_putendl("LABEL_CHAR");
-			working_lable(assm, start, line);
+			working_lable(start, line);
 			return ;
 		}
 		if (*line == DIRECT_CHAR || *line == ' ')
 		{
 			ft_putendl("DIRECT_CHAR and SPACE");
-			//Оработать ошибку неправильного имень функции.
 			return ;
 		}
 		assm->counter_column++;
@@ -301,21 +274,15 @@ void	instruction(t_assm *assm, char *line)
 	}
 }
 
-int		isprint_char(int c)
-{
-	if (c >= 33 && c <= 126)
-		return (1);
-	return (0);
-}
-
 void	working_instruction(t_assm *assm, char *line)
 {
-	ft_printf("line = {%s}\n", line); 
+
+	assm->counter_column = 0;
 	while (*line)
 	{
 		if (*line == COMMENT_CHAR)
 			return ;
-		if (isprint_char(*line))
+		if (ft_isprint(*line))
 		{
 			instruction(assm, line);
 			return ;
@@ -334,8 +301,8 @@ void	read_instruction(t_assm *assm)
 	while (get_next_line(assm->fd_s, &line))
 	{
 		assm->counter_line++;
-		assm->counter_column = 1;
 		working_instruction(assm, line);
+		ft_printf("line = {%s}\n", line); 
 		ft_strdel(&line);
 	}
 	ft_strdel(&line);

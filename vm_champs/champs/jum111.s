@@ -1,10 +1,10 @@
 
-#debut du mega truc qu'il est trop dur a faire
+debut
 
 .name "Jumper !"
 .comment "en fait C forker !"
 
-buff:
+Uuff:
 	st r1,r1	
 buff:
 buff:
