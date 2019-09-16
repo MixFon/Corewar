@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/16 12:10:45 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/16 17:10:11 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,6 @@ void	working_comment(char *line, t_assm *assm)
 		line++;
 	}
 	error("Error name", assm);
-
 }
 
 int		working_dot(t_assm *assm, char *line)
@@ -255,26 +254,97 @@ void	check_lable(t_assm *assm, char *start, char *line)
 
 t_lbl	*create_lable(char *start, char *end)
 {
-	
-	return NULL;
+	t_lbl	*new;
+	int		len;
+
+	len = end - start;
+	if (!(new = (t_lbl*)malloc(sizeof(t_lbl))))
+		sys_err("Eror malloc\n");
+	if (!(new->name = ft_strnew(len)))
+		sys_err("Eror malloc\n");
+	ft_strncpy(new->name, start, len);
+	ft_printf("\nNew lbl name = {%s}\n", new->name);
+	new->next = NULL;
+	new->bl = 0;
+	new->arg = NULL;
+	return (new);
+}
+
+int		search_dub_lable(t_lbl *lbl, char *start, char *line)
+{
+	t_lbl	*temp;
+	int		len;
+	int		len_str;
+	int		diff;
+
+	temp = lbl;
+	diff = line - start;
+	while (lbl)
+	{
+		len = ft_strlen(lbl->name);
+		len_str = (len > diff ? len : diff);
+		if (!(ft_strncmp(start, lbl->name, len_str)))
+		{
+			if (lbl->bl == 0)
+				lbl->bl = 1;
+			return (1);
+		}
+		lbl = lbl->next;
+	}
+	return (0);
 }
 
 void	add_lable_list(t_assm *assm, char *start, char *line)
 {
+	t_lbl *lbl;
+
 	if (!assm->lbl)
 	{
 		assm->lbl = create_lable(start, line);
 		return ;
 	}
-	
+	if (search_dub_lable(assm->lbl, start, line))
+		return ;
+	lbl = create_lable(start, line);
+	lbl->next = assm->lbl;
+	assm->lbl = lbl;
+}
+
+void	print_list(t_lbl *lbl)
+{
+	while (lbl)
+	{
+		ft_printf("lable = {%s} position = {%d}\n", lbl->name, lbl->position);
+		lbl = lbl->next;
+	}
 }
 
 void	working_lable(t_assm *assm, char *start, char *line)
 {
-	write(1, start, line - start);
+	//write(1, start, line - start);
 	check_lable(assm, start, line);
 	add_lable_list(assm, start, line);
+	assm->lbl->bl = 1;
+	assm->lbl->position = assm->octet;
+	print_list(assm->lbl);
 	working_instruction(assm, line + 1);
+}
+
+void	working_operation(t_assm *assm, char *start, char *line)
+{
+	int	len;
+
+	len = line - start;
+	if (len == 3)
+		ft_putendl("THREE CHAR.");
+	else if (len == 4)
+		ft_putendl("FOUR CHAR.");
+	else if (len == 2)
+		ft_putendl("TWO CHAR.");
+	else if (len == 5)
+		ft_putendl("FIVE CHAR.");
+	else
+		error("Error operator.", assm);
 }
 
 void	instruction(t_assm *assm, char *line)
@@ -293,6 +363,7 @@ void	instruction(t_assm *assm, char *line)
 		if (*line == DIRECT_CHAR || *line == ' ')
 		{
 			ft_putendl("DIRECT_CHAR and SPACE");
+			working_operation(assm, start, line);
 			//Оработать ошибку неправильного имень функции.
 			return ;
 		}
@@ -341,6 +412,20 @@ void	read_instruction(t_assm *assm)
 	ft_strdel(&line);
 }
 
+void	delete_list(t_assm *assm)
+{
+	t_lbl *lbl;
+
+	lbl = assm->lbl;
+	while (assm->lbl)
+	{
+		ft_strdel(&lbl->name);
+		free(lbl);
+		assm->lbl = assm->lbl->next;
+		lbl = assm->lbl;
+	}
+}
+
 int		main(int ac, char **av)
 {
 	t_assm	assm;
@@ -351,6 +436,7 @@ int		main(int ac, char **av)
 	read_instruction(&assm);
 	create_file_cor(&assm, av[1]);
 	write_header(&assm);
+	delete_list(&assm);
 	close_files(&assm);
 	return (0);
 }
