@@ -1,10 +1,9 @@
 .name "dsfsdfsdfsdfaf" #asdfasdf
 .comment"ta mere ellefait durodeosur les kfar"
-buff4:
-       ld424  %:buff,r4              		# 7,52,229
+
+	ld 7777,r1
+	ld %7,r2
+	ld :buff,r3	
+	ld %:buff,r4	
 buff:
-       ld  %0,r4              		# 7,52,229
-buff:
-       ld  %0,r4              		# 7,52,229
-buff2:
-       ld  %0,r4              		# 7,52,229
+	st r1,r1	

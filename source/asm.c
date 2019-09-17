@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/16 17:10:11 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/17 16:58:53 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,7 +232,7 @@ void	create_file_cor(t_assm *assm, char *name)
 	ft_strdel(&name_cor);
 }
 
-int		check_char_leble(char c)
+int		islablechar(char c)
 {
 	if ((c >= 97 && c <= 122) || (c >= 48 && c <= 57) || c == 95)
 		return (1);
@@ -243,7 +243,7 @@ void	check_lable(t_assm *assm, char *start, char *line)
 {
 	while (start < line)
 	{
-		if (!check_char_leble(*start))
+		if (!islablechar(*start))
 		{
 			assm->counter_column -= line - start;
 			error("Error lable char." ,assm);
@@ -330,9 +330,123 @@ void	working_lable(t_assm *assm, char *start, char *line)
 	working_instruction(assm, line + 1);
 }
 
+int		isdigit_per_colon(int c)
+{
+	if ((c <= 58 && c >= 48) || c == 37)
+		return (1);
+	return (0);
+}
+
+void	init_arg(t_arg *arg)
+{
+	arg->dir = 0;
+	arg->ind = 0;
+	arg->reg = 0;
+}
+
+void	init_opt(t_opr *opr)
+{
+	init_arg(&opr->fir);
+	init_arg(&opr->sec);
+	init_arg(&opr->three);
+	opr->comma = 0;
+}
+
+char	*read_ind_adg(t_arg *arg, char *start)
+{
+	if (*start == ':')
+	{
+		while(islablechar(*start) || *start == ':')
+			start++;
+		arg->ind = 0;
+		return (start);
+	}
+	arg->ind = ft_atoi(start);
+	while (ft_isdigit(*start))
+		start++;
+	//ft_printf("start = !{%s}! fir.ind [%d]\n", start, opr->fir.ind);
+	return (start);
+}
+
+char	*read_reg_adg(t_arg *arg, char *start)
+{
+	start++;
+	arg->reg = ft_atoi(start);
+	//ft_printf("start = !{%s}! fir.reg [%d]\n", start, opr->fir.reg);
+	return (start);
+}
+
+char	*read_dir_adg(t_arg *arg, char *start)
+{
+	start++;
+	if (ft_isdigit(*start))
+		arg->dir = ft_atoi(start);
+	else if (*start == ':')
+		ft_putendl("Func :lable");
+	//ft_printf("start = !{%s}! fir.reg [%d]\n", start, opr->fir.reg);
+	return (start);
+}
+
+void	print_opr(t_opr *opr)
+{
+	ft_printf("Arg1 dir = {%d} ind = [%d]  reg = [%d]\n", opr->fir.dir, opr->fir.ind, opr->fir.reg);
+	ft_printf("Arg2 dir = {%d} ind = [%d]  reg = [%d]\n", opr->sec.dir, opr->sec.ind, opr->sec.reg);
+	ft_printf("Arg3 dir = {%d} ind = [%d]  reg = [%d]\n", opr->three.dir, opr->three.ind, opr->three.reg);
+}
+
+void	two_argument(t_opr *opr, char *start)
+{
+	opr->comma++;
+	while (*start)
+	{
+		start++;
+	}
+}
+
+char	*read_arguments(t_arg *arg, char *start)
+{
+	while (*start)
+	{
+		if (ft_isdigit(*start) || *start == ':')
+			start = read_ind_adg(arg, start);
+		if (*start == '%')
+			start = read_dir_adg(arg, start);
+		if (*start == 'r')
+			start = read_reg_adg(arg, start);
+		if (*start == ',')
+			return (start);
+		start++;
+	}
+	return (start);
+}
+
+void	op_ld(t_assm *assm, char *start)
+{
+	t_opr opr;
+
+	init_opt(&opr);
+	start = read_arguments(&opr.fir, start);
+	start = read_arguments(&opr.sec, start);
+	start = read_arguments(&opr.three, start);
+	print_opr(&opr);
+	//error("Error operator.", assm);
+}
+
+void	two_char_operator(t_assm *assm, char *start)
+{
+	if (!(ft_strncmp(start, "ld", 2)))
+		op_ld(assm, start + 2);
+	else if (!(ft_strncmp(start, "or", 2)))
+		ft_putendl("Operation OR.");
+	else if (!(ft_strncmp(start, "st", 2)))
+		ft_putendl("Operation ST.");
+	else
+		error("Error operator.", assm);
+}
+
 void	working_operation(t_assm *assm, char *start, char *line)
 {
-	int	len;
+	size_t	len;
 
 	len = line - start;
 	if (len == 3)
@@ -340,7 +454,10 @@ void	working_operation(t_assm *assm, char *start, char *line)
 	else if (len == 4)
 		ft_putendl("FOUR CHAR.");
 	else if (len == 2)
+	{
 		ft_putendl("TWO CHAR.");
+		two_char_operator(assm, start);
+	}
 	else if (len == 5)
 		ft_putendl("FIVE CHAR.");
 	else

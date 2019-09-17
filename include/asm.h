@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/16 17:10:16 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/17 16:58:55 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,31 @@ typedef struct		s_lbl
 	int				bl;
 	size_t			position;
 	struct s_lbl	*next;
-	struct s_arg	*arg;
+	struct s_gab	*arg;
 }					t_lbl;
 
-typedef struct		s_arg
+typedef struct		s_gab
 {
 	size_t			pos;
 	unsigned int	oct;
 	unsigned int	oct_start;
-	struct s_arg	*next;
+	struct s_gab	*next;
+}					t_gab;
+
+typedef struct		s_arg
+{
+	unsigned int	dir;
+	short			ind;
+	char			reg;
 }					t_arg;
+
+typedef struct		s_opr
+{
+	t_arg			fir;
+	t_arg			sec;
+	t_arg			three;
+	short			comma;
+}					t_opr;
 
 void	working_instruction(t_assm *assm, char *line);
 
