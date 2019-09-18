@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/18 14:42:58 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/18 17:17:50 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include "../libft/libft.h"
 # include "op.h"
 # include <fcntl.h>
+
+# define C_REG		0x1
+# define C_DIR		0x2
+# define C_IND		0x3
 
 typedef struct	s_assm
 {
@@ -49,7 +53,7 @@ typedef struct		s_gab
 typedef struct		s_arg
 {
 	unsigned int	dir;
-	short			ind;
+	unsigned int	ind;
 	char			reg;
 	char			*lable;
 	unsigned char	bl_dir;

@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/18 15:10:41 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/18 17:17:48 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -370,7 +370,7 @@ char	*create_lable_arg(char *start, t_arg *arg)
 
 char	*read_ind_adg(t_assm *assm, t_arg *arg, char *start)
 {
-	arg->bl_ind = 0xc;
+	arg->bl_ind = C_IND;
 	if (*start == ':')
 	{
 		start = create_lable_arg((start + 1), arg);
@@ -386,8 +386,8 @@ char	*read_ind_adg(t_assm *assm, t_arg *arg, char *start)
 char	*read_reg_adg(t_arg *arg, char *start)
 {
 	if (!ft_isdigit(*start))
-		sys_err("Error registr\n");
-	arg->bl_reg = 0x80;
+		sys_err("Error registr.\n");
+	arg->bl_reg = C_REG;
 	arg->reg = ft_atoi(start);
 	if (arg->reg >= REG_NUMBER || arg->reg <= 0)
 		sys_err("Error number registr\n");
@@ -400,7 +400,7 @@ char	*read_reg_adg(t_arg *arg, char *start)
 char	*read_dir_adg(t_assm *assm, t_arg *arg, char *start)
 {
 	start++;
-	arg->bl_dir = 0x10;
+	arg->bl_dir = C_DIR;
 	if (ft_isdigit(*start))
 		arg->dir = ft_atoi(start);
 	else if (*start == ':')
@@ -470,30 +470,58 @@ t_opr	*get_arg_opr(t_assm *assm, char *start)
 
 void	cheak_op_ld_arg(t_assm *assm, t_opr *opr)
 {
-	unsigned char  num;
-
-	num = 0;
 	if (opr->count_args != 2)
 		error("Error arguments opiration.", assm);
-	num = opr->fir.bl_reg | opr->fir.bl_dir | opr->fir.bl_ind;
-	ft_printf("Num1 = {%#x}\n", num);
-	if (num != 0xc && num != 0x10)
+	if (opr->fir.bl_reg == C_REG)
 		error("Error first arguments opiration.", assm);
-	num = opr->sec.bl_reg | opr->sec.bl_dir | opr->sec.bl_ind;
-	ft_printf("Num2 = {%#x}\n", num);
-	if (num != 0x80)
+	if (opr->sec.bl_dir == C_DIR || opr->sec.bl_ind == C_IND)
 		error("Error second arguments opiration.", assm);
-	num = opr->three.bl_reg | opr->three.bl_dir | opr->three.bl_ind;
-	ft_printf("Num3 = {%#x}\n", num);
-	if (num != 0x0)
+	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
 		error("Error three arguments opiration.", assm);
+}
+
+unsigned char get_code_arg(t_opr *opr)
+{
+	unsigned char code;
+
+	code = opr->fir.bl_ind | opr->fir.dir | opr->fir.bl_reg;
+	ft_printf("code = {%#x}\n", code);
+	code = code << 2;	
+	ft_printf("code = {%#x}\n", code);
+	code = code | opr->sec.bl_ind | opr->sec.bl_dir | opr->sec.bl_reg;
+	ft_printf("code = {%#x}\n", code);
+	code = code << 2;	
+	ft_printf("code = {%#x}\n", code);
+	code = code | opr->three.bl_ind | opr->three.bl_dir | opr->three.bl_reg;
+	ft_printf("code = {%#x}\n", code);
+	code = code << 2;	
+	ft_printf("code = {%#x}\n", code);
+	return (code);
+}
+
+void	write_big_endian(int fd, void *bits, int len_bits)
+{
+	while (len_bits > 0)
+	{
+		len_bits--;
+		write(fd, (unsigned char *)bits + len_bits, 1);
+	}
 }
 
 void	op_ld(t_assm *assm, t_opr *opr)
 {
+	unsigned char code_args;
+
+	code_args = get_code_arg(opr);
 	cheak_op_ld_arg(assm, opr);
 	ft_putchar_fd(0x02, assm->fd_cor);
-	ft_putchar_fd(0x02, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	if (opr->fir.bl_ind != 0)
+		write_big_endian(assm->fd_cor, &opr->fir.ind, IND_SIZE);
+	if (opr->fir.bl_dir != 0)
+		write_big_endian(assm->fd_cor, &opr->fir.dir, DIR_SIZE);
+	if (opr->sec.bl_reg != 0)
+		write_big_endian(assm->fd_cor, &opr->sec.reg, 1);
 	ft_putendl("Operation ld.");
 }
 
@@ -619,9 +647,9 @@ int		main(int ac, char **av)
 		sys_err("Error!\nUse ./asm namefile.s\n");
 	open_file_s(&assm, av[1]);
 	read_name_comment(&assm);
-	read_instruction(&assm);
 	create_file_cor(&assm, av[1]);
 	write_header(&assm);
+	read_instruction(&assm);
 	delete_list(&assm);
 	close_files(&assm);
 	return (0);
