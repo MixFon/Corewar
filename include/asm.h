@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/18 11:08:29 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/18 14:42:58 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ typedef struct		s_arg
 	short			ind;
 	char			reg;
 	char			*lable;
-	short			bl_dir;
-	short			bl_ind;
-	short			bl_reg;
+	unsigned char	bl_dir;
+	unsigned char	bl_ind;
+	unsigned char	bl_reg;
 }					t_arg;
 
 typedef struct		s_opr
@@ -62,7 +62,7 @@ typedef struct		s_opr
 	t_arg			fir;
 	t_arg			sec;
 	t_arg			three;
-	short			comma;
+	short			count_args;
 }					t_opr;
 
 void	working_instruction(t_assm *assm, char *line);

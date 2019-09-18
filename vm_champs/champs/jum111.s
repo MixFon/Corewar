@@ -1,7 +1,7 @@
 .name "Jumper !"
 .comment "en fait C forker !"
 
-	ld 7,r1
+	ld 7,r-1
 	ld %7,r2
 	ld :buff,r4	
 	ld %:buff,r4	

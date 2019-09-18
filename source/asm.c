@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/18 11:38:31 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:10:41 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -353,7 +353,7 @@ void	init_opt(t_opr *opr)
 	init_arg(&opr->fir);
 	init_arg(&opr->sec);
 	init_arg(&opr->three);
-	opr->comma = 0;
+	opr->count_args = 1;
 }
 
 char	*create_lable_arg(char *start, t_arg *arg)
@@ -361,10 +361,8 @@ char	*create_lable_arg(char *start, t_arg *arg)
 	char *temp;
 
 	temp = start;
-	ft_printf("start3 = {%s}\n", start);
-	while(islablechar(*start))
+	while(islablechar(*start) && *start != '\0')
 		start++;
-	ft_printf("start1 = {%s}\n", start);
 	arg->lable = ft_strnew(start - temp);
 	ft_strncpy(arg->lable, temp, start - temp);
 	return (start);
@@ -372,14 +370,10 @@ char	*create_lable_arg(char *start, t_arg *arg)
 
 char	*read_ind_adg(t_assm *assm, t_arg *arg, char *start)
 {
-	arg->bl_ind = 1;
+	arg->bl_ind = 0xc;
 	if (*start == ':')
 	{
-		ft_putendl("AAA");
-		ft_putchar(*start);
-		ft_putchar('\n');
 		start = create_lable_arg((start + 1), arg);
-		ft_printf("start2 = {%s}\n", start);
 		return (start);
 	}
 	arg->ind = ft_atoi(start);
@@ -393,8 +387,10 @@ char	*read_reg_adg(t_arg *arg, char *start)
 {
 	if (!ft_isdigit(*start))
 		sys_err("Error registr\n");
-	arg->bl_reg = 1;
+	arg->bl_reg = 0x80;
 	arg->reg = ft_atoi(start);
+	if (arg->reg >= REG_NUMBER || arg->reg <= 0)
+		sys_err("Error number registr\n");
 	while (ft_isdigit(*start))
 		start++;
 	//ft_printf("start = !{%s}! fir.reg [%d]\n", start, opr->fir.reg);
@@ -404,7 +400,7 @@ char	*read_reg_adg(t_arg *arg, char *start)
 char	*read_dir_adg(t_assm *assm, t_arg *arg, char *start)
 {
 	start++;
-	arg->bl_dir = 1;
+	arg->bl_dir = 0x10;
 	if (ft_isdigit(*start))
 		arg->dir = ft_atoi(start);
 	else if (*start == ':')
@@ -417,6 +413,7 @@ char	*read_dir_adg(t_assm *assm, t_arg *arg, char *start)
 
 void	print_opr(t_opr *opr)
 {
+	ft_printf("Count args = {%d}\n", opr->count_args);
 	ft_printf("Arg1 dir {%d} ind  [%d]  reg  [%d] bl_ind [%d] bl_dir [%d] bl_reg [%d] lable {%s}\n",
 			opr->fir.dir, opr->fir.ind, opr->fir.reg, opr->fir.bl_ind, opr->fir.bl_dir, opr->fir.bl_reg, opr->fir.lable);
 	ft_printf("Arg2 dir {%d} ind  [%d]  reg  [%d] bl_ind [%d] bl_dir [%d] bl_reg [%d] lable {%s}\n",
@@ -429,7 +426,6 @@ char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
 {
 	while (*start)
 	{
-		ft_printf("start = {%s}\n", start);
 		if (ft_isdigit(*start) || *start == ':')
 			start = read_ind_adg(assm, arg, start);
 		if (*start == '%')
@@ -439,7 +435,9 @@ char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
 		if (ft_isalpha(*start))
 			error("Error argument", assm);
 		if (*start == ',')
-			return (start + 1);
+			return (start);
+		if (*start == '\0')
+			continue ;
 		start++;
 	}
 	return (start);
@@ -453,15 +451,49 @@ t_opr	*get_arg_opr(t_assm *assm, char *start)
 		sys_err("Error malloc\n");
 	init_opt(opr);
 	start = read_arguments(assm, &opr->fir, start);
+	if (*start == ',')
+	{
+		start++;
+		opr->count_args++;
+	}
 	start = read_arguments(assm, &opr->sec, start);
+	if (*start == ',')
+	{
+		start++;
+		opr->count_args++;
+	}
 	start = read_arguments(assm, &opr->three, start);
 	print_opr(opr);
 	//error("Error operator.", assm);
 	return (opr);
 }
 
+void	cheak_op_ld_arg(t_assm *assm, t_opr *opr)
+{
+	unsigned char  num;
+
+	num = 0;
+	if (opr->count_args != 2)
+		error("Error arguments opiration.", assm);
+	num = opr->fir.bl_reg | opr->fir.bl_dir | opr->fir.bl_ind;
+	ft_printf("Num1 = {%#x}\n", num);
+	if (num != 0xc && num != 0x10)
+		error("Error first arguments opiration.", assm);
+	num = opr->sec.bl_reg | opr->sec.bl_dir | opr->sec.bl_ind;
+	ft_printf("Num2 = {%#x}\n", num);
+	if (num != 0x80)
+		error("Error second arguments opiration.", assm);
+	num = opr->three.bl_reg | opr->three.bl_dir | opr->three.bl_ind;
+	ft_printf("Num3 = {%#x}\n", num);
+	if (num != 0x0)
+		error("Error three arguments opiration.", assm);
+}
+
 void	op_ld(t_assm *assm, t_opr *opr)
 {
+	cheak_op_ld_arg(assm, opr);
+	ft_putchar_fd(0x02, assm->fd_cor);
+	ft_putchar_fd(0x02, assm->fd_cor);
 	ft_putendl("Operation ld.");
 }
 
