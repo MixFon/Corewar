@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/17 16:58:55 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/18 11:08:29 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ typedef struct		s_arg
 	unsigned int	dir;
 	short			ind;
 	char			reg;
+	char			*lable;
+	short			bl_dir;
+	short			bl_ind;
+	short			bl_reg;
 }					t_arg;
 
 typedef struct		s_opr
