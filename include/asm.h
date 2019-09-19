@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/19 15:00:18 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/19 17:20:44 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct		s_info
 {
 	short			size_dir;
 	short			bl_code_arg;
+	short			oct_start;
 }					t_info;
 
 typedef struct		s_opr

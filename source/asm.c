@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/19 16:21:06 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/19 17:20:41 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -368,6 +368,7 @@ void	init_opt(t_opr *opr)
 	opr->count_args = 1;
 	opr->info.size_dir = 0;
 	opr->info.bl_code_arg = 0;
+	opr->info.oct_start = 0;
 }
 
 char	*create_lable_arg(char *start, t_arg *arg)
@@ -560,7 +561,7 @@ t_gab	*new_gab(t_assm *assm,t_info *info, t_arg *arg)
 		sys_err("Error malloc.\n");
 	if (arg->bl_dir != 0)
 	{
-		new->oct_start = (info->bl_code_arg == 1 ? 2 : 0);
+		new->oct_start = (info->bl_code_arg == 1 ? info->oct_start : 0);
 		new->oct_count = info->size_dir;
 	}
 	else if (arg->bl_ind != 0)
@@ -568,6 +569,7 @@ t_gab	*new_gab(t_assm *assm,t_info *info, t_arg *arg)
 		new->oct_start = 2;
 		new->oct_count = 2;
 	}
+	info->oct_start += new->oct_count;
 	new->pos_write = assm->pos_glob;
 	new->next = NULL;
 	return (new);
@@ -580,7 +582,6 @@ void	search_lbl(t_assm *assm, t_info *info, t_arg *arg)
 
 	gab = new_gab(assm, info, arg);
 	lbl = get_lbl(&assm->lbl, arg->lable);
-	//lbl->gab = gab;
 	if (lbl->gab == NULL)
 		lbl->gab = gab;
 	else
@@ -616,6 +617,7 @@ void	op_ld(t_assm *assm, t_opr *opr)
 	ft_putchar_fd(0x02, assm->fd_cor);
 	ft_putchar_fd(code_args, assm->fd_cor);
 	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
 	first_arg(assm, opr);
