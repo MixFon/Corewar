@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/18 17:17:48 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/19 16:21:06 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init(t_assm *assm)
 {
 	assm->counter_line = 0;
 	assm->counter_column = 1;
-	assm->octet = 0;
+	assm->pos_glob = 0;
 	assm->lbl = NULL;
 	ft_memset(assm->head.prog_name, 0x00, PROG_NAME_LENGTH);
 	ft_memset(assm->head.comment, 0x00, COMMENT_LENGTH);
@@ -266,7 +266,7 @@ t_lbl	*create_lable(char *start, char *end)
 	ft_printf("\nNew lbl name = {%s}\n", new->name);
 	new->next = NULL;
 	new->bl = 0;
-	new->arg = NULL;
+	new->gab = NULL;
 	return (new);
 }
 
@@ -310,11 +310,23 @@ void	add_lable_list(t_assm *assm, char *start, char *line)
 	assm->lbl = lbl;
 }
 
+void	print_gab_list(t_gab *gab)
+{
+	while (gab != NULL)
+	{
+		ft_printf("\tpos_write = {%d} oct_count = {%d} oct_start = [%d]\n",
+			gab->pos_write, gab->oct_count, gab->oct_start);
+		gab = gab->next;
+	}
+}
+
 void	print_list(t_lbl *lbl)
 {
+	ft_putendl("List:");
 	while (lbl)
-	{
-		ft_printf("lable = {%s} position = {%d}\n", lbl->name, lbl->position);
+	{	
+		ft_printf("lable = {%s} position = {%d} bl = [%d]\n", lbl->name, lbl->position, lbl->bl);
+		print_gab_list(lbl->gab);
 		lbl = lbl->next;
 	}
 }
@@ -325,7 +337,7 @@ void	working_lable(t_assm *assm, char *start, char *line)
 	check_lable(assm, start, line);
 	add_lable_list(assm, start, line);
 	assm->lbl->bl = 1;
-	assm->lbl->position = assm->octet;
+	assm->lbl->position = assm->pos_glob;
 	print_list(assm->lbl);
 	working_instruction(assm, line + 1);
 }
@@ -354,6 +366,8 @@ void	init_opt(t_opr *opr)
 	init_arg(&opr->sec);
 	init_arg(&opr->three);
 	opr->count_args = 1;
+	opr->info.size_dir = 0;
+	opr->info.bl_code_arg = 0;
 }
 
 char	*create_lable_arg(char *start, t_arg *arg)
@@ -377,7 +391,7 @@ char	*read_ind_adg(t_assm *assm, t_arg *arg, char *start)
 		return (start);
 	}
 	arg->ind = ft_atoi(start);
-	while (ft_isdigit(*start))
+	while (ft_isdigit(*start) || *start == '-')
 		start++;
 	//ft_printf("start = !{%s}! fir.ind [%d]\n", start, opr->fir.ind);
 	return (start);
@@ -401,11 +415,11 @@ char	*read_dir_adg(t_assm *assm, t_arg *arg, char *start)
 {
 	start++;
 	arg->bl_dir = C_DIR;
-	if (ft_isdigit(*start))
+	if (ft_isdigit(*start) || *start == '-')
 		arg->dir = ft_atoi(start);
 	else if (*start == ':')
 		start = create_lable_arg(start + 1, arg);
-	while (ft_isdigit(*start))
+	while (ft_isdigit(*start) || *start == '-')
 		start++;
 	//ft_printf("start = !{%s}! fir.reg [%d]\n", start, opr->fir.reg);
 	return (start);
@@ -426,7 +440,7 @@ char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
 {
 	while (*start)
 	{
-		if (ft_isdigit(*start) || *start == ':')
+		if (ft_isdigit(*start) || *start == ':'|| *start == '-')
 			start = read_ind_adg(assm, arg, start);
 		if (*start == '%')
 			start = read_dir_adg(assm, arg, start);
@@ -484,7 +498,7 @@ unsigned char get_code_arg(t_opr *opr)
 {
 	unsigned char code;
 
-	code = opr->fir.bl_ind | opr->fir.dir | opr->fir.bl_reg;
+	code = opr->fir.bl_ind | opr->fir.bl_dir | opr->fir.bl_reg;
 	ft_printf("code = {%#x}\n", code);
 	code = code << 2;	
 	ft_printf("code = {%#x}\n", code);
@@ -499,30 +513,114 @@ unsigned char get_code_arg(t_opr *opr)
 	return (code);
 }
 
-void	write_big_endian(int fd, void *bits, int len_bits)
+int		write_big_endian(int fd, void *bits, int len_bits)
 {
+	int	count_oct;
+
+	count_oct = 0;
 	while (len_bits > 0)
 	{
 		len_bits--;
-		write(fd, (unsigned char *)bits + len_bits, 1);
+		if ((count_oct += write(fd, (unsigned char *)bits + len_bits, 1)) == -1)
+			sys_err("Error write\n");
 	}
+	ft_printf("Write count oct {%d}\n", count_oct);
+	return (count_oct);
+}
+
+t_lbl	*get_lbl(t_lbl **lbl, char *lable)
+{
+	t_lbl *temp;
+
+	temp = *lbl;
+	while(temp)
+	{
+		if (!ft_strcmp(temp->name, lable))
+		{
+			ft_printf("Find lable name is {%s}\n", temp->name);
+			return (temp);	
+		}
+		temp = temp->next;
+	}
+	temp = create_lable(lable, lable + ft_strlen(lable));	
+	temp->next = *lbl;
+	*lbl = temp;
+	(*lbl)->bl = 0;
+	(*lbl)->position = 0;
+	ft_printf("Lable {%s} not find\n", lable);
+	ft_printf("Create {%s}\n", lable);
+	return (temp);
+}
+
+t_gab	*new_gab(t_assm *assm,t_info *info, t_arg *arg)
+{
+	t_gab *new;
+
+	if (!(new = (t_gab *)malloc(sizeof(t_gab))))
+		sys_err("Error malloc.\n");
+	if (arg->bl_dir != 0)
+	{
+		new->oct_start = (info->bl_code_arg == 1 ? 2 : 0);
+		new->oct_count = info->size_dir;
+	}
+	else if (arg->bl_ind != 0)
+	{
+		new->oct_start = 2;
+		new->oct_count = 2;
+	}
+	new->pos_write = assm->pos_glob;
+	new->next = NULL;
+	return (new);
+}
+
+void	search_lbl(t_assm *assm, t_info *info, t_arg *arg)
+{
+	t_gab *gab;
+	t_lbl *lbl;
+
+	gab = new_gab(assm, info, arg);
+	lbl = get_lbl(&assm->lbl, arg->lable);
+	//lbl->gab = gab;
+	if (lbl->gab == NULL)
+		lbl->gab = gab;
+	else
+	{
+		gab->next = lbl->gab;
+		lbl->gab = gab;
+	}
+	print_list(assm->lbl);
+}
+
+void	first_arg(t_assm *assm, t_opr *opr)
+{
+	if (opr->fir.lable != NULL)
+		search_lbl(assm, &opr->info, &opr->fir);
+	if (opr->fir.bl_ind != 0)
+		assm->pos_glob += write_big_endian(assm->fd_cor, &opr->fir.ind, IND_SIZE);
+	if (opr->fir.bl_dir != 0)
+		assm->pos_glob += write_big_endian(assm->fd_cor, &opr->fir.dir, DIR_SIZE);
+}
+
+void	second_arg(t_assm *assm, t_opr *opr)
+{
+	if (opr->sec.bl_reg != 0)
+		assm->pos_glob += write_big_endian(assm->fd_cor, &opr->sec.reg, 1);
 }
 
 void	op_ld(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	code_args = get_code_arg(opr);
 	cheak_op_ld_arg(assm, opr);
+	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x02, assm->fd_cor);
 	ft_putchar_fd(code_args, assm->fd_cor);
-	if (opr->fir.bl_ind != 0)
-		write_big_endian(assm->fd_cor, &opr->fir.ind, IND_SIZE);
-	if (opr->fir.bl_dir != 0)
-		write_big_endian(assm->fd_cor, &opr->fir.dir, DIR_SIZE);
-	if (opr->sec.bl_reg != 0)
-		write_big_endian(assm->fd_cor, &opr->sec.reg, 1);
-	ft_putendl("Operation ld.");
+	assm->pos_glob += 2;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 1;
+	first_arg(assm, opr);
+	second_arg(assm, opr);
+	ft_putendl("Operation ld finish.------------------------------------");
 }
 
 void	two_char_operator(t_assm *assm, char *start)
