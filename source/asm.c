@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/19 17:20:41 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/20 14:53:07 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init(t_assm *assm)
 {
 	assm->counter_line = 0;
 	assm->counter_column = 1;
-	assm->pos_glob = 0;
+	assm->pos_glob = LEN_HEAD;
 	assm->lbl = NULL;
 	ft_memset(assm->head.prog_name, 0x00, PROG_NAME_LENGTH);
 	ft_memset(assm->head.comment, 0x00, COMMENT_LENGTH);
@@ -489,7 +489,19 @@ void	cheak_op_ld_arg(t_assm *assm, t_opr *opr)
 		error("Error arguments opiration.", assm);
 	if (opr->fir.bl_reg == C_REG)
 		error("Error first arguments opiration.", assm);
-	if (opr->sec.bl_dir == C_DIR || opr->sec.bl_ind == C_IND)
+	if (opr->sec.bl_ind == C_IND || opr->sec.bl_dir == C_DIR)
+		error("Error second arguments opiration.", assm);
+	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
+		error("Error three arguments opiration.", assm);
+}
+
+void	cheak_op_st_arg(t_assm *assm, t_opr *opr)
+{
+	if (opr->count_args != 2)
+		error("Error arguments opiration.", assm);
+	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_DIR)
+		error("Error first arguments opiration.", assm);
+	if (opr->sec.bl_dir == C_DIR)
 		error("Error second arguments opiration.", assm);
 	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
 		error("Error three arguments opiration.", assm);
@@ -553,7 +565,7 @@ t_lbl	*get_lbl(t_lbl **lbl, char *lable)
 	return (temp);
 }
 
-t_gab	*new_gab(t_assm *assm,t_info *info, t_arg *arg)
+t_gab	*new_gab(t_assm *assm,t_info **info, t_arg *arg)
 {
 	t_gab *new;
 
@@ -561,15 +573,19 @@ t_gab	*new_gab(t_assm *assm,t_info *info, t_arg *arg)
 		sys_err("Error malloc.\n");
 	if (arg->bl_dir != 0)
 	{
-		new->oct_start = (info->bl_code_arg == 1 ? info->oct_start : 0);
-		new->oct_count = info->size_dir;
+		new->oct_start = ((*info)->bl_code_arg == 1 ? (*info)->oct_start : 0);
+		new->oct_count = (*info)->size_dir;
 	}
 	else if (arg->bl_ind != 0)
 	{
-		new->oct_start = 2;
+		new->oct_start = (*info)->oct_start;
 		new->oct_count = 2;
 	}
-	info->oct_start += new->oct_count;
+	else if (arg->bl_ind != 0)
+	{
+		new->oct_start = (*info)->oct_start;
+		new->oct_count = 1;
+	}
 	new->pos_write = assm->pos_glob;
 	new->next = NULL;
 	return (new);
@@ -580,7 +596,7 @@ void	search_lbl(t_assm *assm, t_info *info, t_arg *arg)
 	t_gab *gab;
 	t_lbl *lbl;
 
-	gab = new_gab(assm, info, arg);
+	gab = new_gab(assm, &info, arg);
 	lbl = get_lbl(&assm->lbl, arg->lable);
 	if (lbl->gab == NULL)
 		lbl->gab = gab;
@@ -594,18 +610,36 @@ void	search_lbl(t_assm *assm, t_info *info, t_arg *arg)
 
 void	first_arg(t_assm *assm, t_opr *opr)
 {
+	int	delta;
+
+	delta = 0;
 	if (opr->fir.lable != NULL)
 		search_lbl(assm, &opr->info, &opr->fir);
 	if (opr->fir.bl_ind != 0)
-		assm->pos_glob += write_big_endian(assm->fd_cor, &opr->fir.ind, IND_SIZE);
+		delta += write_big_endian(assm->fd_cor, &opr->fir.ind, IND_SIZE);
 	if (opr->fir.bl_dir != 0)
-		assm->pos_glob += write_big_endian(assm->fd_cor, &opr->fir.dir, DIR_SIZE);
+		delta += write_big_endian(assm->fd_cor, &opr->fir.dir, DIR_SIZE);
+	if (opr->fir.bl_reg != 0)
+		delta += write_big_endian(assm->fd_cor, &opr->fir.reg, 1);
+	assm->pos_glob += delta;
+	opr->info.oct_start += delta;
 }
 
 void	second_arg(t_assm *assm, t_opr *opr)
 {
+	int	delta;
+
+	delta = 0;
+	if (opr->sec.lable != NULL)
+		search_lbl(assm, &opr->info, &opr->sec);
+	if (opr->sec.bl_ind != 0)
+		delta += write_big_endian(assm->fd_cor, &opr->sec.ind, IND_SIZE);
+	if (opr->sec.bl_dir != 0)
+		delta += write_big_endian(assm->fd_cor, &opr->sec.dir, DIR_SIZE);
 	if (opr->sec.bl_reg != 0)
-		assm->pos_glob += write_big_endian(assm->fd_cor, &opr->sec.reg, 1);
+		delta += write_big_endian(assm->fd_cor, &opr->sec.reg, 1);
+	assm->pos_glob += delta;
+	opr->info.oct_start += delta;
 }
 
 void	op_ld(t_assm *assm, t_opr *opr)
@@ -625,6 +659,33 @@ void	op_ld(t_assm *assm, t_opr *opr)
 	ft_putendl("Operation ld finish.------------------------------------");
 }
 
+void	op_st(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	cheak_op_st_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x03, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 1;
+	first_arg(assm, opr);
+	second_arg(assm, opr);
+	ft_putendl("Operation st finish.------------------------------------");
+
+}
+
+void	delete_opr(t_opr **opr)
+{
+	ft_strdel(&(*opr)->fir.lable);
+	ft_strdel(&(*opr)->sec.lable);
+	ft_strdel(&(*opr)->three.lable);
+	free(*opr);
+}
+
+
 void	two_char_operator(t_assm *assm, char *start)
 {	
 	t_opr *opr;
@@ -632,13 +693,14 @@ void	two_char_operator(t_assm *assm, char *start)
 	opr = get_arg_opr(assm, start + 2);
 	if (!(ft_strncmp(start, "ld", 2)))
 		op_ld(assm, opr);
+	else if (!(ft_strncmp(start, "st", 2)))
+		op_st(assm, opr);
+		//ft_putendl("Operation ST.");
 	else if (!(ft_strncmp(start, "or", 2)))
 		ft_putendl("Operation OR.");
-	else if (!(ft_strncmp(start, "st", 2)))
-		ft_putendl("Operation ST.");
 	else
 		error("Error operator.", assm);
-	free(opr);
+	delete_opr(&opr);
 }
 
 void	working_operation(t_assm *assm, char *start, char *line)
@@ -726,6 +788,19 @@ void	read_instruction(t_assm *assm)
 	ft_strdel(&line);
 }
 
+void	delete_list_gab(t_gab *gab)
+{
+	t_gab *temp;
+
+	temp = gab;
+	while(gab)
+	{
+		gab = gab->next;
+		free(temp);
+		temp = gab;
+	}
+}
+
 void	delete_list(t_assm *assm)
 {
 	t_lbl *lbl;
@@ -734,15 +809,65 @@ void	delete_list(t_assm *assm)
 	while (assm->lbl)
 	{
 		ft_strdel(&lbl->name);
+		delete_list_gab(lbl->gab);
 		free(lbl);
 		assm->lbl = assm->lbl->next;
 		lbl = assm->lbl;
 	}
 }
 
+int	get_figur_write(size_t position, t_gab *gab)
+{
+	int	num;	
+
+	num = position - gab->pos_write + gab->oct_start;
+	return (num);
+}
+
+void	write_in_position(t_lbl *lbl, int fd_cor)
+{
+	t_gab *gab;
+	int		b;
+
+	gab = lbl->gab;
+	while (gab)
+	{
+		if (lseek(fd_cor, gab->pos_write, SEEK_SET) == -1L)
+			sys_err("Seek Error\n");
+		b = get_figur_write(lbl->position, gab);
+		write_big_endian(fd_cor, &b, gab->oct_count);
+		gab = gab->next;
+	}
+}
+
+void	weite_figur_lable(t_assm *assm)
+{
+	t_lbl *lbl;
+
+	lbl = assm->lbl;
+	while (lbl)
+	{
+		if (lbl->bl == 0)
+			sys_err("Seek Error\n");
+		write_in_position(lbl, assm->fd_cor);
+		lbl = lbl->next;
+	}
+}
+
+void	write_bot_size(t_assm *assm)
+{
+	size_t bot_size;
+
+	bot_size = assm->pos_glob - LEN_HEAD;
+	if (lseek(assm->fd_cor, 8 + PROG_NAME_LENGTH, SEEK_SET) == -1L)
+		sys_err("Seek Error\n");
+	write_big_endian(assm->fd_cor, &bot_size, 4);
+}
+
 int		main(int ac, char **av)
 {
 	t_assm	assm;
+
 	if (ac != 2)
 		sys_err("Error!\nUse ./asm namefile.s\n");
 	open_file_s(&assm, av[1]);
@@ -750,6 +875,8 @@ int		main(int ac, char **av)
 	create_file_cor(&assm, av[1]);
 	write_header(&assm);
 	read_instruction(&assm);
+	write_bot_size(&assm);
+	weite_figur_lable(&assm);
 	delete_list(&assm);
 	close_files(&assm);
 	return (0);

@@ -1,9 +1,10 @@
 .name "dsfsdfsdfsdfaf" #asdfasdf
 .comment"ta mere ellefait durodeosur les kfar"
 
-	ld :buff, r4
+	st r2, :buff
+	st r6, :buff
 buff:
-	ld %:name,r2
-	ld :buff,r3	
-	ld %:buff,r4	
+	ld %:buff,r5
+	st r3, r4
+	st r4, r5 
 #buff:
