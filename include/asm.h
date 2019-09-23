@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/21 21:56:41 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/23 09:02:33 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct		s_opr
 }					t_opr;
 
 
+int		write_big_endian(int fd, void *bits, int len_bits);
 void	working_instruction(t_assm *assm, char *line);
 
 #endif

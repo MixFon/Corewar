@@ -5,8 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/23 09:18:01 by widraugr          #+#    #+#             */
+/*   Updated: 2019/09/23 12:50:45 by widraugr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   asm.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/21 21:56:37 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/23 09:17:55 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,26 +74,16 @@ void	open_file_s(t_assm *assm, char *name)
 
 void	write_header(t_assm *assm)
 {
-	//assm->octet = 4;
-	int		sector = 4;
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0xea, assm->fd_cor);
-	ft_putchar_fd(0x83, assm->fd_cor);
-	ft_putchar_fd(0xf3, assm->fd_cor);
+	int		sector;
+
+	sector = COREWAR_EXEC_MAGIC;
+	write_big_endian(assm->fd_cor, &sector, 4);
+	sector = 0x00;
 	write(assm->fd_cor, assm->head.prog_name, PROG_NAME_LENGTH);
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0x11, assm->fd_cor);
-	ft_putchar_fd(0x11, assm->fd_cor);
-	ft_putchar_fd(0x11, assm->fd_cor);
-	ft_putchar_fd(0x11, assm->fd_cor);
+	write_big_endian(assm->fd_cor, &sector, 4);
+	write_big_endian(assm->fd_cor, &sector, 4);
 	write(assm->fd_cor, assm->head.comment, COMMENT_LENGTH);
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0x00, assm->fd_cor);
-	ft_putchar_fd(0x00, assm->fd_cor);
+	write_big_endian(assm->fd_cor, &sector, 4);
 }
 
 void	close_files(t_assm *assm)
@@ -483,7 +485,7 @@ t_opr	*get_arg_opr(t_assm *assm, char *start)
 	return (opr);
 }
 
-void	cheak_op_ld_arg(t_assm *assm, t_opr *opr)
+void	check_op_ld_lld_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 2)
 		error("Error arguments opiration.", assm);
@@ -495,7 +497,7 @@ void	cheak_op_ld_arg(t_assm *assm, t_opr *opr)
 		error("Error three arguments opiration.", assm);
 }
 
-void	cheak_op_st_arg(t_assm *assm, t_opr *opr)
+void	check_op_st_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 2)
 		error("Error arguments opiration.", assm);
@@ -507,7 +509,11 @@ void	cheak_op_st_arg(t_assm *assm, t_opr *opr)
 		error("Error three arguments opiration.", assm);
 }
 
-void	cheak_op_or_arg(t_assm *assm, t_opr *opr)
+/*
+** The function cheacks the arguments of 4 operation: or, xor, and.
+*/
+
+void	check_op_or_xor_and_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
@@ -515,7 +521,11 @@ void	cheak_op_or_arg(t_assm *assm, t_opr *opr)
 		error("Error three arguments opiration.", assm);
 }
 
-void	cheak_op_lldi_arg(t_assm *assm, t_opr *opr)
+/*
+** The function cheacks the arguments of 2 operation: ldi, lldi.
+*/
+
+void	check_op_ldi_lldi_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
@@ -525,15 +535,43 @@ void	cheak_op_lldi_arg(t_assm *assm, t_opr *opr)
 		error("Error three arguments opiration.", assm);
 }
 
-void	cheak_op_fork_arg(t_assm *assm, t_opr *opr)
+/*
+** The function cheacks the arguments of 4 operation: fork, lfork, zjmp, live.
+*/
+
+void	check_op_fork_lfork_zjmp_live_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 1)
 		error("Error arguments opiration.", assm);
-	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_REG)
+	if (opr->fir.bl_ind == C_IND || opr->fir.bl_reg == C_REG)
 		error("Error first arguments opiration.", assm);
 	if (opr->sec.bl_ind == C_IND || opr->sec.bl_dir == C_DIR || opr->sec.bl_reg == C_REG)
 		error("Error second arguments opiration.", assm);
 	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
+		error("Error three arguments opiration.", assm);
+}
+
+void	check_op_aff_arg(t_assm *assm, t_opr *opr)
+{
+	if (opr->count_args != 1)
+		error("Error arguments opiration.", assm);
+	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_DIR)
+		error("Error first arguments opiration.", assm);
+	if (opr->sec.bl_ind == C_IND || opr->sec.bl_dir == C_DIR || opr->sec.bl_reg == C_REG)
+		error("Error second arguments opiration.", assm);
+	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
+		error("Error three arguments opiration.", assm);
+}
+
+void	check_op_add_sub_arg(t_assm *assm, t_opr *opr)
+{
+	if (opr->count_args != 3)
+		error("Error arguments opiration.", assm);
+	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_DIR)
+		error("Error first arguments opiration.", assm);
+	if (opr->sec.bl_ind == C_IND || opr->sec.bl_dir == C_DIR)
+		error("Error second arguments opiration.", assm);
+	if (opr->three.bl_ind == C_IND || opr->three.bl_dir == C_DIR)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -696,7 +734,7 @@ void	op_ld(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	cheak_op_ld_arg(assm, opr);
+	check_op_ld_lld_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x02, assm->fd_cor);
 	ft_putchar_fd(code_args, assm->fd_cor);
@@ -713,7 +751,7 @@ void	op_st(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	cheak_op_st_arg(assm, opr);
+	check_op_st_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x03, assm->fd_cor);
 	ft_putchar_fd(code_args, assm->fd_cor);
@@ -730,7 +768,7 @@ void	op_or(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	cheak_op_or_arg(assm, opr);
+	check_op_or_xor_and_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x07, assm->fd_cor);
 	ft_putchar_fd(code_args, assm->fd_cor);
@@ -748,7 +786,7 @@ void	op_lldi(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	cheak_op_lldi_arg(assm, opr);
+	check_op_ldi_lldi_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x0e, assm->fd_cor);
 	ft_putchar_fd(code_args, assm->fd_cor);
@@ -766,19 +804,183 @@ void	op_fork(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	cheak_op_fork_arg(assm, opr);
+	check_op_fork_lfork_zjmp_live_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x0c, assm->fd_cor);
-	//ft_putchar_fd(code_args, assm->fd_cor);
 	assm->pos_glob += 1;
 	opr->info.oct_start = 1;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 0;
 	all_arg(assm, &opr->info, &opr->fir);
-	//all_arg(assm, &opr->info, &opr->sec);
-	//all_arg(assm, &opr->info, &opr->three);
-	ft_putendl("Operation lldi finish.------------------------------------");
+	ft_putendl("Operation fork finish.------------------------------------");
+}
 
+void	op_zjmp(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_fork_lfork_zjmp_live_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x09, assm->fd_cor);
+	assm->pos_glob += 1;
+	opr->info.oct_start = 1;
+	opr->info.size_dir = 2;
+	opr->info.bl_code_arg = 0;
+	all_arg(assm, &opr->info, &opr->fir);
+	ft_putendl("Operation zjmp finish.------------------------------------");
+}
+
+void	op_live(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_fork_lfork_zjmp_live_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x01, assm->fd_cor);
+	assm->pos_glob += 1;
+	opr->info.oct_start = 1;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 0;
+	all_arg(assm, &opr->info, &opr->fir);
+	ft_putendl("Operation live finish.------------------------------------");
+}
+
+void	op_lfork(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_fork_lfork_zjmp_live_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x0f, assm->fd_cor);
+	assm->pos_glob += 1;
+	opr->info.oct_start = 1;
+	opr->info.size_dir = 2;
+	opr->info.bl_code_arg = 0;
+	all_arg(assm, &opr->info, &opr->fir);
+	ft_putendl("Operation lfork finish.------------------------------------");
+}
+
+void	op_aff(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_aff_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x10, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 1;
+	all_arg(assm, &opr->info, &opr->fir);
+	ft_putendl("Operation aff finish.------------------------------------");
+}
+
+void	op_add(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_add_sub_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x04, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 1;
+	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->three);
+	ft_putendl("Operation add finish.------------------------------------");
+}
+
+void	op_sub(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_add_sub_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x05, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 1;
+	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->three);
+	ft_putendl("Operation sub finish.------------------------------------");
+}
+
+void	op_and(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_or_xor_and_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x06, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 1;
+	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->three);
+	ft_putendl("Operation and finish.------------------------------------");
+}
+
+void	op_xor(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_or_xor_and_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x08, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 1;
+	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->three);
+	ft_putendl("Operation xor finish.------------------------------------");
+}
+
+void	op_ldi(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_ldi_lldi_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x0a, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = 2;
+	opr->info.bl_code_arg = 1;
+	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->three);
+	ft_putendl("Operation ldi finish.------------------------------------");
+}
+
+void	op_lld(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_ld_lld_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x0d, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = DIR_SIZE;
+	opr->info.bl_code_arg = 1;
+	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->sec);
+	ft_putendl("Operation lld finish.------------------------------------");
 }
 
 void	delete_opr(t_opr **opr)
@@ -788,7 +990,6 @@ void	delete_opr(t_opr **opr)
 	ft_strdel(&(*opr)->three.lable);
 	free(*opr);
 }
-
 
 void	two_char_operator(t_assm *assm, char *start)
 {	
@@ -817,8 +1018,50 @@ void	four_char_operator(t_assm *assm, char *start)
 		op_lldi(assm, opr);
 	else if (!(ft_strncmp(start, "fork", up)))
 		op_fork(assm, opr);
-	else if (!(ft_strncmp(start, "or", up)))
-		op_or(assm, opr);
+	else if (!(ft_strncmp(start, "zjmp", up)))
+		op_zjmp(assm, opr);
+	else if (!(ft_strncmp(start, "live", up)))
+		op_live(assm, opr);
+	else
+		error("Error operator.", assm);
+	delete_opr(&opr);
+}
+
+void	five_char_operator(t_assm *assm, char *start)
+{	
+	t_opr	*opr;
+	int		up;
+
+	up = 5;
+	opr = get_arg_opr(assm, start + up);
+	if (!(ft_strncmp(start, "lfork", up)))
+		op_lfork(assm, opr);
+	else
+		error("Error operator.", assm);
+	delete_opr(&opr);
+}
+
+void	three_char_operator(t_assm *assm, char *start)
+{
+	t_opr	*opr;
+	int		up;
+
+	up = 3;
+	opr = get_arg_opr(assm, start + up);
+	if (!(ft_strncmp(start, "aff", up)))
+		op_aff(assm, opr);
+	else if (!(ft_strncmp(start, "add", up)))
+		op_add(assm, opr);
+	else if (!(ft_strncmp(start, "sub", up)))
+		op_sub(assm, opr);
+	else if (!(ft_strncmp(start, "and", up)))
+		op_and(assm, opr);
+	else if (!(ft_strncmp(start, "xor", up)))
+		op_xor(assm, opr);
+	else if (!(ft_strncmp(start, "ldi", up)))
+		op_ldi(assm, opr);
+	else if (!(ft_strncmp(start, "lld", up)))
+		op_lld(assm, opr);
 	else
 		error("Error operator.", assm);
 	delete_opr(&opr);
@@ -830,16 +1073,13 @@ void	working_operation(t_assm *assm, char *start, char *line)
 
 	len = line - start;
 	if (len == 3)
-	{
-		ft_putendl("THREE CHAR.");
-		//three_char_operator(assm, start);
-	}
+		three_char_operator(assm, start);
 	else if (len == 4)
 		four_char_operator(assm, start);
 	else if (len == 2)
 		two_char_operator(assm, start);
 	else if (len == 5)
-		ft_putendl("FIVE CHAR.");
+		five_char_operator(assm, start);
 	else
 		error("Error operator.", assm);
 }
