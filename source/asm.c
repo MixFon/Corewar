@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 09:18:01 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/23 14:32:34 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/23 17:21:25 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -646,7 +646,7 @@ t_lbl	*get_lbl(t_lbl **lbl, char *lable)
 	temp->next = *lbl;
 	*lbl = temp;
 	(*lbl)->bl = 0;
-	(*lbl)->position = -1;
+	(*lbl)->position = 0;
 	ft_printf("Lable {%s} not find\n", lable);
 	ft_printf("Create {%s}\n", lable);
 	return (temp);
