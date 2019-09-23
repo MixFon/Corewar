@@ -22,7 +22,6 @@ finboucle0:	xor r3,r3,r3
 
 buff:	st r1,r1	
 		
-suite:	sti r1,%:livel,%1
 livel:	live %66
 	sti r2,%:debut,%-60
 	ld %4,r4

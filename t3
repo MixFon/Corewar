@@ -1,0 +1,1664 @@
+2222 = {#}
+2222 = {# Warrior qui a gagne}
+2222 = {# l'annee derniere}
+2222 = {#     VOALA}
+2222 = {#}
+Celebration Funebre v0.99pl42
+2222 = {.name		"Celebration Funebre v0.99pl42"}
+Jour J
+1111 = {.comment	"Jour J"}
+3333 = {(null)}
+Write count oct {4}
+Write count oct {4}
+Write count oct {4}
+Write count oct {4}
+||||			This is instruction!			||||
+line = {}
+line = {		ld   %0,r3		}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {label:		zjmp %:avantdebt}
+LABEL_CHAR
+
+New lbl name = {label}
+List:
+lable = {label} position = {2199} bl = [1]
+line = {		zjmp %:avantdebt}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {avantdebt}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+
+New lbl name = {avantdebt}
+Lable {avantdebt} not find
+Create {avantdebt}
+List:
+lable = {avantdebt} position = {-1} bl = [0]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		zjmp %0				# pour eviter ecrasement}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {						# de l'instruction suivante}
+line = {		sti  r15,%0,r14			# 6}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x19}
+code = {0x64}
+Write count oct {1}
+Write count oct {2}
+Write count oct {1}
+Operation sti finish.------------------------------------
+line = {		zjmp %-200			# 3}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {-200} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		live %42			# 5}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		sti  r15,%0,r14			# 6}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x19}
+code = {0x64}
+Write count oct {1}
+Write count oct {2}
+Write count oct {1}
+Operation sti finish.------------------------------------
+line = {		zjmp %-200			# 3}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {-200} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		live %42			# 5}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		sti  r15,%0,r14			# 6}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x19}
+code = {0x64}
+Write count oct {1}
+Write count oct {2}
+Write count oct {1}
+Operation sti finish.------------------------------------
+line = {		zjmp %-200			# 3}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {-200} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		live %42			# 5}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		sti  r15,%0,r14			# 6}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x19}
+code = {0x64}
+Write count oct {1}
+Write count oct {2}
+Write count oct {1}
+Operation sti finish.------------------------------------
+line = {		zjmp %-200			# 3}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {-200} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		sti  r15,%0,r14			# 6}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x19}
+code = {0x64}
+Write count oct {1}
+Write count oct {2}
+Write count oct {1}
+Operation sti finish.------------------------------------
+line = {		zjmp %-200			# 3}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {-200} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		sti  r15,%0,r14			# 6}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x19}
+code = {0x64}
+Write count oct {1}
+Write count oct {2}
+Write count oct {1}
+Operation sti finish.------------------------------------
+line = {		zjmp %-200}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {-200} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {	}
+line = {code:		live %42			# 5}
+LABEL_CHAR
+
+New lbl name = {code}
+List:
+lable = {code} position = {2274} bl = [1]
+lable = {avantdebt} position = {-1} bl = [0]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+line = {		live %42			# 5}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {avantdebt:	sti   r1,%:code,%1  # 		# mets a jour le live}
+LABEL_CHAR
+List:
+lable = {code} position = {2279} bl = [1]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+line = {	sti   r1,%:code,%1  # 		# mets a jour le live}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [1] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+Write count oct {1}
+Find lable name is {code}
+List:
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+Write count oct {2}
+Write count oct {2}
+Operation sti finish.------------------------------------
+line = {		sti   r1,%:code,%15 # 		# mets a jour le live}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [1] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {15} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+Write count oct {1}
+Find lable name is {code}
+List:
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+Write count oct {2}
+Write count oct {2}
+Operation sti finish.------------------------------------
+line = {		sti   r1,%:code,%29 # 		# mets a jour le live}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [1] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {29} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+Write count oct {1}
+Find lable name is {code}
+List:
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+Write count oct {2}
+Write count oct {2}
+Operation sti finish.------------------------------------
+line = {		sti   r1,%:code,%43 # 		# mets a jour le live}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [1] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {43} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+Write count oct {1}
+Find lable name is {code}
+List:
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+Write count oct {2}
+Write count oct {2}
+Operation sti finish.------------------------------------
+line = {		sti   r1,%:code,%57 # 		# mets a jour le live}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [1] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {57} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+Write count oct {1}
+Find lable name is {code}
+List:
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+Write count oct {2}
+Write count oct {2}
+Operation sti finish.------------------------------------
+line = {		sti   r1,%:code,%71 # 		# mets a jour le live}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [1] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {71} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+Write count oct {1}
+Find lable name is {code}
+List:
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+Write count oct {2}
+Write count oct {2}
+Operation sti finish.------------------------------------
+line = {init:		ld   %393216,r4		 	#7	}
+LABEL_CHAR
+
+New lbl name = {init}
+List:
+lable = {init} position = {2321} bl = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+line = {		ld   %393216,r4		 	#7	}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {393216} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		ld   %917504,r12		#7	}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {917504} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [12] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		ld   %1,r11			#7}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [11] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		ld   %6,r10			#7}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {6} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [10] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {debt:		live %42			#5}
+LABEL_CHAR
+
+New lbl name = {debt}
+List:
+lable = {debt} position = {2349} bl = [1]
+lable = {init} position = {2321} bl = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+line = {		live %42			#5}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		sti  r4,%:label,%1		#7}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {label}
+Arg3 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+Write count oct {1}
+Find lable name is {label}
+List:
+lable = {debt} position = {2349} bl = [1]
+lable = {init} position = {2321} bl = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Write count oct {2}
+Operation sti finish.------------------------------------
+line = {		add  r4,r12,r4			#5	}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [12] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x5}
+code = {0x14}
+code = {0x15}
+code = {0x54}
+Write count oct {1}
+Write count oct {1}
+Write count oct {1}
+Operation add finish.------------------------------------
+line = {		sub  r10,r11,r10		#5}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [10] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [11] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [10] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x5}
+code = {0x14}
+code = {0x15}
+code = {0x54}
+Write count oct {1}
+Write count oct {1}
+Write count oct {1}
+Operation sub finish.------------------------------------
+line = {		zjmp %:init			#3}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {init}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Find lable name is {init}
+List:
+lable = {debt} position = {2349} bl = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		fork %:debt			}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {debt}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Find lable name is {debt}
+List:
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation fork finish.------------------------------------
+line = {		live %3}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {3} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {level0:		fork %:level10}
+LABEL_CHAR
+
+New lbl name = {level0}
+List:
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+line = {		fork %:level10}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {level10}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+
+New lbl name = {level10}
+Lable {level10} not find
+Create {level10}
+List:
+lable = {level10} position = {-1} bl = [0]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation fork finish.------------------------------------
+line = {level11:	live %4}
+LABEL_CHAR
+
+New lbl name = {level11}
+List:
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {-1} bl = [0]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+line = {	live %4}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {4} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		fork %:level111}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {level111}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+
+New lbl name = {level111}
+Lable {level111} not find
+Create {level111}
+List:
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {-1} bl = [0]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation fork finish.------------------------------------
+line = {}
+line = {level110:	live %42}
+LABEL_CHAR
+
+New lbl name = {level110}
+List:
+lable = {level110} position = {2393} bl = [1]
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {-1} bl = [0]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+line = {	live %42}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		ldi  %8,%:code,r15		#set des octets 9-12}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {8} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0xa}
+code = {0x28}
+code = {0x29}
+code = {0xa4}
+Write count oct {2}
+Find lable name is {code}
+List:
+lable = {level110} position = {2393} bl = [1]
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {-1} bl = [0]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Write count oct {1}
+Operation ldi finish.------------------------------------
+line = {		ld   %-186,r14			#=$A-6-8}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {-186} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		ld   %0,r2}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [2] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		zjmp  %:label}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {label}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Find lable name is {label}
+List:
+lable = {level110} position = {2393} bl = [1]
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {-1} bl = [0]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {			}
+line = {level10:	live %42}
+LABEL_CHAR
+List:
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+line = {	live %42}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		fork %:level100}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {level100}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+
+New lbl name = {level100}
+Lable {level100} not find
+Create {level100}
+List:
+lable = {level100} position = {-1} bl = [0]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation fork finish.------------------------------------
+line = {level101:	live %42}
+LABEL_CHAR
+
+New lbl name = {level101}
+List:
+lable = {level101} position = {2430} bl = [1]
+lable = {level100} position = {-1} bl = [0]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+line = {	live %42}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		ldi  %4,%:code,r15 		#set des octets 5-8}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {4} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0xa}
+code = {0x28}
+code = {0x29}
+code = {0xa4}
+Write count oct {2}
+Find lable name is {code}
+List:
+lable = {level101} position = {2430} bl = [1]
+lable = {level100} position = {-1} bl = [0]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2439} oct_count = {2} oct_start = [4]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Write count oct {1}
+Operation ldi finish.------------------------------------
+line = {		ld   %-190,r14			#=$A-6-4}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {-190} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		ld   %0,r2}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [2] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		zjmp %:label}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {label}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Find lable name is {label}
+List:
+lable = {level101} position = {2430} bl = [1]
+lable = {level100} position = {-1} bl = [0]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {-1} bl = [0]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2439} oct_count = {2} oct_start = [4]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2457} oct_count = {2} oct_start = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		}
+line = {level111:	live %42	}
+LABEL_CHAR
+List:
+lable = {level101} position = {2459} bl = [1]
+lable = {level100} position = {-1} bl = [0]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {2459} bl = [1]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2439} oct_count = {2} oct_start = [4]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2457} oct_count = {2} oct_start = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+line = {	live %42	}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		ldi  %12,%:code,r15		#set des octets 13-16}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {12} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0xa}
+code = {0x28}
+code = {0x29}
+code = {0xa4}
+Write count oct {2}
+Find lable name is {code}
+List:
+lable = {level101} position = {2459} bl = [1]
+lable = {level100} position = {-1} bl = [0]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {2459} bl = [1]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2468} oct_count = {2} oct_start = [4]
+	pos_write = {2439} oct_count = {2} oct_start = [4]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2457} oct_count = {2} oct_start = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Write count oct {1}
+Operation ldi finish.------------------------------------
+line = {		ld   %-182,r14			# $A -6 -12}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {-182} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		ld   %0,r2}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [2] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		zjmp %:label}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {label}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Find lable name is {label}
+List:
+lable = {level101} position = {2459} bl = [1]
+lable = {level100} position = {-1} bl = [0]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {2459} bl = [1]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2468} oct_count = {2} oct_start = [4]
+	pos_write = {2439} oct_count = {2} oct_start = [4]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2486} oct_count = {2} oct_start = [1]
+	pos_write = {2457} oct_count = {2} oct_start = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {		}
+line = {level100:	live %42}
+LABEL_CHAR
+List:
+lable = {level101} position = {2488} bl = [1]
+lable = {level100} position = {2488} bl = [1]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {2459} bl = [1]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2468} oct_count = {2} oct_start = [4]
+	pos_write = {2439} oct_count = {2} oct_start = [4]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2486} oct_count = {2} oct_start = [1]
+	pos_write = {2457} oct_count = {2} oct_start = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+line = {	live %42}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Write count oct {4}
+Operation live finish.------------------------------------
+line = {		ldi  %0,%:code,r15		#set des octets 1-4}
+DIRECT_CHAR and SPACE
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {code}
+Arg3 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0xa}
+code = {0x28}
+code = {0x29}
+code = {0xa4}
+Write count oct {2}
+Find lable name is {code}
+List:
+lable = {level101} position = {2488} bl = [1]
+lable = {level100} position = {2488} bl = [1]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {2459} bl = [1]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2497} oct_count = {2} oct_start = [4]
+	pos_write = {2468} oct_count = {2} oct_start = [4]
+	pos_write = {2439} oct_count = {2} oct_start = [4]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2486} oct_count = {2} oct_start = [1]
+	pos_write = {2457} oct_count = {2} oct_start = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Write count oct {1}
+Operation ldi finish.------------------------------------
+line = {		ld   %-194,r14			# $A -6 -0}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {-194} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		ld   %0,r2			#}
+DIRECT_CHAR and SPACE
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [2] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+Write count oct {4}
+Write count oct {1}
+Operation ld finish.------------------------------------
+line = {		zjmp %:label			#}
+DIRECT_CHAR and SPACE
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {label}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+Find lable name is {label}
+List:
+lable = {level101} position = {2488} bl = [1]
+lable = {level100} position = {2488} bl = [1]
+	pos_write = {2428} oct_count = {2} oct_start = [1]
+lable = {level110} position = {2422} bl = [1]
+lable = {level111} position = {2459} bl = [1]
+	pos_write = {2391} oct_count = {2} oct_start = [1]
+lable = {level11} position = {2385} bl = [1]
+lable = {level10} position = {2422} bl = [1]
+	pos_write = {2383} oct_count = {2} oct_start = [1]
+lable = {level0} position = {2382} bl = [1]
+lable = {debt} position = {2349} bl = [1]
+	pos_write = {2375} oct_count = {2} oct_start = [1]
+lable = {init} position = {2321} bl = [1]
+	pos_write = {2372} oct_count = {2} oct_start = [1]
+lable = {code} position = {2279} bl = [1]
+	pos_write = {2497} oct_count = {2} oct_start = [4]
+	pos_write = {2468} oct_count = {2} oct_start = [4]
+	pos_write = {2439} oct_count = {2} oct_start = [4]
+	pos_write = {2402} oct_count = {2} oct_start = [4]
+	pos_write = {2317} oct_count = {2} oct_start = [3]
+	pos_write = {2310} oct_count = {2} oct_start = [3]
+	pos_write = {2303} oct_count = {2} oct_start = [3]
+	pos_write = {2296} oct_count = {2} oct_start = [3]
+	pos_write = {2289} oct_count = {2} oct_start = [3]
+	pos_write = {2282} oct_count = {2} oct_start = [3]
+lable = {avantdebt} position = {2279} bl = [1]
+	pos_write = {2200} oct_count = {2} oct_start = [1]
+lable = {label} position = {2199} bl = [1]
+	pos_write = {2515} oct_count = {2} oct_start = [1]
+	pos_write = {2486} oct_count = {2} oct_start = [1]
+	pos_write = {2457} oct_count = {2} oct_start = [1]
+	pos_write = {2420} oct_count = {2} oct_start = [1]
+	pos_write = {2357} oct_count = {2} oct_start = [3]
+Write count oct {2}
+Operation zjmp finish.------------------------------------
+line = {}
+line = {}
+line = {}
+Write count oct {4}
+num = [61], position = {2488} gab->pos_write = [2428], gab->oct_start = {1}
+Write count oct {2}
+num = [69], position = {2459} gab->pos_write = [2391], gab->oct_start = {1}
+Write count oct {2}
+num = [40], position = {2422} gab->pos_write = [2383], gab->oct_start = {1}
+Write count oct {2}
+num = [-25], position = {2349} gab->pos_write = [2375], gab->oct_start = {1}
+Write count oct {2}
+num = [-50], position = {2321} gab->pos_write = [2372], gab->oct_start = {1}
+Write count oct {2}
+num = [-214], position = {2279} gab->pos_write = [2497], gab->oct_start = {4}
+Write count oct {2}
+num = [-185], position = {2279} gab->pos_write = [2468], gab->oct_start = {4}
+Write count oct {2}
+num = [-156], position = {2279} gab->pos_write = [2439], gab->oct_start = {4}
+Write count oct {2}
+num = [-119], position = {2279} gab->pos_write = [2402], gab->oct_start = {4}
+Write count oct {2}
+num = [-35], position = {2279} gab->pos_write = [2317], gab->oct_start = {3}
+Write count oct {2}
+num = [-28], position = {2279} gab->pos_write = [2310], gab->oct_start = {3}
+Write count oct {2}
+num = [-21], position = {2279} gab->pos_write = [2303], gab->oct_start = {3}
+Write count oct {2}
+num = [-14], position = {2279} gab->pos_write = [2296], gab->oct_start = {3}
+Write count oct {2}
+num = [-7], position = {2279} gab->pos_write = [2289], gab->oct_start = {3}
+Write count oct {2}
+num = [0], position = {2279} gab->pos_write = [2282], gab->oct_start = {3}
+Write count oct {2}
+num = [80], position = {2279} gab->pos_write = [2200], gab->oct_start = {1}
+Write count oct {2}
+num = [-315], position = {2199} gab->pos_write = [2515], gab->oct_start = {1}
+Write count oct {2}
+num = [-286], position = {2199} gab->pos_write = [2486], gab->oct_start = {1}
+Write count oct {2}
+num = [-257], position = {2199} gab->pos_write = [2457], gab->oct_start = {1}
+Write count oct {2}
+num = [-220], position = {2199} gab->pos_write = [2420], gab->oct_start = {1}
+Write count oct {2}
+num = [-155], position = {2199} gab->pos_write = [2357], gab->oct_start = {3}
+Write count oct {2}

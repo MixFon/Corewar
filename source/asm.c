@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 09:18:01 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/23 12:50:45 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/23 14:32:34 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -272,7 +272,7 @@ t_lbl	*create_lable(char *start, char *end)
 	return (new);
 }
 
-int		search_dub_lable(t_lbl *lbl, char *start, char *line)
+int		search_dub_lable(t_assm *assm, t_lbl *lbl, char *start, char *line)
 {
 	t_lbl	*temp;
 	int		len;
@@ -288,7 +288,10 @@ int		search_dub_lable(t_lbl *lbl, char *start, char *line)
 		if (!(ft_strncmp(start, lbl->name, len_str)))
 		{
 			if (lbl->bl == 0)
+			{
+				lbl->position = assm->pos_glob;
 				lbl->bl = 1;
+			}
 			return (1);
 		}
 		lbl = lbl->next;
@@ -305,7 +308,7 @@ void	add_lable_list(t_assm *assm, char *start, char *line)
 		assm->lbl = create_lable(start, line);
 		return ;
 	}
-	if (search_dub_lable(assm->lbl, start, line))
+	if (search_dub_lable(assm, assm->lbl, start, line))
 		return ;
 	lbl = create_lable(start, line);
 	lbl->next = assm->lbl;
@@ -453,6 +456,12 @@ char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
 			error("Error argument", assm);
 		if (*start == ',')
 			return (start);
+		if (*start == '#')
+		{
+			while (*start)
+				start++;
+			return (start);
+		}
 		if (*start == '\0')
 			continue ;
 		start++;
@@ -575,6 +584,16 @@ void	check_op_add_sub_arg(t_assm *assm, t_opr *opr)
 		error("Error three arguments opiration.", assm);
 }
 
+void	check_op_sti_arg(t_assm *assm, t_opr *opr)
+{
+	if (opr->count_args != 3)
+		error("Error arguments opiration.", assm);
+	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_DIR)
+		error("Error first arguments opiration.", assm);
+	if (opr->three.bl_ind == C_IND)
+		error("Error three arguments opiration.", assm);
+}
+
 unsigned char get_code_arg(t_opr *opr)
 {
 	unsigned char code;
@@ -627,7 +646,7 @@ t_lbl	*get_lbl(t_lbl **lbl, char *lable)
 	temp->next = *lbl;
 	*lbl = temp;
 	(*lbl)->bl = 0;
-	(*lbl)->position = 0;
+	(*lbl)->position = -1;
 	ft_printf("Lable {%s} not find\n", lable);
 	ft_printf("Create {%s}\n", lable);
 	return (temp);
@@ -983,6 +1002,24 @@ void	op_lld(t_assm *assm, t_opr *opr)
 	ft_putendl("Operation lld finish.------------------------------------");
 }
 
+void	op_sti(t_assm *assm, t_opr *opr)
+{
+	unsigned char code_args;
+
+	check_op_sti_arg(assm, opr);
+	code_args = get_code_arg(opr);
+	ft_putchar_fd(0x0b, assm->fd_cor);
+	ft_putchar_fd(code_args, assm->fd_cor);
+	assm->pos_glob += 2;
+	opr->info.oct_start = 2;
+	opr->info.size_dir = 2;
+	opr->info.bl_code_arg = 1;
+	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->three);
+	ft_putendl("Operation sti finish.------------------------------------");
+}
+
 void	delete_opr(t_opr **opr)
 {
 	ft_strdel(&(*opr)->fir.lable);
@@ -1062,6 +1099,8 @@ void	three_char_operator(t_assm *assm, char *start)
 		op_ldi(assm, opr);
 	else if (!(ft_strncmp(start, "lld", up)))
 		op_lld(assm, opr);
+	else if (!(ft_strncmp(start, "sti", up)))
+		op_sti(assm, opr);
 	else
 		error("Error operator.", assm);
 	delete_opr(&opr);
@@ -1182,13 +1221,15 @@ int	get_figur_write(size_t position, t_gab *gab)
 	int	num;	
 
 	num = position - gab->pos_write + gab->oct_start;
+	ft_printf("num = [%d], position = {%d} gab->pos_write = [%d], gab->oct_start = {%d}\n",
+		num, position, gab->pos_write, gab->oct_start);
 	return (num);
 }
 
 void	write_in_position(t_lbl *lbl, int fd_cor)
 {
-	t_gab *gab;
-	int		b;
+	t_gab	*gab;
+	short		b;
 
 	gab = lbl->gab;
 	while (gab)
@@ -1209,7 +1250,7 @@ void	weite_figur_lable(t_assm *assm)
 	while (lbl)
 	{
 		if (lbl->bl == 0)
-			sys_err("Seek Error\n");
+			sys_err("Not lable Error\n");
 		write_in_position(lbl, assm->fd_cor);
 		lbl = lbl->next;
 	}

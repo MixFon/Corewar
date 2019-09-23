@@ -1,6 +1,6 @@
 #include "../include/asm.h"
 
-void	write_big_endian(int fd, void *bits, int len_bits)
+static void	wwrite_big_endian(int fd, void *bits, int len_bits)
 {
 	while (len_bits > 0)
 	{
@@ -18,7 +18,7 @@ int main(void)
 	short 	dir = 0x10;
 	short 	ind = 0x0;
 	char	c = 0x11;
-	int b = -20;
+	int b = -316;
 	unsigned char endian[4] = {1, 0,0, 0};
 	short x;
 	 
@@ -30,12 +30,15 @@ int main(void)
 	//b = b >> 1;
 	//b = 19;
 	//a = ~a + 1;
-	while (++b < 19)
-		ft_printf("b = {%d} [%#x}\n",b, b);
-	/*
 	if (!(fd = open(name_cor, O_WRONLY | O_TRUNC | O_CREAT,
 					S_IREAD | S_IWRITE)))
 		ft_putendl("Not file");
+	while (++b < 19)
+	{
+		wwrite_big_endian(fd, &b, 2);
+		ft_printf("b = {%d} [%#x}\n",b, b);
+	}
+	/*
 	write_big_endian(fd, &b, (sizeof(b)));
 	*/
 	//write_big_endian(fd, &a, (sizeof(a)));
