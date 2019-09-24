@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/24 12:54:32 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/24 17:16:28 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -842,7 +842,7 @@ void	op_zjmp(t_assm *assm, t_opr *opr)
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x09, assm->fd_cor);
 	assm->pos_glob += 1;
-	opr->info.oct_start = 0;
+	opr->info.oct_start = 1;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 0;
 	all_arg(assm, &opr->info, &opr->fir);
@@ -1028,13 +1028,45 @@ void	delete_opr(t_opr **opr)
 	free(*opr);
 }
 
+void	op_all(t_assm *assm, t_opr *opr, int code, void (*func)(t_assm*, t_opr*))
+{
+	unsigned char	code_args;
+	int				temp;
+
+	(*func)(assm, opr);
+	code_args = get_code_arg(opr);
+	temp = code & 0xff;
+	ft_putchar_fd(temp, assm->fd_cor);
+	ft_printf("code_op {%#x}\n", temp);
+
+	ft_putchar_fd(code_args, assm->fd_cor);
+
+	temp = (code >> 8) & 0xf;
+	assm->pos_glob += temp;
+	opr->info.oct_start = temp;
+	ft_printf("oct_start pos_glob >> 8 {%#x}\n", temp);
+
+	temp = (code >> 12) & 0xf;
+	opr->info.size_dir = temp;
+	ft_printf("DIT_SIZE >> 12 {%#x}\n", temp);
+
+	temp = (code >> 16) & 0xf;
+	opr->info.bl_code_arg = temp;
+	ft_printf("lb_code_arg >> 16 {%#x}\n", temp);
+	
+	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->sec);
+	ft_putendl("Operation lld finish.------------------------------------");
+}
+
 void	two_char_operator(t_assm *assm, char *start)
 {	
 	t_opr *opr;
 
 	opr = get_arg_opr(assm, start + 2);
 	if (!(ft_strncmp(start, "ld", 2)))
-		op_ld(assm, opr);
+		op_all(assm, opr, 0x14202, check_op_ld_lld_arg);
+		//op_ld(assm, opr);
 	else if (!(ft_strncmp(start, "st", 2)))
 		op_st(assm, opr);
 	else if (!(ft_strncmp(start, "or", 2)))
