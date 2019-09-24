@@ -5,20 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/23 09:18:01 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/23 17:21:25 by widraugr         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   asm.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/23 09:17:55 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/24 12:54:32 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,10 +280,13 @@ int		search_dub_lable(t_assm *assm, t_lbl *lbl, char *start, char *line)
 				lbl->position = assm->pos_glob;
 				lbl->bl = 1;
 			}
+			ft_printf("Finde DUB = {%s}, lbl->name [%s], len_str [%d]\n", start, lbl->name, len_str);
+			ft_putendl("Dublicut finde.");
 			return (1);
 		}
 		lbl = lbl->next;
 	}
+	ft_putendl("Dublicut NOT finde.");
 	return (0);
 }
 
@@ -306,6 +297,8 @@ void	add_lable_list(t_assm *assm, char *start, char *line)
 	if (!assm->lbl)
 	{
 		assm->lbl = create_lable(start, line);
+		assm->lbl->bl = 1;
+		assm->lbl->position = assm->pos_glob;
 		return ;
 	}
 	if (search_dub_lable(assm, assm->lbl, start, line))
@@ -313,6 +306,8 @@ void	add_lable_list(t_assm *assm, char *start, char *line)
 	lbl = create_lable(start, line);
 	lbl->next = assm->lbl;
 	assm->lbl = lbl;
+	assm->lbl->bl = 1;
+	assm->lbl->position = assm->pos_glob;
 }
 
 void	print_gab_list(t_gab *gab)
@@ -320,7 +315,7 @@ void	print_gab_list(t_gab *gab)
 	while (gab != NULL)
 	{
 		ft_printf("\tpos_write = {%d} oct_count = {%d} oct_start = [%d]\n",
-			gab->pos_write, gab->oct_count, gab->oct_start);
+			gab->pos_write - LEN_HEAD, gab->oct_count, gab->oct_start);
 		gab = gab->next;
 	}
 }
@@ -330,7 +325,7 @@ void	print_list(t_lbl *lbl)
 	ft_putendl("List:");
 	while (lbl)
 	{	
-		ft_printf("lable = {%s} position = {%d} bl = [%d]\n", lbl->name, lbl->position, lbl->bl);
+		ft_printf("lable = {%s} position = {%d} bl = [%d]\n", lbl->name, lbl->position - LEN_HEAD, lbl->bl);
 		print_gab_list(lbl->gab);
 		lbl = lbl->next;
 	}
@@ -341,8 +336,13 @@ void	working_lable(t_assm *assm, char *start, char *line)
 	//write(1, start, line - start);
 	check_lable(assm, start, line);
 	add_lable_list(assm, start, line);
-	assm->lbl->bl = 1;
-	assm->lbl->position = assm->pos_glob;
+	/*
+	if (assm->lbl->bl == 0)
+	{
+		assm->lbl->bl = 1;
+		assm->lbl->position = assm->pos_glob;
+	}
+	*/
 	print_list(assm->lbl);
 	working_instruction(assm, line + 1);
 }
@@ -409,7 +409,7 @@ char	*read_reg_adg(t_arg *arg, char *start)
 		sys_err("Error registr.\n");
 	arg->bl_reg = C_REG;
 	arg->reg = ft_atoi(start);
-	if (arg->reg >= REG_NUMBER || arg->reg <= 0)
+	if (arg->reg > REG_NUMBER || arg->reg <= 0)
 		sys_err("Error number registr\n");
 	while (ft_isdigit(*start))
 		start++;
@@ -646,7 +646,7 @@ t_lbl	*get_lbl(t_lbl **lbl, char *lable)
 	temp->next = *lbl;
 	*lbl = temp;
 	(*lbl)->bl = 0;
-	(*lbl)->position = 0;
+	(*lbl)->position = LEN_HEAD;
 	ft_printf("Lable {%s} not find\n", lable);
 	ft_printf("Create {%s}\n", lable);
 	return (temp);
@@ -668,7 +668,7 @@ t_gab	*new_gab(t_assm *assm,t_info **info, t_arg *arg)
 		new->oct_start = (*info)->oct_start;
 		new->oct_count = 2;
 	}
-	else if (arg->bl_ind != 0)
+	else if (arg->bl_reg != 0)
 	{
 		new->oct_start = (*info)->oct_start;
 		new->oct_count = 1;
@@ -842,7 +842,7 @@ void	op_zjmp(t_assm *assm, t_opr *opr)
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x09, assm->fd_cor);
 	assm->pos_glob += 1;
-	opr->info.oct_start = 1;
+	opr->info.oct_start = 0;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 0;
 	all_arg(assm, &opr->info, &opr->fir);
@@ -1148,6 +1148,10 @@ void	instruction(t_assm *assm, char *line)
 	}
 }
 
+/*
+** 1 если это печатный символ, кроме пробела.
+*/
+
 int		isprint_char(int c)
 {
 	if (c >= 33 && c <= 126)
@@ -1221,21 +1225,22 @@ int	get_figur_write(size_t position, t_gab *gab)
 	int	num;	
 
 	num = position - gab->pos_write + gab->oct_start;
-	ft_printf("num = [%d], position = {%d} gab->pos_write = [%d], gab->oct_start = {%d}\n",
-		num, position, gab->pos_write, gab->oct_start);
+	ft_printf("num = [%d], numHex = [%#x] position = {%d} gab->pos_write = [%d], gab->oct_start = {%d}\n",
+		num, num, position - LEN_HEAD, gab->pos_write - LEN_HEAD, gab->oct_start);
 	return (num);
 }
 
 void	write_in_position(t_lbl *lbl, int fd_cor)
 {
 	t_gab	*gab;
-	short		b;
+	int		b;
 
 	gab = lbl->gab;
 	while (gab)
 	{
 		if (lseek(fd_cor, gab->pos_write, SEEK_SET) == -1L)
 			sys_err("Seek Error\n");
+		ft_putendl(lbl->name);
 		b = get_figur_write(lbl->position, gab);
 		write_big_endian(fd_cor, &b, gab->oct_count);
 		gab = gab->next;
