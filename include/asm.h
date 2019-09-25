@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/24 14:41:25 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/25 10:44:18 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ typedef struct		s_info
 
 typedef struct		s_opr
 {
-	t_arg			fir;
-	t_arg			sec;
-	t_arg			three;
+	t_arg			args[3];
+	//t_arg			fir;
+	//t_arg			sec;
+	//t_arg			three;
 	short			count_args;
 	struct s_info	info;
 }					t_opr;

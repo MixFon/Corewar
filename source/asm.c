@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/24 17:16:28 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/25 11:12:37 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -367,9 +367,9 @@ void	init_arg(t_arg *arg)
 
 void	init_opt(t_opr *opr)
 {
-	init_arg(&opr->fir);
-	init_arg(&opr->sec);
-	init_arg(&opr->three);
+	init_arg(&opr->args[0]);
+	init_arg(&opr->args[1]);
+	init_arg(&opr->args[2]);
 	opr->count_args = 1;
 	opr->info.size_dir = 0;
 	opr->info.bl_code_arg = 0;
@@ -399,7 +399,7 @@ char	*read_ind_adg(t_assm *assm, t_arg *arg, char *start)
 	arg->ind = ft_atoi(start);
 	while (ft_isdigit(*start) || *start == '-')
 		start++;
-	//ft_printf("start = !{%s}! fir.ind [%d]\n", start, opr->fir.ind);
+	//ft_printf("start = !{%s}! args[0].ind [%d]\n", start, opr->args[0].ind);
 	return (start);
 }
 
@@ -413,7 +413,7 @@ char	*read_reg_adg(t_arg *arg, char *start)
 		sys_err("Error number registr\n");
 	while (ft_isdigit(*start))
 		start++;
-	//ft_printf("start = !{%s}! fir.reg [%d]\n", start, opr->fir.reg);
+	//ft_printf("start = !{%s}! args[0].reg [%d]\n", start, opr->args[0].reg);
 	return (start);
 }
 
@@ -427,7 +427,7 @@ char	*read_dir_adg(t_assm *assm, t_arg *arg, char *start)
 		start = create_lable_arg(start + 1, arg);
 	while (ft_isdigit(*start) || *start == '-')
 		start++;
-	//ft_printf("start = !{%s}! fir.reg [%d]\n", start, opr->fir.reg);
+	//ft_printf("start = !{%s}! args[0].reg [%d]\n", start, opr->args[0].reg);
 	return (start);
 }
 
@@ -435,11 +435,11 @@ void	print_opr(t_opr *opr)
 {
 	ft_printf("Count args = {%d}\n", opr->count_args);
 	ft_printf("Arg1 dir {%d} ind  [%d]  reg  [%d] bl_ind [%d] bl_dir [%d] bl_reg [%d] lable {%s}\n",
-			opr->fir.dir, opr->fir.ind, opr->fir.reg, opr->fir.bl_ind, opr->fir.bl_dir, opr->fir.bl_reg, opr->fir.lable);
+			opr->args[0].dir, opr->args[0].ind, opr->args[0].reg, opr->args[0].bl_ind, opr->args[0].bl_dir, opr->args[0].bl_reg, opr->args[0].lable);
 	ft_printf("Arg2 dir {%d} ind  [%d]  reg  [%d] bl_ind [%d] bl_dir [%d] bl_reg [%d] lable {%s}\n",
-			opr->sec.dir, opr->sec.ind, opr->sec.reg, opr->sec.bl_ind, opr->sec.bl_dir, opr->sec.bl_reg, opr->sec.lable);
+			opr->args[1].dir, opr->args[1].ind, opr->args[1].reg, opr->args[1].bl_ind, opr->args[1].bl_dir, opr->args[1].bl_reg, opr->args[1].lable);
 	ft_printf("Arg3 dir {%d} ind  [%d]  reg  [%d] bl_ind [%d] bl_dir [%d] bl_reg [%d] lable {%s}\n",
-			opr->three.dir, opr->three.ind, opr->three.reg, opr->three.bl_ind, opr->three.bl_dir, opr->three.bl_reg, opr->three.lable);
+			opr->args[2].dir, opr->args[2].ind, opr->args[2].reg, opr->args[2].bl_ind, opr->args[2].bl_dir, opr->args[2].bl_reg, opr->args[2].lable);
 }
 
 char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
@@ -476,19 +476,19 @@ t_opr	*get_arg_opr(t_assm *assm, char *start)
 	if(!(opr = (t_opr *)malloc(sizeof(t_opr))))
 		sys_err("Error malloc\n");
 	init_opt(opr);
-	start = read_arguments(assm, &opr->fir, start);
+	start = read_arguments(assm, &opr->args[0], start);
 	if (*start == ',')
 	{
 		start++;
 		opr->count_args++;
 	}
-	start = read_arguments(assm, &opr->sec, start);
+	start = read_arguments(assm, &opr->args[1], start);
 	if (*start == ',')
 	{
 		start++;
 		opr->count_args++;
 	}
-	start = read_arguments(assm, &opr->three, start);
+	start = read_arguments(assm, &opr->args[2], start);
 	print_opr(opr);
 	//error("Error operator.", assm);
 	return (opr);
@@ -498,11 +498,11 @@ void	check_op_ld_lld_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 2)
 		error("Error arguments opiration.", assm);
-	if (opr->fir.bl_reg == C_REG)
-		error("Error first arguments opiration.", assm);
-	if (opr->sec.bl_ind == C_IND || opr->sec.bl_dir == C_DIR)
-		error("Error second arguments opiration.", assm);
-	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
+	if (opr->args[0].bl_reg == C_REG)
+		error("Error args[0]st arguments opiration.", assm);
+	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR)
+		error("Error args[1]ond arguments opiration.", assm);
+	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -510,11 +510,11 @@ void	check_op_st_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 2)
 		error("Error arguments opiration.", assm);
-	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_DIR)
+	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
-	if (opr->sec.bl_dir == C_DIR)
+	if (opr->args[1].bl_dir == C_DIR)
 		error("Error second arguments opiration.", assm);
-	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
+	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -526,7 +526,7 @@ void	check_op_or_xor_and_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
-	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND)
+	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -538,9 +538,9 @@ void	check_op_ldi_lldi_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
-	if (opr->sec.bl_ind == C_IND)
+	if (opr->args[1].bl_ind == C_IND)
 		error("Error second arguments opiration.", assm);
-	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND)
+	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -552,11 +552,11 @@ void	check_op_fork_lfork_zjmp_live_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 1)
 		error("Error arguments opiration.", assm);
-	if (opr->fir.bl_ind == C_IND || opr->fir.bl_reg == C_REG)
+	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_reg == C_REG)
 		error("Error first arguments opiration.", assm);
-	if (opr->sec.bl_ind == C_IND || opr->sec.bl_dir == C_DIR || opr->sec.bl_reg == C_REG)
+	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR || opr->args[1].bl_reg == C_REG)
 		error("Error second arguments opiration.", assm);
-	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
+	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -564,11 +564,11 @@ void	check_op_aff_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 1)
 		error("Error arguments opiration.", assm);
-	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_DIR)
+	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
-	if (opr->sec.bl_ind == C_IND || opr->sec.bl_dir == C_DIR || opr->sec.bl_reg == C_REG)
+	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR || opr->args[1].bl_reg == C_REG)
 		error("Error second arguments opiration.", assm);
-	if (opr->three.bl_dir == C_DIR || opr->three.bl_ind == C_IND || opr->three.bl_reg == C_REG)
+	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -576,11 +576,11 @@ void	check_op_add_sub_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
-	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_DIR)
+	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
-	if (opr->sec.bl_ind == C_IND || opr->sec.bl_dir == C_DIR)
+	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR)
 		error("Error second arguments opiration.", assm);
-	if (opr->three.bl_ind == C_IND || opr->three.bl_dir == C_DIR)
+	if (opr->args[2].bl_ind == C_IND || opr->args[2].bl_dir == C_DIR)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -588,9 +588,9 @@ void	check_op_sti_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
-	if (opr->fir.bl_ind == C_IND || opr->fir.bl_dir == C_DIR)
+	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
-	if (opr->three.bl_ind == C_IND)
+	if (opr->args[2].bl_ind == C_IND)
 		error("Error three arguments opiration.", assm);
 }
 
@@ -598,15 +598,15 @@ unsigned char get_code_arg(t_opr *opr)
 {
 	unsigned char code;
 
-	code = opr->fir.bl_ind | opr->fir.bl_dir | opr->fir.bl_reg;
+	code = opr->args[0].bl_ind | opr->args[0].bl_dir | opr->args[0].bl_reg;
 	ft_printf("code = {%#x}\n", code);
 	code = code << 2;	
 	ft_printf("code = {%#x}\n", code);
-	code = code | opr->sec.bl_ind | opr->sec.bl_dir | opr->sec.bl_reg;
+	code = code | opr->args[1].bl_ind | opr->args[1].bl_dir | opr->args[1].bl_reg;
 	ft_printf("code = {%#x}\n", code);
 	code = code << 2;	
 	ft_printf("code = {%#x}\n", code);
-	code = code | opr->three.bl_ind | opr->three.bl_dir | opr->three.bl_reg;
+	code = code | opr->args[2].bl_ind | opr->args[2].bl_dir | opr->args[2].bl_reg;
 	ft_printf("code = {%#x}\n", code);
 	code = code << 2;	
 	ft_printf("code = {%#x}\n", code);
@@ -761,8 +761,8 @@ void	op_ld(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
 	ft_putendl("Operation ld finish.------------------------------------");
 }
 
@@ -778,8 +778,8 @@ void	op_st(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
 	ft_putendl("Operation st finish.------------------------------------");
 }
 
@@ -795,9 +795,9 @@ void	op_or(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
-	all_arg(assm, &opr->info, &opr->three);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
+	all_arg(assm, &opr->info, &opr->args[2]);
 	ft_putendl("Operation or finish.------------------------------------");
 }
 
@@ -813,9 +813,9 @@ void	op_lldi(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
-	all_arg(assm, &opr->info, &opr->three);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
+	all_arg(assm, &opr->info, &opr->args[2]);
 	ft_putendl("Operation lldi finish.------------------------------------");
 }
 
@@ -823,14 +823,14 @@ void	op_fork(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	check_op_fork_lfork_zjmp_live_arg(assm, opr);
+	//check_op_fork_lfork_zjmp_live_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x0c, assm->fd_cor);
 	assm->pos_glob += 1;
 	opr->info.oct_start = 1;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 0;
-	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->args[0]);
 	ft_putendl("Operation fork finish.------------------------------------");
 }
 
@@ -838,14 +838,14 @@ void	op_zjmp(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	check_op_fork_lfork_zjmp_live_arg(assm, opr);
+	//check_op_fork_lfork_zjmp_live_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x09, assm->fd_cor);
 	assm->pos_glob += 1;
 	opr->info.oct_start = 1;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 0;
-	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->args[0]);
 	ft_putendl("Operation zjmp finish.------------------------------------");
 }
 
@@ -853,14 +853,14 @@ void	op_live(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	check_op_fork_lfork_zjmp_live_arg(assm, opr);
+	//check_op_fork_lfork_zjmp_live_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x01, assm->fd_cor);
 	assm->pos_glob += 1;
 	opr->info.oct_start = 1;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 0;
-	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->args[0]);
 	ft_putendl("Operation live finish.------------------------------------");
 }
 
@@ -868,14 +868,14 @@ void	op_lfork(t_assm *assm, t_opr *opr)
 {
 	unsigned char code_args;
 
-	check_op_fork_lfork_zjmp_live_arg(assm, opr);
+	//check_op_fork_lfork_zjmp_live_arg(assm, opr);
 	code_args = get_code_arg(opr);
 	ft_putchar_fd(0x0f, assm->fd_cor);
 	assm->pos_glob += 1;
 	opr->info.oct_start = 1;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 0;
-	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->args[0]);
 	ft_putendl("Operation lfork finish.------------------------------------");
 }
 
@@ -891,7 +891,7 @@ void	op_aff(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
+	all_arg(assm, &opr->info, &opr->args[0]);
 	ft_putendl("Operation aff finish.------------------------------------");
 }
 
@@ -907,9 +907,9 @@ void	op_add(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
-	all_arg(assm, &opr->info, &opr->three);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
+	all_arg(assm, &opr->info, &opr->args[2]);
 	ft_putendl("Operation add finish.------------------------------------");
 }
 
@@ -925,9 +925,9 @@ void	op_sub(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
-	all_arg(assm, &opr->info, &opr->three);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
+	all_arg(assm, &opr->info, &opr->args[2]);
 	ft_putendl("Operation sub finish.------------------------------------");
 }
 
@@ -943,9 +943,9 @@ void	op_and(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
-	all_arg(assm, &opr->info, &opr->three);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
+	all_arg(assm, &opr->info, &opr->args[2]);
 	ft_putendl("Operation and finish.------------------------------------");
 }
 
@@ -961,9 +961,9 @@ void	op_xor(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
-	all_arg(assm, &opr->info, &opr->three);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
+	all_arg(assm, &opr->info, &opr->args[2]);
 	ft_putendl("Operation xor finish.------------------------------------");
 }
 
@@ -979,9 +979,9 @@ void	op_ldi(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
-	all_arg(assm, &opr->info, &opr->three);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
+	all_arg(assm, &opr->info, &opr->args[2]);
 	ft_putendl("Operation ldi finish.------------------------------------");
 }
 
@@ -997,8 +997,8 @@ void	op_lld(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = DIR_SIZE;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
 	ft_putendl("Operation lld finish.------------------------------------");
 }
 
@@ -1014,17 +1014,17 @@ void	op_sti(t_assm *assm, t_opr *opr)
 	opr->info.oct_start = 2;
 	opr->info.size_dir = 2;
 	opr->info.bl_code_arg = 1;
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
-	all_arg(assm, &opr->info, &opr->three);
+	all_arg(assm, &opr->info, &opr->args[0]);
+	all_arg(assm, &opr->info, &opr->args[1]);
+	all_arg(assm, &opr->info, &opr->args[2]);
 	ft_putendl("Operation sti finish.------------------------------------");
 }
 
 void	delete_opr(t_opr **opr)
 {
-	ft_strdel(&(*opr)->fir.lable);
-	ft_strdel(&(*opr)->sec.lable);
-	ft_strdel(&(*opr)->three.lable);
+	ft_strdel(&(*opr)->args[0].lable);
+	ft_strdel(&(*opr)->args[1].lable);
+	ft_strdel(&(*opr)->args[2].lable);
 	free(*opr);
 }
 
@@ -1032,14 +1032,21 @@ void	op_all(t_assm *assm, t_opr *opr, int code, void (*func)(t_assm*, t_opr*))
 {
 	unsigned char	code_args;
 	int				temp;
+	int				i;
 
+	i = -1;
 	(*func)(assm, opr);
 	code_args = get_code_arg(opr);
 	temp = code & 0xff;
 	ft_putchar_fd(temp, assm->fd_cor);
 	ft_printf("code_op {%#x}\n", temp);
 
-	ft_putchar_fd(code_args, assm->fd_cor);
+	temp = (code >> 16) & 0xf;
+	opr->info.bl_code_arg = temp;
+	ft_printf("lb_code_arg >> 16 {%#x}\n", temp);
+	
+	if (temp)
+		ft_putchar_fd(code_args, assm->fd_cor);
 
 	temp = (code >> 8) & 0xf;
 	assm->pos_glob += temp;
@@ -1050,12 +1057,15 @@ void	op_all(t_assm *assm, t_opr *opr, int code, void (*func)(t_assm*, t_opr*))
 	opr->info.size_dir = temp;
 	ft_printf("DIT_SIZE >> 12 {%#x}\n", temp);
 
-	temp = (code >> 16) & 0xf;
-	opr->info.bl_code_arg = temp;
-	ft_printf("lb_code_arg >> 16 {%#x}\n", temp);
-	
-	all_arg(assm, &opr->info, &opr->fir);
-	all_arg(assm, &opr->info, &opr->sec);
+	ft_printf("count args {%d}\n", opr->count_args);
+
+	while(--opr->count_args >= 0)
+	{
+		all_arg(assm, &opr->info, &opr->args[++i]);
+		ft_printf("i = {%d}\n", i);
+	}
+	//all_arg(assm, &opr->info, &opr->args[0]);
+	//all_arg(assm, &opr->info, &opr->args[1]);
 	ft_putendl("Operation lld finish.------------------------------------");
 }
 
@@ -1068,9 +1078,11 @@ void	two_char_operator(t_assm *assm, char *start)
 		op_all(assm, opr, 0x14202, check_op_ld_lld_arg);
 		//op_ld(assm, opr);
 	else if (!(ft_strncmp(start, "st", 2)))
-		op_st(assm, opr);
+		op_all(assm, opr, 0x14203, check_op_st_arg);
+		//op_st(assm, opr);
 	else if (!(ft_strncmp(start, "or", 2)))
-		op_or(assm, opr);
+		op_all(assm, opr, 0x14207, check_op_or_xor_and_arg);
+		//op_or(assm, opr);
 	else
 		error("Error operator.", assm);
 	delete_opr(&opr);
@@ -1084,15 +1096,19 @@ void	four_char_operator(t_assm *assm, char *start)
 	up = 4;
 	opr = get_arg_opr(assm, start + up);
 	if (!(ft_strncmp(start, "lldi", up)))
-		op_lldi(assm, opr);
+		op_all(assm, opr, 0x1220e, check_op_ldi_lldi_arg);
+		//op_lldi(assm, opr);
 	else if (!(ft_strncmp(start, "fork", up)))
-		op_fork(assm, opr);
+		op_all(assm, opr, 0x0210c, check_op_fork_lfork_zjmp_live_arg);
+		//op_fork(assm, opr);
 	else if (!(ft_strncmp(start, "zjmp", up)))
-		op_zjmp(assm, opr);
+		op_all(assm, opr, 0x02109, check_op_fork_lfork_zjmp_live_arg);
+		//op_zjmp(assm, opr);
 	else if (!(ft_strncmp(start, "live", up)))
-		op_live(assm, opr);
+		op_all(assm, opr, 0x04101, check_op_fork_lfork_zjmp_live_arg);
+		//op_live(assm, opr);
 	else
-		error("Error operator.", assm);
+		error("111Error operator.", assm);
 	delete_opr(&opr);
 }
 
@@ -1104,9 +1120,10 @@ void	five_char_operator(t_assm *assm, char *start)
 	up = 5;
 	opr = get_arg_opr(assm, start + up);
 	if (!(ft_strncmp(start, "lfork", up)))
-		op_lfork(assm, opr);
+		op_all(assm, opr, 0x0210f, check_op_fork_lfork_zjmp_live_arg);
+		//op_lfork(assm, opr);
 	else
-		error("Error operator.", assm);
+		error("||||Error operator.", assm);
 	delete_opr(&opr);
 }
 
@@ -1118,23 +1135,31 @@ void	three_char_operator(t_assm *assm, char *start)
 	up = 3;
 	opr = get_arg_opr(assm, start + up);
 	if (!(ft_strncmp(start, "aff", up)))
-		op_aff(assm, opr);
+		op_all(assm, opr, 0x14210, check_op_aff_arg);
+		//op_aff(assm, opr);
 	else if (!(ft_strncmp(start, "add", up)))
-		op_add(assm, opr);
+		op_all(assm, opr, 0x14204, check_op_add_sub_arg);
+		//op_add(assm, opr);
 	else if (!(ft_strncmp(start, "sub", up)))
-		op_sub(assm, opr);
+		op_all(assm, opr, 0x14205, check_op_add_sub_arg);
+		//op_sub(assm, opr);
 	else if (!(ft_strncmp(start, "and", up)))
-		op_and(assm, opr);
+		op_all(assm, opr, 0x14206, check_op_or_xor_and_arg);
+		//op_and(assm, opr);
 	else if (!(ft_strncmp(start, "xor", up)))
-		op_xor(assm, opr);
+		op_all(assm, opr, 0x14208, check_op_or_xor_and_arg);
+		//op_xor(assm, opr);
 	else if (!(ft_strncmp(start, "ldi", up)))
-		op_ldi(assm, opr);
+		op_all(assm, opr, 0x1220a, check_op_ldi_lldi_arg);
+		//op_ldi(assm, opr);
 	else if (!(ft_strncmp(start, "lld", up)))
-		op_lld(assm, opr);
+		op_all(assm, opr, 0x1420d, check_op_ld_lld_arg);
+		//op_lld(assm, opr);
 	else if (!(ft_strncmp(start, "sti", up)))
-		op_sti(assm, opr);
+		op_all(assm, opr, 0x1220b, check_op_sti_arg);
+		//op_sti(assm, opr);
 	else
-		error("Error operator.", assm);
+		error("!!Error operator.", assm);
 	delete_opr(&opr);
 }
 
@@ -1152,7 +1177,7 @@ void	working_operation(t_assm *assm, char *start, char *line)
 	else if (len == 5)
 		five_char_operator(assm, start);
 	else
-		error("Error operator.", assm);
+		error("????Error operator.", assm);
 }
 
 void	instruction(t_assm *assm, char *line)
@@ -1168,7 +1193,7 @@ void	instruction(t_assm *assm, char *line)
 			working_lable(assm, start, line);
 			return ;
 		}
-		if (*line == DIRECT_CHAR || *line == ' ')
+		if (*line == DIRECT_CHAR || *line == ' ' || *line == '\t')
 		{
 			ft_putendl("DIRECT_CHAR and SPACE");
 			working_operation(assm, start, line);
