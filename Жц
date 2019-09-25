@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/25 15:47:15 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/25 13:14:19 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,11 +200,14 @@ void	read_name_comment(t_assm *assm)
 		assm->counter_line++;
 		if (search_char(assm, line))
 		{
+			ft_printf("1111 = {%s}\n", line);
 			ft_strdel(&line);
 			break ;
 		}
+		ft_printf("2222 = {%s}\n", line);
 		ft_strdel(&line);
 	}
+	ft_printf("3333 = {%s}\n", line);
 	ft_strdel(&line);
 }
 
@@ -330,8 +333,16 @@ void	print_list(t_lbl *lbl)
 
 void	working_lable(t_assm *assm, char *start, char *line)
 {
+	//write(1, start, line - start);
 	check_lable(assm, start, line);
 	add_lable_list(assm, start, line);
+	/*
+	if (assm->lbl->bl == 0)
+	{
+		assm->lbl->bl = 1;
+		assm->lbl->position = assm->pos_glob;
+	}
+	*/
 	print_list(assm->lbl);
 	working_instruction(assm, line + 1);
 }
@@ -388,6 +399,7 @@ char	*read_ind_adg(t_assm *assm, t_arg *arg, char *start)
 	arg->ind = ft_atoi(start);
 	while (ft_isdigit(*start) || *start == '-')
 		start++;
+	//ft_printf("start = !{%s}! args[0].ind [%d]\n", start, opr->args[0].ind);
 	return (start);
 }
 
@@ -401,6 +413,7 @@ char	*read_reg_adg(t_arg *arg, char *start)
 		sys_err("Error number registr\n");
 	while (ft_isdigit(*start))
 		start++;
+	//ft_printf("start = !{%s}! args[0].reg [%d]\n", start, opr->args[0].reg);
 	return (start);
 }
 
@@ -477,6 +490,7 @@ t_opr	*get_arg_opr(t_assm *assm, char *start)
 	}
 	start = read_arguments(assm, &opr->args[2], start);
 	print_opr(opr);
+	//error("Error operator.", assm);
 	return (opr);
 }
 
@@ -500,12 +514,10 @@ void	check_op_st_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 2)
 		error("Error arguments opiration.", assm);
-	if (opr->args[0].bl_reg == 0)
+	if (opr->args[0].bl_reg == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
-	if (opr->args[1].bl_reg == 0 && opr->args[1].bl_ind == 0)
-		error("Error second arguments opiration.", assm);
 	if (opr->args[1].bl_dir == C_DIR)
 		error("Error second arguments opiration.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
@@ -520,14 +532,6 @@ void	check_op_or_xor_and_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
-	if (opr->args[0].bl_reg == 0 && opr->args[0].bl_ind == 0 &&
-			opr->args[0].bl_dir == 0 )
-		error("Error first arguments opiration.", assm);
-	if (opr->args[1].bl_reg == 0 && opr->args[1].bl_ind == 0 &&
-			opr->args[1].bl_dir == 0 )
-		error("Error second arguments opiration.", assm);
-	if (opr->args[2].bl_reg == 0)
-		error("Error three arguments opiration.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND)
 		error("Error three arguments opiration.", assm);
 }
@@ -540,13 +544,6 @@ void	check_op_ldi_lldi_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
-	if (opr->args[0].bl_reg == 0 && opr->args[0].bl_ind == 0 &&
-			opr->args[0].bl_dir == 0 )
-		error("Error first arguments opiration.", assm);
-	if (opr->args[1].bl_reg == 0 && opr->args[1].bl_dir == 0 )
-		error("Error second arguments opiration.", assm);
-	if (opr->args[2].bl_reg == 0)
-		error("Error three arguments opiration.", assm);
 	if (opr->args[1].bl_ind == C_IND)
 		error("Error second arguments opiration.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND)
@@ -561,8 +558,6 @@ void	check_op_fork_lfork_zjmp_live_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 1)
 		error("Error arguments opiration.", assm);
-	if (opr->args[0].bl_dir == 0)
-		error("Error first arguments opiration.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_reg == C_REG)
 		error("Error first arguments opiration.", assm);
 	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR || opr->args[1].bl_reg == C_REG)
@@ -575,8 +570,6 @@ void	check_op_aff_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 1)
 		error("Error arguments opiration.", assm);
-	if (opr->args[0].bl_reg == 0)
-		error("Error first arguments opiration.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
 	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR || opr->args[1].bl_reg == C_REG)
@@ -589,16 +582,10 @@ void	check_op_add_sub_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
-	if (opr->args[0].bl_reg == 0)
-		error("Error first arguments opiration.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
-	if (opr->args[1].bl_reg == 0)
-		error("Error second arguments opiration.", assm);
 	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR)
 		error("Error second arguments opiration.", assm);
-	if (opr->args[2].bl_reg == 0)
-		error("Error three arguments opiration.", assm);
 	if (opr->args[2].bl_ind == C_IND || opr->args[2].bl_dir == C_DIR)
 		error("Error three arguments opiration.", assm);
 }
@@ -607,14 +594,8 @@ void	check_op_sti_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
 		error("Error arguments opiration.", assm);
-	if (opr->args[0].bl_reg == 0)
-		error("Error first arguments opiration.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
 		error("Error first arguments opiration.", assm);
-	if (opr->args[1].bl_reg == 0 && opr->args[1].bl_dir == 0 && opr->args[1].bl_ind == 0)
-		error("Error second arguments opiration.", assm);
-	if (opr->args[2].bl_reg == 0 && opr->args[2].bl_dir == 0)
-		error("Error three arguments opiration.", assm);
 	if (opr->args[2].bl_ind == C_IND)
 		error("Error three arguments opiration.", assm);
 }

@@ -7,7 +7,7 @@
 .comment	"Jour J"
 
 buff:
-	sti	  r2, %23, r3
+	sti	  r3, 3, %3
 	or	  r2, %23, r3
 	or	  r2, r2, r3
 	or	  %24, %32, r5
@@ -15,6 +15,8 @@ buff:
 	or	  11, 22, r5
 	or	  :buff, :buff, r5
 
+	st r2, r4
+	st r2, 45
 	xor	  r2, %-23, r3
 	xor	  r2, r2, r3
 	xor	  %24, %32, r5
