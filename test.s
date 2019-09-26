@@ -3,12 +3,12 @@
 # l'annee derniere
 #     VOALA
 #
-.name		"Celebration Funebre v0.99pl42"
+.name		"Celebration Funebrev0.99pl42"
 .comment	"Jour J"
 
 buff:
-	sti	  r3, 3, %3
-	or	  r2, %23, r3
+	sti	  4, 3, %3
+	or	  r2, %23, r99
 	or	  r2, r2, r3
 	or	  %24, %32, r5
 	or	  %:buff, %:buff, r5

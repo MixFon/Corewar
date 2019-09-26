@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/25 15:10:21 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/26 16:51:37 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ typedef struct	s_assm
 {
 	int				fd_cor;
 	int				fd_s;
+	char			*name_cor;
 	size_t			pos_glob;
 	size_t			counter_line;
-	size_t			counter_column;
 	t_header_s		head;
 	struct s_lbl	*lbl;
 }					t_assm;
@@ -83,5 +83,6 @@ typedef struct		s_opr
 
 int		write_big_endian(int fd, void *bits, int len_bits);
 void	working_instruction(t_assm *assm, char *line);
+int		isprint_char(int c);
 
 #endif

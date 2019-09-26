@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/25 15:47:15 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/09/26 16:51:35 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ char	*dot_cor(char *name)
 void	init(t_assm *assm)
 {
 	assm->counter_line = 0;
-	assm->counter_column = 1;
 	assm->pos_glob = LEN_HEAD;
 	assm->lbl = NULL;
 	ft_memset(assm->head.prog_name, 0x00, PROG_NAME_LENGTH);
@@ -76,13 +75,15 @@ void	write_header(t_assm *assm)
 
 void	close_files(t_assm *assm)
 {
+	ft_strdel(&assm->name_cor);
 	close(assm->fd_cor);
 	close(assm->fd_s);
 }
 
 void	error(const char *msg, t_assm *assm)
 {
-	ft_printf("%s [%d:%d]\n",msg, assm->counter_line, assm->counter_column); 
+	ft_printf("%s Line [%d].\n", msg, assm->counter_line); 
+	remove(assm->name_cor);
 	exit(0);
 }
 
@@ -115,7 +116,6 @@ void	working_name(char *line, t_assm *assm)
 			ft_putendl(assm->head.prog_name);
 			return ;
 		}
-		assm->counter_column++;
 		line++;
 	}
 	error("Error name", assm);
@@ -150,7 +150,6 @@ void	working_comment(char *line, t_assm *assm)
 			ft_putendl(assm->head.comment);
 			return ;
 		}
-		assm->counter_column++;
 		line++;
 	}
 	error("Error name", assm);
@@ -169,13 +168,12 @@ int		working_dot(t_assm *assm, char *line)
 		return (1);
 	}
 	else
-		error("Syntax error at token" ,assm);
+		error("Lexical error." ,assm);
 	return (1);
 }
 
 int		search_char(t_assm *assm, char *line)
 {
-	assm->counter_column = 1;
 	while (*line)
 	{
 		if (*line == COMMENT_CHAR)
@@ -184,7 +182,6 @@ int		search_char(t_assm *assm, char *line)
 			return (working_dot(assm, line));
 		if (ft_isprint(*line))
 			error("Syntax error at token" ,assm);
-		assm->counter_column++;
 		line++;
 	}
 	return (0);
@@ -195,7 +192,7 @@ void	read_name_comment(t_assm *assm)
 	char	*line;
 
 	line = NULL;
-	while (get_next_line(assm->fd_s, &line))
+	while (get_next_line(assm->fd_s, &line) > 0)
 	{
 		assm->counter_line++;
 		if (search_char(assm, line))
@@ -210,13 +207,10 @@ void	read_name_comment(t_assm *assm)
 
 void	create_file_cor(t_assm *assm, char *name)
 {
-	char *name_cor;
-
-	name_cor = dot_cor(name);
-	if (!(assm->fd_cor = open(name_cor, O_WRONLY | O_TRUNC | O_CREAT,
+	assm->name_cor = dot_cor(name);
+	if (!(assm->fd_cor = open(assm->name_cor, O_WRONLY | O_TRUNC | O_CREAT,
 					S_IREAD | S_IWRITE)))
 		sys_err("Error create file.\n");
-	ft_strdel(&name_cor);
 }
 
 int		islablechar(char c)
@@ -231,10 +225,7 @@ void	check_lable(t_assm *assm, char *start, char *line)
 	while (start < line)
 	{
 		if (!islablechar(*start))
-		{
-			assm->counter_column -= line - start;
 			error("Error lable char." ,assm);
-		}
 		start++;
 	}
 }
@@ -277,7 +268,8 @@ int		search_dub_lable(t_assm *assm, t_lbl *lbl, char *start, char *line)
 				lbl->position = assm->pos_glob;
 				lbl->bl = 1;
 			}
-			ft_printf("Finde DUB = {%s}, lbl->name [%s], len_str [%d]\n", start, lbl->name, len_str);
+			ft_printf("Finde DUB = {%s}, lbl->name [%s], len_str [%d]\n",
+					start, lbl->name, len_str);
 			ft_putendl("Dublicut finde.");
 			return (1);
 		}
@@ -391,14 +383,14 @@ char	*read_ind_adg(t_assm *assm, t_arg *arg, char *start)
 	return (start);
 }
 
-char	*read_reg_adg(t_arg *arg, char *start)
+char	*read_reg_adg(t_assm *assm, t_arg *arg, char *start)
 {
 	if (!ft_isdigit(*start))
-		sys_err("Error registr.\n");
+		error("Error registr.", assm);
 	arg->bl_reg = C_REG;
 	arg->reg = ft_atoi(start);
 	if (arg->reg > REG_NUMBER || arg->reg <= 0)
-		sys_err("Error number registr\n");
+		error("Error number registr.", assm);
 	while (ft_isdigit(*start))
 		start++;
 	return (start);
@@ -438,9 +430,9 @@ char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
 		if (*start == '%')
 			start = read_dir_adg(assm, arg, start);
 		if (*start == 'r')
-			start = read_reg_adg(arg, start + 1);
+			start = read_reg_adg(assm, arg, start + 1);
 		if (ft_isalpha(*start))
-			error("Error argument", assm);
+			error("Error argument.", assm);
 		if (*start == ',')
 			return (start);
 		if (*start == '#')
@@ -483,140 +475,140 @@ t_opr	*get_arg_opr(t_assm *assm, char *start)
 void	check_op_ld_lld_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 2)
-		error("Error arguments opiration.", assm);
+		error("Error arguments instruction.", assm);
 	if (opr->args[0].bl_dir == 0 && opr->args[0].bl_ind == 0)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[0].bl_reg == C_REG)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[1].bl_reg == 0)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 }
 
 void	check_op_st_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 2)
-		error("Error arguments opiration.", assm);
+		error("Error arguments instruction.", assm);
 	if (opr->args[0].bl_reg == 0)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[1].bl_reg == 0 && opr->args[1].bl_ind == 0)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[1].bl_dir == C_DIR)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 }
 
 /*
-** The function cheacks the arguments of 4 operation: or, xor, and.
+** The function cheacks the arguments of 4 instruction: or, xor, and.
 */
 
 void	check_op_or_xor_and_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
-		error("Error arguments opiration.", assm);
+		error("Error arguments instruction.", assm);
 	if (opr->args[0].bl_reg == 0 && opr->args[0].bl_ind == 0 &&
 			opr->args[0].bl_dir == 0 )
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[1].bl_reg == 0 && opr->args[1].bl_ind == 0 &&
 			opr->args[1].bl_dir == 0 )
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_reg == 0)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 }
 
 /*
-** The function cheacks the arguments of 2 operation: ldi, lldi.
+** The function cheacks the arguments of 2 instruction: ldi, lldi.
 */
 
 void	check_op_ldi_lldi_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
-		error("Error arguments opiration.", assm);
+		error("Error arguments instruction.", assm);
 	if (opr->args[0].bl_reg == 0 && opr->args[0].bl_ind == 0 &&
 			opr->args[0].bl_dir == 0 )
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[1].bl_reg == 0 && opr->args[1].bl_dir == 0 )
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_reg == 0)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 	if (opr->args[1].bl_ind == C_IND)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 }
 
 /*
-** The function cheacks the arguments of 4 operation: fork, lfork, zjmp, live.
+** The function cheacks the arguments of 4 instruction: fork, lfork, zjmp, live.
 */
 
 void	check_op_fork_lfork_zjmp_live_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 1)
-		error("Error arguments opiration.", assm);
+		error("Error arguments instruction.", assm);
 	if (opr->args[0].bl_dir == 0)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_reg == C_REG)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR || opr->args[1].bl_reg == C_REG)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 }
 
 void	check_op_aff_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 1)
-		error("Error arguments opiration.", assm);
+		error("Error arguments instruction.", assm);
 	if (opr->args[0].bl_reg == 0)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR || opr->args[1].bl_reg == C_REG)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_dir == C_DIR || opr->args[2].bl_ind == C_IND || opr->args[2].bl_reg == C_REG)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 }
 
 void	check_op_add_sub_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
-		error("Error arguments opiration.", assm);
+		error("Error arguments instruction.", assm);
 	if (opr->args[0].bl_reg == 0)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[1].bl_reg == 0)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[1].bl_ind == C_IND || opr->args[1].bl_dir == C_DIR)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_reg == 0)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 	if (opr->args[2].bl_ind == C_IND || opr->args[2].bl_dir == C_DIR)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 }
 
 void	check_op_sti_arg(t_assm *assm, t_opr *opr)
 {
 	if (opr->count_args != 3)
-		error("Error arguments opiration.", assm);
+		error("Error arguments instruction.", assm);
 	if (opr->args[0].bl_reg == 0)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[0].bl_ind == C_IND || opr->args[0].bl_dir == C_DIR)
-		error("Error first arguments opiration.", assm);
+		error("Error first arguments instruction.", assm);
 	if (opr->args[1].bl_reg == 0 && opr->args[1].bl_dir == 0 && opr->args[1].bl_ind == 0)
-		error("Error second arguments opiration.", assm);
+		error("Error second arguments instruction.", assm);
 	if (opr->args[2].bl_reg == 0 && opr->args[2].bl_dir == 0)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 	if (opr->args[2].bl_ind == C_IND)
-		error("Error three arguments opiration.", assm);
+		error("Error three arguments instruction.", assm);
 }
 
 unsigned char get_code_arg(t_opr *opr)
@@ -789,7 +781,7 @@ void	two_char_operator(t_assm *assm, char *start)
 	else if (!(ft_strncmp(start, "or", 2)))
 		op_all(assm, opr, 0x14207, check_op_or_xor_and_arg);
 	else
-		error("Error operator.", assm);
+		error("Unknown instruction.", assm);
 	delete_opr(&opr);
 }
 
@@ -809,7 +801,7 @@ void	four_char_operator(t_assm *assm, char *start)
 	else if (!(ft_strncmp(start, "live", up)))
 		op_all(assm, opr, 0x04101, check_op_fork_lfork_zjmp_live_arg);
 	else
-		error("111Error operator.", assm);
+		error("Unknown instruction.", assm);
 	delete_opr(&opr);
 }
 
@@ -823,7 +815,7 @@ void	five_char_operator(t_assm *assm, char *start)
 	if (!(ft_strncmp(start, "lfork", up)))
 		op_all(assm, opr, 0x0210f, check_op_fork_lfork_zjmp_live_arg);
 	else
-		error("Error operator.", assm);
+		error("Unknown instruction.", assm);
 	delete_opr(&opr);
 }
 
@@ -851,7 +843,7 @@ void	three_char_operator(t_assm *assm, char *start)
 	else if (!(ft_strncmp(start, "sti", up)))
 		op_all(assm, opr, 0x1220b, check_op_sti_arg);
 	else
-		error("Error operator.", assm);
+		error("Unknown instruction.", assm);
 	delete_opr(&opr);
 }
 
@@ -869,7 +861,7 @@ void	working_operation(t_assm *assm, char *start, char *line)
 	else if (len == 5)
 		five_char_operator(assm, start);
 	else
-		error("Error operator.", assm);
+		error("Unknown instruction.", assm);
 }
 
 void	instruction(t_assm *assm, char *line)
@@ -881,17 +873,14 @@ void	instruction(t_assm *assm, char *line)
 	{
 		if (*line == LABEL_CHAR)
 		{
-			ft_putendl("LABEL_CHAR");
 			working_lable(assm, start, line);
 			return ;
 		}
 		if (*line == DIRECT_CHAR || *line == ' ' || *line == '\t')
 		{
-			ft_putendl("DIRECT_CHAR and SPACE");
 			working_operation(assm, start, line);
 			return ;
 		}
-		assm->counter_column++;
 		line++;
 	}
 }
@@ -919,7 +908,6 @@ void	working_instruction(t_assm *assm, char *line)
 			instruction(assm, line);
 			return ;
 		}
-		assm->counter_column++;
 		line++;
 	}
 }
@@ -933,7 +921,6 @@ void	read_instruction(t_assm *assm)
 	while (get_next_line(assm->fd_s, &line))
 	{
 		assm->counter_line++;
-		assm->counter_column = 1;
 		working_instruction(assm, line);
 		ft_strdel(&line);
 	}
@@ -960,12 +947,13 @@ void	delete_list(t_assm *assm)
 	lbl = assm->lbl;
 	while (assm->lbl)
 	{
+		assm->lbl = assm->lbl->next;
 		ft_strdel(&lbl->name);
 		delete_list_gab(lbl->gab);
 		free(lbl);
-		assm->lbl = assm->lbl->next;
 		lbl = assm->lbl;
 	}
+	assm->lbl = NULL;
 }
 
 int	get_figur_write(size_t position, t_gab *gab)
@@ -1026,8 +1014,8 @@ int		main(int ac, char **av)
 	if (ac != 2)
 		sys_err("Error!\nUse ./asm namefile.s\n");
 	open_file_s(&assm, av[1]);
-	read_name_comment(&assm);
 	create_file_cor(&assm, av[1]);
+	read_name_comment(&assm);
 	write_header(&assm);
 	read_instruction(&assm);
 	write_bot_size(&assm);
