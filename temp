@@ -1,0 +1,3129 @@
+Candy
+
+Write count oct {4}
+Write count oct {4}
+Write count oct {4}
+Write count oct {4}
+||||			This is instruction!			||||
+line = {}
+line = {	st		r1, r12}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [1] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [12] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x5}
+code = {0x14}
+code = {0x14}
+code = {0x50}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	ld      %0 , r14}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	zjmp    %:base}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {base}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x9}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+
+New lbl name = {base}
+Lable {base} not find
+Create {base}
+List:
+lable = {base} position = {0} bl = [0]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {}
+line = {def:}
+Dublicut NOT finde.
+
+New lbl name = {def}
+List:
+lable = {def} position = {14} bl = [1]
+lable = {base} position = {0} bl = [0]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+line = {}
+line = {	st		r9, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st		r10, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [10] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st		r14, -9}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-9]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -21}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-21]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r14, -30}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-30]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st		r9, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st		r10, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [10] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st		r14, -9}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-9]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -21}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-21]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r14, -30}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-30]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st		r10, -256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [10] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st		r14, -9}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-9]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r4, -21}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-21]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r14, -30}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [-30]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	ld      %0 , r15}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	zjmp %:def}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {def}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x9}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {def}
+List:
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {0} bl = [0]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {}
+line = {liv:}
+Dublicut NOT finde.
+
+New lbl name = {liv}
+List:
+lable = {liv} position = {234} bl = [1]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {0} bl = [0]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+line = {}
+line = {	live    %42}
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	fork    %:live3}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {live3}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0xc}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+
+New lbl name = {live3}
+Lable {live3} not find
+Create {live3}
+List:
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {0} bl = [0]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {	ld      %0 , r16}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [16] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	zjmp    %:base}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {base}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x9}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {base}
+List:
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {0} bl = [0]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {}
+line = {base:}
+Finde DUB = {base:}, lbl->name [base], len_str [4]
+Dublicut finde.
+List:
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+line = {}
+line = {	live 	%42}
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	ld		%57672449, r3}
+Count args = {2}
+Arg1 dir {57672449} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	ld		%57672959, r4}
+Count args = {2}
+Arg1 dir {57672959} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	ld		%42991616, r9}
+Count args = {2}
+Arg1 dir {42991616} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	ld		%235536380, r10}
+Count args = {2}
+Arg1 dir {235536380} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [10] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	ld		%16777216 ,r11}
+Count args = {2}
+Arg1 dir {16777216} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [11] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	xor		r12, r14, r15}
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [12] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [14] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x5}
+code = {0x14}
+code = {0x15}
+code = {0x54}
+code_op {0x8}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {3}
+Write count oct {1}
+i = {0}
+Write count oct {1}
+i = {1}
+Write count oct {1}
+i = {2}
+line = {	sti		r15, %:live1, %1}
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {live1}
+Arg3 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+code_op {0xb}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x2}
+count args {3}
+Write count oct {1}
+i = {0}
+
+New lbl name = {live1}
+Lable {live1} not find
+Create {live1}
+List:
+lable = {live1} position = {0} bl = [0]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {1}
+Write count oct {2}
+i = {2}
+line = {	sti		r15, %:liv, %1}
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {liv}
+Arg3 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+code_op {0xb}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x2}
+count args {3}
+Write count oct {1}
+i = {0}
+Find lable name is {liv}
+List:
+lable = {live1} position = {0} bl = [0]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {1}
+Write count oct {2}
+i = {2}
+line = {	sti		r15, %:live2, %1}
+Count args = {3}
+Arg1 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {live2}
+Arg3 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x6}
+code = {0x18}
+code = {0x1a}
+code = {0x68}
+code_op {0xb}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x2}
+count args {3}
+Write count oct {1}
+i = {0}
+
+New lbl name = {live2}
+Lable {live2} not find
+Create {live2}
+List:
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {0} bl = [0]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {1}
+Write count oct {2}
+i = {2}
+line = {	zjmp    %:live1}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {live1}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x9}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {live1}
+List:
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {0} bl = [0]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {}
+line = {live1:}
+Finde DUB = {live1:}, lbl->name [live1], len_str [5]
+Dublicut finde.
+List:
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+line = {}
+line = {	live	%42}
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	fork	%:def}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {def}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0xc}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {def}
+List:
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {	fork	%:save}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {save}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0xc}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+
+New lbl name = {save}
+Lable {save} not find
+Create {save}
+List:
+lable = {save} position = {0} bl = [0]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {	ld		%0 , r15}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [15] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x9}
+code = {0x24}
+code = {0x24}
+code = {0x90}
+code_op {0x2}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {4}
+i = {0}
+Write count oct {1}
+i = {1}
+line = {	zjmp	%:liv}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {liv}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x9}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {liv}
+List:
+lable = {save} position = {0} bl = [0]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {0} bl = [0]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {}
+line = {live3:}
+Finde DUB = {live3:}, lbl->name [live3], len_str [5]
+Dublicut finde.
+List:
+lable = {save} position = {0} bl = [0]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {342} bl = [1]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+line = {}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r3, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [3] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {zjmp %:live3}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {live3}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x9}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {live3}
+List:
+lable = {save} position = {0} bl = [0]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {342} bl = [1]
+	pos_write = {533} oct_count = {2} oct_start = [1]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {}
+line = {attak:}
+Dublicut NOT finde.
+
+New lbl name = {attak}
+List:
+lable = {attak} position = {535} bl = [1]
+lable = {save} position = {0} bl = [0]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {342} bl = [1]
+	pos_write = {533} oct_count = {2} oct_start = [1]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+line = {}
+line = {	live 	%42}
+Count args = {1}
+Arg1 dir {42} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {	st      r9, 256}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [9] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [256]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {zjmp %:attak}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {attak}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x9}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {attak}
+List:
+lable = {attak} position = {535} bl = [1]
+	pos_write = {656} oct_count = {2} oct_start = [1]
+lable = {save} position = {0} bl = [0]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {0} bl = [0]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {342} bl = [1]
+	pos_write = {533} oct_count = {2} oct_start = [1]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {}
+line = {live2:}
+Finde DUB = {live2:}, lbl->name [live2], len_str [5]
+Dublicut finde.
+List:
+lable = {attak} position = {535} bl = [1]
+	pos_write = {656} oct_count = {2} oct_start = [1]
+lable = {save} position = {0} bl = [0]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {658} bl = [1]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {342} bl = [1]
+	pos_write = {533} oct_count = {2} oct_start = [1]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+line = {}
+line = {		live    %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {save:}
+Finde DUB = {save:}, lbl->name [save], len_str [4]
+Dublicut finde.
+List:
+lable = {attak} position = {535} bl = [1]
+	pos_write = {656} oct_count = {2} oct_start = [1]
+lable = {save} position = {663} bl = [1]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {658} bl = [1]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {342} bl = [1]
+	pos_write = {533} oct_count = {2} oct_start = [1]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+line = {}
+line = {		live %1}
+Count args = {1}
+Arg1 dir {1} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {(null)}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x1}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x4}
+count args {1}
+Write count oct {4}
+i = {0}
+line = {		fork	%:attak}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {attak}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0xc}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {attak}
+List:
+lable = {attak} position = {535} bl = [1]
+	pos_write = {669} oct_count = {2} oct_start = [1]
+	pos_write = {656} oct_count = {2} oct_start = [1]
+lable = {save} position = {663} bl = [1]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {658} bl = [1]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {342} bl = [1]
+	pos_write = {533} oct_count = {2} oct_start = [1]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+line = {		st      r4, 254}
+Count args = {2}
+Arg1 dir {0} ind  [0]  reg  [4] bl_ind [0] bl_dir [0] bl_reg [1] lable {(null)}
+Arg2 dir {0} ind  [254]  reg  [0] bl_ind [3] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x1}
+code = {0x4}
+code = {0x7}
+code = {0x1c}
+code = {0x1c}
+code = {0x70}
+code_op {0x3}
+lb_code_arg >> 16 {0x1}
+oct_start pos_glob >> 8 {0x2}
+DIT_SIZE >> 12 {0x4}
+count args {2}
+Write count oct {1}
+i = {0}
+Write count oct {2}
+i = {1}
+line = {		zjmp %:save}
+Count args = {1}
+Arg1 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [2] bl_reg [0] lable {save}
+Arg2 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+Arg3 dir {0} ind  [0]  reg  [0] bl_ind [0] bl_dir [0] bl_reg [0] lable {(null)}
+code = {0x2}
+code = {0x8}
+code = {0x8}
+code = {0x20}
+code = {0x20}
+code = {0x80}
+code_op {0x9}
+lb_code_arg >> 16 {0}
+oct_start pos_glob >> 8 {0x1}
+DIT_SIZE >> 12 {0x2}
+count args {1}
+Find lable name is {save}
+List:
+lable = {attak} position = {535} bl = [1]
+	pos_write = {669} oct_count = {2} oct_start = [1]
+	pos_write = {656} oct_count = {2} oct_start = [1]
+lable = {save} position = {663} bl = [1]
+	pos_write = {677} oct_count = {2} oct_start = [1]
+	pos_write = {330} oct_count = {2} oct_start = [1]
+lable = {live2} position = {658} bl = [1]
+	pos_write = {314} oct_count = {2} oct_start = [3]
+lable = {live1} position = {321} bl = [1]
+	pos_write = {319} oct_count = {2} oct_start = [1]
+	pos_write = {300} oct_count = {2} oct_start = [3]
+lable = {live3} position = {342} bl = [1]
+	pos_write = {533} oct_count = {2} oct_start = [1]
+	pos_write = {240} oct_count = {2} oct_start = [1]
+lable = {liv} position = {234} bl = [1]
+	pos_write = {340} oct_count = {2} oct_start = [1]
+	pos_write = {307} oct_count = {2} oct_start = [3]
+lable = {def} position = {14} bl = [1]
+	pos_write = {327} oct_count = {2} oct_start = [1]
+	pos_write = {232} oct_count = {2} oct_start = [1]
+lable = {base} position = {252} bl = [1]
+	pos_write = {250} oct_count = {2} oct_start = [1]
+	pos_write = {12} oct_count = {2} oct_start = [1]
+Write count oct {2}
+i = {0}
+Write count oct {4}
+attak
+num = [-133], numHex = [0xffffff7b] position = {535} gab->pos_write = [669], gab->oct_start = {1}
+Write count oct {2}
+attak
+num = [-120], numHex = [0xffffff88] position = {535} gab->pos_write = [656], gab->oct_start = {1}
+Write count oct {2}
+save
+num = [-13], numHex = [0xfffffff3] position = {663} gab->pos_write = [677], gab->oct_start = {1}
+Write count oct {2}
+save
+num = [334], numHex = [0x14e] position = {663} gab->pos_write = [330], gab->oct_start = {1}
+Write count oct {2}
+live2
+num = [347], numHex = [0x15b] position = {658} gab->pos_write = [314], gab->oct_start = {3}
+Write count oct {2}
+live1
+num = [3], numHex = [0x3] position = {321} gab->pos_write = [319], gab->oct_start = {1}
+Write count oct {2}
+live1
+num = [24], numHex = [0x18] position = {321} gab->pos_write = [300], gab->oct_start = {3}
+Write count oct {2}
+live3
+num = [-190], numHex = [0xffffff42] position = {342} gab->pos_write = [533], gab->oct_start = {1}
+Write count oct {2}
+live3
+num = [103], numHex = [0x67] position = {342} gab->pos_write = [240], gab->oct_start = {1}
+Write count oct {2}
+liv
+num = [-105], numHex = [0xffffff97] position = {234} gab->pos_write = [340], gab->oct_start = {1}
+Write count oct {2}
+liv
+num = [-70], numHex = [0xffffffba] position = {234} gab->pos_write = [307], gab->oct_start = {3}
+Write count oct {2}
+def
+num = [-312], numHex = [0xfffffec8] position = {14} gab->pos_write = [327], gab->oct_start = {1}
+Write count oct {2}
+def
+num = [-217], numHex = [0xffffff27] position = {14} gab->pos_write = [232], gab->oct_start = {1}
+Write count oct {2}
+base
+num = [3], numHex = [0x3] position = {252} gab->pos_write = [250], gab->oct_start = {1}
+Write count oct {2}
+base
+num = [241], numHex = [0xf1] position = {252} gab->pos_write = [12], gab->oct_start = {1}
+Write count oct {2}
