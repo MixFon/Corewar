@@ -3,8 +3,8 @@
 .comment"ta mere ellefait durodeosur les kfar"
 
 loop:
-        sti r1, %:live, %1
+        sti r1, %11, %1
 live:
         live %0
         ld %0, r2
-        zjmp %:loop
+        zjmp %88
