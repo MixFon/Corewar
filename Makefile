@@ -26,7 +26,7 @@ all: $(NAME)
 
 $(NAME):
 		make -C ./libft
-		gcc $(FLAGS) $(HFILES) -c $(SRC)
+		gcc $(FLAGS) -c $(SRC)
 		gcc $(FLAGS) $(OBJ) -L ./libft -lftprintf -o $(NAME)
 
 clean:
