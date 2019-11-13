@@ -1,18 +1,17 @@
 NAME = asm
 
-FILEC =	asm.c\
+FILEC =	main.c\
 		add_lable_list.c\
-		check_op_fork.c\
-		create_file_cor.c\
-		create_lable_arg.c\
+		check_op_or_xor_and_arg.c\
+		check_op_st_arg.c\
 		delete_list.c\
-		delete_opr.c\
-		get_arg_opr.c\
-		instraction.c\
-		operators.c\
-		read_comment_champion.c\
-		three_char_operator.c\
-		write_big_endian.c\
+		four_char_operator.c\
+		init_agr.c\
+		isprint_char.c\
+		read_comment_champ.c\
+		read_dir_arg.c\
+		read_name_comment.c\
+		search_lbl.c\
 		write_header.c
 
 DIRSRC = ./source/
@@ -24,17 +23,17 @@ SRC = $(addprefix $(DIRSRC), $(FILEC))
 all: $(NAME)
 
 $(NAME):
-	make -C ./libft
-	gcc $(FLAGS) $(HFILES) -c $(SRC)
-	gcc $(FLAGS) $(OBJ) -L ./libft -lftprintf -o $(NAME)
+		make -C ./libft
+		gcc $(FLAGS) $(HFILES) -c $(SRC)
+		gcc $(FLAGS) $(OBJ) -L ./libft -lftprintf -o $(NAME)
 
 clean:
-	make clean -C ./libft
-	/bin/rm -f $(OBJ)
+		make clean -C ./libft
+			/bin/rm -f $(OBJ)
 
 fclean: clean
-	make fclean -C ./libft
-	/bin/rm -f $(NAME)
-	
+		make fclean -C ./libft
+			/bin/rm -f $(NAME)
+				
 re: fclean all
-	make re -C ./libft
+		make re -C ./libft

@@ -6,15 +6,15 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/09/26 16:51:35 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 12:32:47 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/asm.h"
 
-int	get_figur_write(size_t position, t_gab *gab)
+int		get_figur_write(size_t position, t_gab *gab)
 {
-	int	num;	
+	int	num;
 
 	num = position - gab->pos_write + gab->oct_start;
 	return (num);

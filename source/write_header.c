@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   write_header.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/13 10:17:41 by widraugr          #+#    #+#             */
+/*   Updated: 2019/11/13 12:12:44 by widraugr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/asm.h"
 
@@ -42,7 +53,7 @@ void	init(t_assm *assm)
 void	open_file_s(t_assm *assm, char *name)
 {
 	init(assm);
-	if(check_name(name))
+	if (check_name(name))
 		sys_err("Error file name.\n");
 	if (!(assm->fd_s = open(name, O_RDONLY)))
 		sys_err("File not opened.\n");

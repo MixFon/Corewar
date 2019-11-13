@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_comment_champ.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/13 10:20:20 by widraugr          #+#    #+#             */
+/*   Updated: 2019/11/13 12:12:45 by widraugr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/asm.h"
 
@@ -10,7 +21,7 @@ void	close_files(t_assm *assm)
 
 void	error(const char *msg, t_assm *assm)
 {
-	ft_printf("%s Line [%d].\n", msg, assm->counter_line); 
+	ft_printf("%s Line [%d].\n", msg, assm->counter_line);
 	remove(assm->name_cor);
 	exit(0);
 }
@@ -40,7 +51,7 @@ void	working_name(char *line, t_assm *assm)
 	{
 		if (*line == '"')
 		{
-			read_name_champion(line + 1, assm);	
+			read_name_champion(line + 1, assm);
 			return ;
 		}
 		line++;

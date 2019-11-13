@@ -1,12 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   delete_list.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/13 10:43:50 by widraugr          #+#    #+#             */
+/*   Updated: 2019/11/13 12:12:56 by widraugr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/asm.h"
-
-int		isprint_char(int c)
-{
-	if (c >= 33 && c <= 126)
-		return (1);
-	return (0);
-}
 
 void	working_instruction(t_assm *assm, char *line)
 {
@@ -42,7 +46,7 @@ void	delete_list_gab(t_gab *gab)
 	t_gab *temp;
 
 	temp = gab;
-	while(gab)
+	while (gab)
 	{
 		gab = gab->next;
 		free(temp);

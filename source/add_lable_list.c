@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_lable_list.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/13 10:25:57 by widraugr          #+#    #+#             */
+/*   Updated: 2019/11/13 12:12:47 by widraugr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/asm.h"
 
@@ -13,7 +24,7 @@ void	check_lable(t_assm *assm, char *start, char *line)
 	while (start < line)
 	{
 		if (!islablechar(*start))
-			error("Error lable char." ,assm);
+			error("Error lable char.", assm);
 		start++;
 	}
 }
