@@ -6,11 +6,18 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:43:50 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 12:12:56 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:35:56 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/asm.h"
+
+void	sys_err_rm(t_assm *assm, char *err)
+{
+	write(2, err, ft_strlen(err));
+	remove(assm->name_cor);
+	exit(0);
+}
 
 void	working_instruction(t_assm *assm, char *line)
 {

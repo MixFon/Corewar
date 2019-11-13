@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 13:22:05 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:35:57 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ int					isprint_char(int c);
 /*
 ** File delete_list.c
 */
+void				sys_err_rm(t_assm *assm, char *err);
 void				working_instruction(t_assm *assm, char *line);
 void				read_instruction(t_assm *assm);
 void				delete_list_gab(t_gab *gab);

@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 12:32:47 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:37:53 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	weite_figur_lable(t_assm *assm)
 	while (lbl)
 	{
 		if (lbl->bl == 0)
-			sys_err("Not lable Error\n");
+			sys_err_rm(assm, "Not lable Error\n");
 		write_in_position(lbl, assm->fd_cor);
 		lbl = lbl->next;
 	}

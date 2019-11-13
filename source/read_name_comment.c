@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:23:59 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 12:12:46 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:36:00 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	create_file_cor(t_assm *assm, char *name)
 	assm->name_cor = dot_cor(name);
 	if (!(assm->fd_cor = open(assm->name_cor, O_WRONLY | O_TRUNC | O_CREAT,
 					S_IREAD | S_IWRITE)))
-		sys_err("Error create file.\n");
+		sys_err_rm(assm, "Error create file.\n");
 }
 
 void	read_name_comment(t_assm *assm)
