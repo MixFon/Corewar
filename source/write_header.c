@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:17:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 18:56:08 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:58:35 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	init(t_assm *assm)
 void	open_file_s(t_assm *assm, char *name)
 {
 	char *tmp;
-	init(assm);
 
+	init(assm);
 	if (!((tmp = ft_strstr(name, ".s")) && (name - tmp) != 0
 			&& ft_strlen(tmp) == 2))
 		sys_err("Error file name.\n");
