@@ -18,6 +18,8 @@ DIRSRC = ./source/
 
 OBJ = $(FILEC:.c=.o)
 
+FLAGS = -Wall -Wextra -Werror
+
 SRC = $(addprefix $(DIRSRC), $(FILEC))
 
 all: $(NAME)

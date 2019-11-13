@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:32:02 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 12:12:49 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 13:22:03 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
 	while (*start)
 	{
 		if (ft_isdigit(*start) || *start == ':' || *start == '-')
-			start = read_ind_adg(assm, arg, start);
+			start = read_ind_adg(arg, start);
 		if (*start == '%')
-			start = read_dir_adg(assm, arg, start);
+			start = read_dir_adg(arg, start);
 		if (*start == 'r')
 			start = read_reg_adg(assm, arg, start + 1);
 		if (ft_isalpha(*start))

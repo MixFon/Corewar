@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:29:07 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 12:12:48 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 13:22:06 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*create_lable_arg(char *start, t_arg *arg)
 	return (start);
 }
 
-char	*read_ind_adg(t_assm *assm, t_arg *arg, char *start)
+char	*read_ind_adg(t_arg *arg, char *start)
 {
 	arg->bl_ind = C_IND;
 	if (*start == ':')
@@ -62,7 +62,7 @@ char	*read_reg_adg(t_assm *assm, t_arg *arg, char *start)
 	return (start);
 }
 
-char	*read_dir_adg(t_assm *assm, t_arg *arg, char *start)
+char	*read_dir_adg(t_arg *arg, char *start)
 {
 	start++;
 	arg->bl_dir = C_DIR;

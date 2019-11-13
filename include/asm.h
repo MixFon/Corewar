@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 12:53:38 by widraugr         ###   ########.fr       */
+/*   Updated: 2019/11/13 13:22:05 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,9 @@ void				init_arg(t_arg *arg);
 */
 void				init_opt(t_opr *opr);
 char				*create_lable_arg(char *start, t_arg *arg);
-char				*read_ind_adg(t_assm *assm, t_arg *arg, char *start);
+char				*read_ind_adg(t_arg *arg, char *start);
 char				*read_reg_adg(t_assm *assm, t_arg *arg, char *start);
-char				*read_dir_adg(t_assm *assm, t_arg *arg, char *start);
+char				*read_dir_adg(t_arg *arg, char *start);
 /*
 ** File check_op_or_xor_and_arg.c
 */
