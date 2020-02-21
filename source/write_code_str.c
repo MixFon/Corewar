@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 13:38:33 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 16:27:27 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/21 19:09:31 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ void	write_prog_name_and_comment(char *name_prog, size_t size)
 	}
 }
 
+/*
+** Записывает в указанное место
+*/
 void	to_plase_code_str(size_t plase, void *bits, int len_bits)
 {
 	int i;
@@ -70,11 +73,14 @@ void	to_plase_code_str(size_t plase, void *bits, int len_bits)
 	{
 		len_bits--;
 		code_str[plase + i] = *((unsigned char *)bits + len_bits);
-		write_code_str((unsigned char *)bits + len_bits);
+		//write_code_str((unsigned char *)bits + len_bits);
 		i++;
 	}
 }
 
+/*
+** Записывает в конец строки.
+*/
 void	to_code_str(int code_op)
 {
 	code_str[len_str] = (unsigned char)code_op;

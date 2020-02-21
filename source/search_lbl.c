@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:38:11 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 16:27:29 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/21 19:15:54 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ int				write_big_endian(int fd, void *bits, int len_bits)
 	int	count_oct;
 
 	count_oct = 0;
+	fd = 0;
 	while (len_bits > 0)
 	{
 		len_bits--;
-		if ((count_oct += write(fd, (unsigned char *)bits + len_bits, 1)) == -1)
-			sys_err("Error write\n");
+		//if ((count_oct += write(fd, (unsigned char *)bits + len_bits, 1)) == -1)
+		//	sys_err("Error write\n");
 		write_code_str((unsigned char *)bits + len_bits);
+		count_oct++;
 	}
 	return (count_oct);
 }

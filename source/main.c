@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 16:27:35 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/21 19:16:41 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	write_in_position(t_lbl *lbl, int fd_cor)
 		if (lseek(fd_cor, gab->pos_write, SEEK_SET) == -1L)
 			sys_err("Seek Error\n");
 		b = get_figur_write(lbl->position, gab);
+		ft_printf("code_str [%x]", code_str[len_str]);
+		ft_printf("\n[%x]\n", b);
+		//write_big_endian(fd_cor, &b, gab->oct_count);
 		to_plase_code_str(gab->pos_write, &b, gab->oct_count);
-		write_big_endian(fd_cor, &b, gab->oct_count);
 		gab = gab->next;
 	}
 }
@@ -60,7 +62,7 @@ void	write_bot_size(t_assm *assm)
 		sys_err("Seek Error\n");
 	//первый - куда пишем, второй - что пришем, третий - сколько байт пишем
 	to_plase_code_str(8 + PROG_NAME_LENGTH, &bot_size, 4);
-	write_big_endian(assm->fd_cor, &bot_size, 4);
+	//write_big_endian(assm->fd_cor, &bot_size, 4);
 }
 
 int		main(int ac, char **av)
