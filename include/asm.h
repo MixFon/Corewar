@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 19:35:57 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/21 09:53:00 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@
 # define C_REG		0x1
 # define C_DIR		0x2
 # define C_IND		0x3
-
+/*
 # define LEN_HEAD	(4+PROG_NAME_LENGTH+4+COMMENT_LENGTH+4+4)
+*/
+# define LEN_HEAD	2192
 
 typedef struct		s_assm
 {
