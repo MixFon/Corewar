@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:52:12 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 09:53:01 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/21 09:59:31 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@
 
 # define MAX_ARGS_NUMBER	4
 # define MAX_PLAYERS		4
+
 /*
-# define MEM_SIZE			4*1024
-# define IDX_MOD			(MEM_SIZE / 8)
-# define CHAMP_MAX_SIZE		(MEM_SIZE / 6)
+** define MEM_SIZE			4*1024
+** define IDX_MOD			(MEM_SIZE / 8)
+** define CHAMP_MAX_SIZE	(MEM_SIZE / 6)
 */
+
 # define MEM_SIZE			4096
 # define IDX_MOD			512
 # define CHAMP_MAX_SIZE		682
