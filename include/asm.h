@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 09:58:44 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:27:30 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # define C_DIR		0x2
 # define C_IND		0x3
 # define LEN_HEAD	2192
+
+unsigned char		code_str[1000000];
+size_t				len_str;
 
 typedef struct		s_assm
 {
@@ -182,4 +185,12 @@ void				write_in_position(t_lbl *lbl, int fd_cor);
 void				weite_figur_lable(t_assm *assm);
 void				write_bot_size(t_assm *assm);
 int					main(int ac, char **av);
+/*
+** File main.c
+*/
+void			write_code_str(unsigned char *bit);
+void			write_code_str_to_file(void);
+void			write_prog_name_and_comment(char *name_prog, size_t size);
+void			to_plase_code_str(size_t plase, void *bits, int len_bits);
+void			to_code_str(int code_op);
 #endif

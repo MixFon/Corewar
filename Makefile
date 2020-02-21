@@ -12,7 +12,8 @@ FILEC =	main.c\
 		read_dir_arg.c\
 		read_name_comment.c\
 		search_lbl.c\
-		write_header.c
+		write_header.c\
+		write_code_str.c
 
 DIRSRC = ./source/
 
@@ -34,8 +35,8 @@ clean:
 			/bin/rm -f $(OBJ)
 
 fclean: clean
-		make fclean -C ./libft
+		#make fclean -C ./libft
 			/bin/rm -f $(NAME)
 				
 re: fclean all
-		make re -C ./libft
+		#make re -C ./libft

@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:40:34 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 12:12:51 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:27:28 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,14 @@ void	op_all(t_assm *assm, t_opr *opr, int code,
 	code_args = get_code_arg(opr);
 	temp = code & 0xff;
 	ft_putchar_fd(temp, assm->fd_cor);
+	to_code_str(temp);
 	temp = (code >> 16) & 0xf;
 	opr->info.bl_code_arg = temp;
 	if (temp)
+	{
 		ft_putchar_fd(code_args, assm->fd_cor);
+		to_code_str(code_args);
+	}
 	temp = (code >> 8) & 0xf;
 	assm->pos_glob += temp;
 	opr->info.oct_start = temp;
