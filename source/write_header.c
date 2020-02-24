@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:17:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 12:24:16 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 13:25:27 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,9 @@ void	write_header(t_assm *assm)
 	sector = COREWAR_EXEC_MAGIC;
 	write_big_endian(assm, assm->fd_cor, &sector, 4);
 	sector = 0x00;
-	//write(assm->fd_cor, assm->head.prog_name, PROG_NAME_LENGTH);
 	write_prog_name_and_comment(assm, assm->head.prog_name, PROG_NAME_LENGTH);
 	write_big_endian(assm, assm->fd_cor, &sector, 4);
-	//Ниже функция зануляет место для количества байт исполняемого кода, которое нужно записать в конце.
 	write_big_endian(assm, assm->fd_cor, &sector, 4);
-	//write(assm->fd_cor, assm->head.comment, COMMENT_LENGTH);
 	write_prog_name_and_comment(assm, assm->head.comment, COMMENT_LENGTH);
 	write_big_endian(assm, assm->fd_cor, &sector, 4);
 }

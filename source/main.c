@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 12:38:52 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 13:31:03 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ void	write_bot_size(t_assm *assm)
 	bot_size = assm->pos_glob - LEN_HEAD;
 	if (lseek(assm->fd_cor, 8 + PROG_NAME_LENGTH, SEEK_SET) == -1L)
 		sys_err("Seek Error\n");
-	//первый - куда пишем, второй - что пришем, третий - сколько байт пишем
 	to_plase_code_str(assm, 8 + PROG_NAME_LENGTH, &bot_size, 4);
-	//write_big_endian(assm->fd_cor, &bot_size, 4);
 }
 
 int		main(int ac, char **av)

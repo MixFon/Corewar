@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:40:34 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 12:23:20 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 13:24:46 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	all_arg(t_assm *assm, t_info *info, t_arg *arg)
 	if (arg->bl_ind != 0)
 		delta += write_big_endian(assm, assm->fd_cor, &arg->ind, IND_SIZE);
 	if (arg->bl_dir != 0)
-		delta += write_big_endian(assm, assm->fd_cor, &arg->dir, info->size_dir);
+		delta += write_big_endian(assm, assm->fd_cor,
+				&arg->dir, info->size_dir);
 	if (arg->bl_reg != 0)
 		delta += write_big_endian(assm, assm->fd_cor, &arg->reg, 1);
 	assm->pos_glob += delta;
@@ -48,15 +49,11 @@ void	op_all(t_assm *assm, t_opr *opr, int code,
 	(*func)(assm, opr);
 	code_args = get_code_arg(opr);
 	temp = code & 0xff;
-	//ft_putchar_fd(temp, assm->fd_cor); //Удалить!!!
 	to_code_str(assm, temp);
 	temp = (code >> 16) & 0xf;
 	opr->info.bl_code_arg = temp;
 	if (temp)
-	{
-	//	ft_putchar_fd(code_args, assm->fd_cor); //Удалить!!!
 		to_code_str(assm, code_args);
-	}
 	temp = (code >> 8) & 0xf;
 	assm->pos_glob += temp;
 	opr->info.oct_start = temp;

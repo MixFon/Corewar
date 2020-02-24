@@ -8,7 +8,7 @@ Dieu est la plus belle invention.
 Tapis dans l'ombre je veille. - Minou"
 
 start:
-	d -42, r2
+	ld -42, r2
 	zjmp %:begin
 first_attack:
 	sti r10, r15, r9

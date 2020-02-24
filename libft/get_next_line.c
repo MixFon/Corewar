@@ -3,80 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eskeleto <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/12 12:54:03 by eskeleto          #+#    #+#             */
-/*   Updated: 2019/09/12 13:05:22 by widraugr         ###   ########.fr       */
+/*   Created: 2019/12/19 12:55:17 by widraugr          #+#    #+#             */
+/*   Updated: 2019/12/19 12:55:27 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_strchr0(char *s, int c)
-{
-	int i;
-
-	i = 0;
-	while (s[i] != (char)c && s[i] != 0)
-		s++;
-	if (s[i] == (char)c)
-		s[i] = 0;
-}
-
-void	ft_strzero(char *input, int len)
-{
-	while (len--)
-		input[len] = 0;
-}
-
-int		str_process(char *input, char **result)
+int		ft_new_line(char **s, char **line, int fd, int ret)
 {
 	char	*tmp;
-	char	*tmp2;
+	int		len;
 
-	if (ft_strrchr(input, '\n'))
+	len = 0;
+	while (s[fd][len] != '\n' && s[fd][len] != '\0')
+		len++;
+	if (s[fd][len] == '\n')
 	{
-		tmp = ft_strdup(input);
-		input = ft_strcpy(input, &ft_strchr(input, '\n')[1]);
-		ft_strchr0(tmp, 10);
-		tmp2 = *result;
-		*result = ft_strjoin(*result, tmp);
-		free(tmp);
-		free(tmp2);
-		return (1);
+		*line = ft_strsub(s[fd], 0, len);
+		tmp = ft_strdup(s[fd] + len + 1);
+		free(s[fd]);
+		s[fd] = tmp;
+		if (s[fd][0] == '\0')
+			ft_strdel(&s[fd]);
 	}
-	else
+	else if (s[fd][len] == '\0')
 	{
-		tmp = *result;
-		*result = ft_strjoin(*result, input);
-		free(tmp);
-		ft_strzero(input, BUFF_SIZE);
-		return (0);
+		if (ret == BUFF_SIZE)
+			return (get_next_line(fd, line));
+		*line = ft_strdup(s[fd]);
+		ft_strdel(&s[fd]);
 	}
+	return (1);
 }
 
 int		get_next_line(const int fd, char **line)
 {
-	static char	*buff[10000];
+	static char	*s[255];
+	char		buf[BUFF_SIZE + 1];
+	char		*tmp;
 	int			ret;
 
-	if (fd < 0 || !line || BUFF_SIZE <= 0)
+	if (fd < 0 || line == NULL)
 		return (-1);
-	if (!buff[fd])
-		buff[fd] = ft_strnew(BUFF_SIZE);
-	*line = ft_strnew(0);
-	if (*buff[fd])
-		if (str_process(buff[fd], line))
-			return (1);
-	ft_strzero(buff[fd], BUFF_SIZE);
-	while ((ret = read(fd, buff[fd], BUFF_SIZE)))
+	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
-		if (ret < 0)
-			return (-1);
-		if (str_process(buff[fd], line))
-			return (1);
+		buf[ret] = '\0';
+		if (s[fd] == NULL)
+			s[fd] = ft_strnew(1);
+		tmp = ft_strjoin(s[fd], buf);
+		free(s[fd]);
+		s[fd] = tmp;
+		if (ft_strchr(buf, '\n'))
+			break ;
 	}
-	if (**line == 0)
+	if (ret < 0)
+		return (-1);
+	else if (ret == 0 && (s[fd] == NULL || s[fd][0] == '\0'))
 		return (0);
-	return (1);
+	return (ft_new_line(s, line, fd, ret));
 }

@@ -6,11 +6,17 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:43:50 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 12:06:31 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 13:30:28 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/asm.h"
+
+void	delete_code_str(t_assm *assm)
+{
+	free(assm->code_str);
+	assm->code_str = NULL;
+}
 
 void	working_instruction(t_assm *assm, char *line)
 {
