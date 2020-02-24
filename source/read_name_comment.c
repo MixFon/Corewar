@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:23:59 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 16:27:33 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 11:51:59 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,6 @@ int		search_char(t_assm *assm, char *line)
 		line++;
 	}
 	return (0);
-}
-
-void	create_file_cor(t_assm *assm, char *name)
-{
-	assm->name_cor = dot_cor(name);
-	if (!(assm->fd_cor = open(assm->name_cor, O_WRONLY | O_TRUNC | O_CREAT,
-					S_IREAD | S_IWRITE)))
-		sys_err_rm(assm, "Error create file.\n");
 }
 
 void	read_name_comment(t_assm *assm)

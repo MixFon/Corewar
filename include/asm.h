@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 21:53:53 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 12:23:55 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define C_IND		0x3
 # define LEN_HEAD	2192
 
-unsigned char		code_str[1000000];
-size_t				len_str;
+//unsigned char		code_str[1000000];
+//size_t				len_str;
 
 typedef struct		s_assm
 {
@@ -35,6 +35,9 @@ typedef struct		s_assm
 	size_t			counter_line;
 	t_header_s		head;
 	struct s_lbl	*lbl;
+	unsigned char	*code_str;
+	size_t			len_str;
+	size_t			size_str_malloc;
 }					t_assm;
 
 typedef struct		s_lbl
@@ -101,7 +104,6 @@ void				read_comment_champion(char *line, t_assm *assm);
 void				working_comment(char *line, t_assm *assm);
 int					working_dot(t_assm *assm, char *line);
 int					search_char(t_assm *assm, char *line);
-void				create_file_cor(t_assm *assm, char *name);
 void				read_name_comment(t_assm *assm);
 /*
 ** File add_lable_list.c
@@ -148,7 +150,7 @@ void				check_op_sti_arg(t_assm *assm, t_opr *opr);
 ** File search_lbl.c
 */
 unsigned char		get_code_arg(t_opr *opr);
-int					write_big_endian(int fd, void *bits, int len_bits);
+int					write_big_endian(t_assm *assm, int fd, void *bits, int len_bits);
 t_lbl				*get_lbl(t_lbl **lbl, char *lable);
 t_gab				*new_gab(t_assm *assm, t_info **info, t_arg *arg);
 void				search_lbl(t_assm *assm, t_info *info, t_arg *arg);
@@ -172,7 +174,6 @@ int					isprint_char(int c);
 /*
 ** File delete_list.c
 */
-void				sys_err_rm(t_assm *assm, char *err);
 void				working_instruction(t_assm *assm, char *line);
 void				read_instruction(t_assm *assm);
 void				delete_list_gab(t_gab *gab);
@@ -181,16 +182,17 @@ void				delete_list(t_assm *assm);
 ** File main.c
 */
 int					get_figur_write(size_t position, t_gab *gab);
-void				write_in_position(t_lbl *lbl, int fd_cor);
+void				write_in_position(t_assm *assm, t_lbl *lbl, int fd_cor);
 void				weite_figur_lable(t_assm *assm);
 void				write_bot_size(t_assm *assm);
 int					main(int ac, char **av);
 /*
 ** File main.c
 */
-void			write_code_str(unsigned char *bit);
-void			write_code_str_to_file(void);
-void			write_prog_name_and_comment(char *name_prog, size_t size);
-void			to_plase_code_str(size_t plase, void *bits, int len_bits);
-void			to_code_str(int code_op);
+void			write_code_str(t_assm *assm, unsigned char *bit);
+void			write_code_str_to_file(t_assm *assm, char *name);
+void			write_prog_name_and_comment(t_assm *assm, char *name_prog, size_t size);
+void			to_plase_code_str(t_assm *assm, size_t plase, void *bits, int len_bits);
+void			to_code_str(t_assm *assm, int code_op);
+void			delete_code_str(t_assm *assm);
 #endif
