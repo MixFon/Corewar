@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 13:32:12 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 14:53:36 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ASM_H
 
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "libft.h"
 # include "op.h"
 # include <fcntl.h>
 
@@ -114,8 +114,6 @@ void				add_lable_list(t_assm *assm, char *start, char *line);
 /*
 ** File init_arg.c
 */
-void				print_gab_list(t_gab *gab);
-void				print_list(t_lbl *lbl);
 void				working_lable(t_assm *assm, char *start, char *line);
 int					isdigit_per_colon(int c);
 void				init_arg(t_arg *arg);

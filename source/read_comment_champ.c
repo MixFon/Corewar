@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:20:20 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 10:14:10 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 13:54:09 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	close_files(t_assm *assm)
 
 void	error(const char *msg, t_assm *assm)
 {
-	ft_printf("%s Line [%d].\n", msg, assm->counter_line);
-	remove(assm->name_cor);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd("Line [", 2);
+	ft_putnbr_fd(assm->counter_line, 2);
+	ft_putstr_fd("].\n", 2);
 	exit(0);
 }
 

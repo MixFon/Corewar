@@ -6,33 +6,11 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:28:02 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 12:18:07 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/24 13:54:12 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/asm.h"
-
-void	print_gab_list(t_gab *gab)
-{
-	while (gab != NULL)
-	{
-		ft_printf("\tpos_write = {%d} oct_count = {%d} oct_start = [%d]\n",
-			gab->pos_write - LEN_HEAD, gab->oct_count, gab->oct_start);
-		gab = gab->next;
-	}
-}
-
-void	print_list(t_lbl *lbl)
-{
-	ft_putendl("List:");
-	while (lbl)
-	{
-		ft_printf("lable = {%s} position = {%d} bl = [%d]\n", lbl->name,
-				lbl->position - LEN_HEAD, lbl->bl);
-		print_gab_list(lbl->gab);
-		lbl = lbl->next;
-	}
-}
 
 void	working_lable(t_assm *assm, char *start, char *line)
 {
