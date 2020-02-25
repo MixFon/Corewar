@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 14:53:36 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 13:18:17 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define C_DIR		0x2
 # define C_IND		0x3
 # define LEN_HEAD	2192
+# define LEN_MALLOK	8704
 
 typedef struct		s_assm
 {
@@ -35,6 +36,7 @@ typedef struct		s_assm
 	unsigned char	*code_str;
 	size_t			len_str;
 	size_t			size_str_malloc;
+	char			*get_line;
 }					t_assm;
 
 typedef struct		s_lbl
@@ -179,7 +181,7 @@ void				delete_list(t_assm *assm);
 ** File main.c
 */
 int					get_figur_write(size_t position, t_gab *gab);
-void				write_in_position(t_assm *assm, t_lbl *lbl, int fd_cor);
+void				write_in_position(t_assm *assm, t_lbl *lbl);
 void				weite_figur_lable(t_assm *assm);
 void				write_bot_size(t_assm *assm);
 int					main(int ac, char **av);

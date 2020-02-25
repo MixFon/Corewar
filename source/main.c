@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 18:57:31 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:15:43 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		get_figur_write(size_t position, t_gab *gab)
 	return (num);
 }
 
-void	write_in_position(t_assm *assm, t_lbl *lbl, int fd_cor)
+void	write_in_position(t_assm *assm, t_lbl *lbl)
 {
 	t_gab	*gab;
 	int		b;
@@ -28,8 +28,6 @@ void	write_in_position(t_assm *assm, t_lbl *lbl, int fd_cor)
 	gab = lbl->gab;
 	while (gab)
 	{
-		if (lseek(fd_cor, gab->pos_write, SEEK_SET) == -1L)
-			sys_err("Seek Error\n");
 		b = get_figur_write(lbl->position, gab);
 		to_plase_code_str(assm, gab->pos_write, &b, gab->oct_count);
 		gab = gab->next;
@@ -45,7 +43,7 @@ void	weite_figur_lable(t_assm *assm)
 	{
 		if (lbl->bl == 0)
 			sys_err("Not lable Error\n");
-		write_in_position(assm, lbl, assm->fd_cor);
+		write_in_position(assm, lbl);
 		lbl = lbl->next;
 	}
 }
@@ -55,8 +53,6 @@ void	write_bot_size(t_assm *assm)
 	size_t bot_size;
 
 	bot_size = assm->pos_glob - LEN_HEAD;
-	if (lseek(assm->fd_cor, 8 + PROG_NAME_LENGTH, SEEK_SET) == -1L)
-		sys_err("Seek Error\n");
 	to_plase_code_str(assm, 8 + PROG_NAME_LENGTH, &bot_size, 4);
 }
 

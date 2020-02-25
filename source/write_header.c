@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:17:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 14:01:40 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 08:44:51 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	init(t_assm *assm)
 	assm->counter_line = 0;
 	assm->pos_glob = LEN_HEAD;
 	assm->lbl = NULL;
-	assm->size_str_malloc = 8704;
+	assm->size_str_malloc = LEN_MALLOK;
 	ft_memset(assm->head.prog_name, 0x00, PROG_NAME_LENGTH);
 	ft_memset(assm->head.comment, 0x00, COMMENT_LENGTH);
 	if (!(assm->code_str = (unsigned char *)malloc(sizeof(unsigned char) *
@@ -62,7 +62,7 @@ void	open_file_s(t_assm *assm, char *name)
 	if (!((tmp = ft_strstr(name, ".s")) && (name - tmp) != 0
 			&& ft_strlen(tmp) == 2))
 		sys_err("Error file name.\n");
-	if (!(assm->fd_s = open(name, O_RDONLY)))
+	if ((assm->fd_s = open(name, O_RDONLY)) == -1)
 		sys_err("File not opened.\n");
 }
 

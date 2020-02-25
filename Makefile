@@ -6,11 +6,13 @@
 #    By: widraugr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/29 13:07:44 by widraugr          #+#    #+#              #
-#    Updated: 2020/02/24 18:58:41 by widraugr         ###   ########.fr        #
+#    Updated: 2020/02/25 12:21:39 by widraugr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = asm
+
+CC = gcc -g
 
 FILE_C = main.c\
 		 add_lable_list.c\
@@ -55,6 +57,11 @@ MINI_LIB_C = ft_atoi.c\
 		 get_next_line.c\
 		 sys_err.c
 
+FILE_H = ./include/asm.h\
+		 ./include/op.h\
+		 ./include/get_next_line.h\
+		 ./include/libft.h
+
 FLAGS = -Wall -Wextra -Werror -I include
 
 DIRC = ./source/
@@ -72,13 +79,13 @@ OBJ_MINI_LIB = $(addprefix $(DIROBJ), $(MINI_LIB_C:.c=.o))
 all : $(NAME)
 
 $(NAME): $(DIROBJ) $(OBJ_MINI_LIB) $(OBJ) 
-	gcc $(FLAGS) $(OBJ)  $(OBJ_MINI_LIB) $(FLIB) $(FMLXLIB) -o $(NAME)
+	gcc -g $(FLAGS) $(OBJ)  $(OBJ_MINI_LIB) $(FLIB) $(FMLXLIB) -o $(NAME)
 
-$(DIROBJ)%.o : $(DIRC)%.c
-	gcc $(FLAGS) -c $< -o $@
+$(DIROBJ)%.o : $(DIRC)%.c $(FILE_H)
+	gcc -g $(FLAGS) -c $< -o $@
 
-$(DIROBJ)%.o : $(DIR_MINI_LIB)%.c
-	gcc $(FLAGS) -c $< -o $@
+$(DIROBJ)%.o : $(DIR_MINI_LIB)%.c $(FILE_H)
+	gcc -g $(FLAGS) -c $< -o $@
 
 $(DIROBJ):
 	mkdir -p $(DIROBJ)

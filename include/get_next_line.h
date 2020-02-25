@@ -6,13 +6,13 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 11:35:37 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 14:04:46 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:45:55 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 4096
+# define BUFF_SIZE 1
 
 # include "libft.h"
 # include <fcntl.h>

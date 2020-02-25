@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:43:50 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 14:01:43 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 13:18:36 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	read_instruction(t_assm *assm)
 	while (get_next_line(assm->fd_s, &line))
 	{
 		assm->counter_line++;
+		assm->get_line = line;
 		working_instruction(assm, line);
 		ft_strdel(&line);
 	}

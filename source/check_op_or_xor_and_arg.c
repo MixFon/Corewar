@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:32:02 by widraugr          #+#    #+#             */
-/*   Updated: 2019/11/13 13:22:03 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:51:30 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
 			start = read_dir_adg(arg, start);
 		if (*start == 'r')
 			start = read_reg_adg(assm, arg, start + 1);
-		if (ft_isalpha(*start))
+		if (ft_isalpha(*start) || *start == '+' || *start == '-'
+				|| *start == '*' || *start == '/')
 			error("Error argument.", assm);
 		if (*start == ',')
 			return (start);
