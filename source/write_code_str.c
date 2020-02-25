@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 13:38:33 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/24 14:11:28 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 14:35:54 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	write_code_str_to_file(t_assm *assm, char *name)
 		sys_err("Error create file.\n");
 	if ((write(assm->fd_cor, assm->code_str, assm->len_str) == -1))
 		sys_err("Error write file.\n");
+	ft_putstr("Writing output program to ");
+	ft_putendl(assm->name_cor);
 }
 
 void	write_prog_name_and_comment(t_assm *assm, char *name_prog, size_t size)

@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:17:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 08:44:51 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 14:59:30 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,14 @@ char	*dot_cor(char *name)
 {
 	char	*dot_cor;
 	size_t	len;
+	int		i;
 
+	i = -1;
 	len = ft_strlen(name);
 	dot_cor = ft_strnew(len + 2);
-	ft_memccpy(dot_cor, name, '.', len);
+	while (++i < (int)len - 1)
+		dot_cor[i] = name[i];
+	//ft_memccpy(dot_cor, name, '.', len);
 	ft_strcat(dot_cor, "cor");
 	return (dot_cor);
 }
@@ -44,6 +48,7 @@ char	*dot_cor(char *name)
 void	init(t_assm *assm)
 {
 	assm->counter_line = 0;
+	assm->len_str = 0;
 	assm->pos_glob = LEN_HEAD;
 	assm->lbl = NULL;
 	assm->size_str_malloc = LEN_MALLOK;

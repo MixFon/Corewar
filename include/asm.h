@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 13:18:17 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:31:51 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define C_DIR		0x2
 # define C_IND		0x3
 # define LEN_HEAD	2192
-# define LEN_MALLOK	8704
+# define LEN_MALLOK	87040000
 
 typedef struct		s_assm
 {
@@ -36,7 +36,6 @@ typedef struct		s_assm
 	unsigned char	*code_str;
 	size_t			len_str;
 	size_t			size_str_malloc;
-	char			*get_line;
 }					t_assm;
 
 typedef struct		s_lbl
@@ -116,6 +115,7 @@ void				add_lable_list(t_assm *assm, char *start, char *line);
 /*
 ** File init_arg.c
 */
+int					is_char_end_line(char c);
 void				working_lable(t_assm *assm, char *start, char *line);
 int					isdigit_per_colon(int c);
 void				init_arg(t_arg *arg);
@@ -186,13 +186,13 @@ void				weite_figur_lable(t_assm *assm);
 void				write_bot_size(t_assm *assm);
 int					main(int ac, char **av);
 /*
-** File main.c
+** File write_code_str.c
 */
-void				write_code_str(t_assm *assm, unsigned char *bit);
 void				write_code_str_to_file(t_assm *assm, char *name);
 void				write_prog_name_and_comment(t_assm *assm,
 		char *name_prog, size_t size);
 void				to_plase_code_str(t_assm *assm, size_t plase,
 		void *bits, int len_bits);
 void				to_code_str(t_assm *assm, int code_op);
+void				write_code_str(t_assm *assm, unsigned char *bit);
 #endif

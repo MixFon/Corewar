@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:20:20 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 13:23:29 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 13:46:32 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,6 @@ void	close_files(t_assm *assm)
 	ft_strdel(&assm->name_cor);
 	close(assm->fd_cor);
 	close(assm->fd_s);
-}
-
-void	print_liest(t_assm *assm)
-{
-	t_lbl *lbl;	
-	t_gab *gab;	
-	
-	lbl = assm->lbl;
-	ft_putstr("lbl->name ");
-	ft_putendl(lbl->name);
-	while (lbl)
-	{
-		gab = lbl->gab;
-		while (gab)
-		{
-			ft_putstr("pos_write ");
-			ft_putnbr_fd(gab->pos_write, 1);
-			ft_putstr("\n");
-			//ft_putendl(lbl->name);
-			gab = gab->next;
-		}
-		lbl = lbl->next;
-	}
-	
 }
 
 void	error(const char *msg, t_assm *assm)

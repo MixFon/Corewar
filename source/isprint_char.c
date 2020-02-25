@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:42:15 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/21 16:27:31 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:44:04 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ void	instruction(t_assm *assm, char *line)
 			working_lable(assm, start, line);
 			return ;
 		}
-		if (*line == DIRECT_CHAR || *line == ' ' || *line == '\t')
+		//if (*line == DIRECT_CHAR || *line == ' ' || *line == '\t')
+		if (*line == DIRECT_CHAR || *line == ' ' || *line == '\t'
+				|| *line == '-' || *line == '+')
 		{
 			working_operation(assm, start, line);
 			return ;

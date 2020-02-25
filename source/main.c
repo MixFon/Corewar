@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:30:44 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 12:15:43 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:30:40 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ int		main(int ac, char **av)
 	delete_code_str(&assm);
 	delete_list(&assm);
 	close_files(&assm);
-	ft_putendl("Done!");
+	//ft_putendl("Done!");
 	return (0);
 }

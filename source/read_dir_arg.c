@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:29:07 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 13:24:01 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:13:55 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*read_reg_adg(t_assm *assm, t_arg *arg, char *start)
 		error("Error registr.", assm);
 	arg->bl_reg = C_REG;
 	arg->reg = ft_atoi(start);
-	if (arg->reg > REG_NUMBER || arg->reg <= 0)
+	if (arg->reg > REG_NUMBER || arg->reg < 0)
 		error("Error number registr.", assm);
 	while (ft_isdigit(*start))
 		start++;
