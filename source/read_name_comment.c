@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:23:59 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/26 11:40:47 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/26 12:03:43 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	working_comment(char *line, t_assm *assm)
 		}
 		line++;
 	}
-	error("Error name", assm);
+	error("Error comment.", assm);
 }
 
 int		working_dot(t_assm *assm, char *line, int *bl_name_comm)
