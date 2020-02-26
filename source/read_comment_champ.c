@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:20:20 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 13:46:32 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/26 11:41:44 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	read_name_champion(char *line, t_assm *assm)
 		line++;
 	}
 	assm->head.prog_name[++i] = '\n';
-	get_next_line(assm->fd_s, &temp);
+	if (get_next_line(assm->fd_s, &temp) == 0)
+		error("Error name champion.", assm);
 	assm->counter_line++;
 	read_name_champion(temp, assm);
 	ft_strdel(&temp);
@@ -74,7 +75,8 @@ void	read_comment_champion(char *line, t_assm *assm)
 		line++;
 	}
 	assm->head.comment[++i] = '\n';
-	get_next_line(assm->fd_s, &temp);
+	if (get_next_line(assm->fd_s, &temp) == 0)
+		error("Error comment champion.", assm);
 	assm->counter_line++;
 	read_comment_champion(temp, assm);
 	ft_strdel(&temp);

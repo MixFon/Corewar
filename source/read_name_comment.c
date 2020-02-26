@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:23:59 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/26 10:24:41 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/26 11:40:47 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,9 @@ void	read_name_comment(t_assm *assm)
 		}
 		ft_strdel(&line);
 	}
+	if (bl_name_comm == 0)
+		error("Empty file.", assm);
+	if (bl_name_comm != 2)
+		error("Error name/comment.", assm);
 	ft_strdel(&line);
 }
