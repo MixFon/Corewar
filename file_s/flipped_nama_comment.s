@@ -1,5 +1,5 @@
 .name "zork"
 .comment "I'M ALIIIIVE"
 
-aff		r99
+aff		r9
 #sdf
