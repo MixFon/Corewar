@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:52:12 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 15:31:15 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/26 10:26:23 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define CHAMP_MAX_SIZE		682
 
 # define COMMENT_CHAR		'#'
+# define EXTRA_COMMENT_CHAR	';'
 # define LABEL_CHAR			':'
 # define DIRECT_CHAR		'%'
 # define SEPARATOR_CHAR		','

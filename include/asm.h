@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 15:31:51 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/26 10:26:28 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define C_DIR		0x2
 # define C_IND		0x3
 # define LEN_HEAD	2192
-# define LEN_MALLOK	87040000
+# define LEN_MALLOK	8704
 
 typedef struct		s_assm
 {
@@ -100,8 +100,8 @@ void				read_comment_champion(char *line, t_assm *assm);
 ** File read_name_comment.c
 */
 void				working_comment(char *line, t_assm *assm);
-int					working_dot(t_assm *assm, char *line);
-int					search_char(t_assm *assm, char *line);
+int					working_dot(t_assm *assm, char *line, int *bl_name_comm);
+int					search_char(t_assm *assm, char *line, int *bl_name_comm);
 void				read_name_comment(t_assm *assm);
 /*
 ** File add_lable_list.c

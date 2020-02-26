@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:43:50 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 15:32:50 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/26 08:59:20 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	working_instruction(t_assm *assm, char *line)
 {
 	while (*line)
 	{
-		if (*line == COMMENT_CHAR)
+		if (*line == COMMENT_CHAR || *line == EXTRA_COMMENT_CHAR)
 			return ;
 		if (isprint_char(*line))
 		{

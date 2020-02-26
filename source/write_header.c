@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:17:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 14:59:30 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/26 10:26:21 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char	*dot_cor(char *name)
 	dot_cor = ft_strnew(len + 2);
 	while (++i < (int)len - 1)
 		dot_cor[i] = name[i];
-	//ft_memccpy(dot_cor, name, '.', len);
 	ft_strcat(dot_cor, "cor");
 	return (dot_cor);
 }

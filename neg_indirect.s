@@ -1,4 +1,5 @@
-.name "zork"
 .comment "I'M ]ALIIIIVE"
-
-ld-1, r1
+.name "zork"
+;asdfasdf
+ld 1, r9  ;asdfasdfasdf
+#asdfk

@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:32:02 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/25 15:12:45 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/02/26 10:26:27 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*read_arguments(t_assm *assm, t_arg *arg, char *start)
 			error("Error argument.", assm);
 		if (*start == ',')
 			return (start);
-		if (*start == COMMENT_CHAR)
+		if (*start == COMMENT_CHAR || *start == EXTRA_COMMENT_CHAR)
 		{
 			while (*start)
 				start++;
