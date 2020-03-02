@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:42:15 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/26 10:26:24 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:59:16 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	instruction(t_assm *assm, char *line)
 		}
 		line++;
 	}
+	error("Unknown instruction.", assm);
 }
 
 /*

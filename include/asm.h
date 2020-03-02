@@ -6,7 +6,7 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:43:41 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/26 11:10:04 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:59:18 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,11 @@ void				write_header(t_assm *assm);
 void				close_files(t_assm *assm);
 void				error(const char *msg, t_assm *assm);
 void				read_name_champion(char *line, t_assm *assm);
-void				working_name(char *line, t_assm *assm);
 void				read_comment_champion(char *line, t_assm *assm);
 /*
 ** File read_name_comment.c
 */
+void				working_name(char *line, t_assm *assm);
 void				working_comment(char *line, t_assm *assm);
 int					working_dot(t_assm *assm, char *line, int *bl_name_comm);
 int					search_char(t_assm *assm, char *line, int *bl_name_comm);

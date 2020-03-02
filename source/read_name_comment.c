@@ -6,11 +6,27 @@
 /*   By: widraugr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 10:23:59 by widraugr          #+#    #+#             */
-/*   Updated: 2020/02/26 12:03:43 by widraugr         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:50:48 by widraugr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/asm.h"
+
+void	working_name(char *line, t_assm *assm)
+{
+	while (*line)
+	{
+		if (*line == '"')
+		{
+			read_name_champion(line + 1, assm);
+			return ;
+		}
+		if (*line != ' ' && *line != '\t')
+			error("Error name", assm);
+		line++;
+	}
+	error("Error name", assm);
+}
 
 void	working_comment(char *line, t_assm *assm)
 {
@@ -21,6 +37,8 @@ void	working_comment(char *line, t_assm *assm)
 			read_comment_champion(line + 1, assm);
 			return ;
 		}
+		if (*line != ' ' && *line != '\t')
+			error("Error name", assm);
 		line++;
 	}
 	error("Error comment.", assm);
@@ -69,6 +87,8 @@ void	read_name_comment(t_assm *assm)
 	bl_name_comm = 0;
 	while (get_next_line(assm->fd_s, &line))
 	{
+		if (!line)
+			break ;
 		assm->counter_line++;
 		search_char(assm, line, &bl_name_comm);
 		if (bl_name_comm == 2)
